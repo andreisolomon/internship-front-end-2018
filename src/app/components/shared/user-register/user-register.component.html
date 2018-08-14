@@ -1,5 +1,6 @@
-<body>
-<div class="container">
+
+<div class="register">
+<div class="container center_div">
   <form (ngSubmit)="validation(f)" #f="ngForm">
     <div class="form-group">
       <input type="text" class="form-control" name="firstname" id="firstname" ngModel required firstname #firstname="ngModel" placeholder="first name">
@@ -19,16 +20,20 @@
     <div class="form-group">
       <input type="password" class="form-control" name="password" id="password" ngModel required password #password="ngModel" placeholder="password">
       <span class="help-block" *ngIf="!password.valid && password.touched"> Please enter a password! </span>
+
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary"  [disabled]="!f.valid">CREATE ACCOUNT</button>
-    </div>
+      <button type="submit" class="btn btn-primary form-control"  [disabled]="!f.valid">CREATE ACCOUNT</button>
 
-    <div class="form-group">
-      <input type="checkbox" name="terms" id="terms" value="1"> I agree with Terms and Conditions
     </div>
+    <div class="terms">
+    <div class="form-group">
+      <input type="checkbox" name="terms"  ng-model="check" id="terms" value="1"> I agree with Terms and Conditions
+    </div></div>
+
+ 
+
   </form>
 </div>
-
-</body>
+</div>
