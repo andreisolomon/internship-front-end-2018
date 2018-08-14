@@ -1,0 +1,30 @@
+.login{
+   
+    background-image: url('../../../../assets/images/bg_image.png');
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-color: #07182e;
+    background-size: cover;
+    height: 100%;
+    
+}
+
+
+form {
+        display: inline-block;
+        margin-top: 40%;
+        margin-left: 60%;
+        text-align: center;
+    }
+p{
+    color: white;
+    text-align: center;
+}
+p.sup{
+    color: white;
+    position: fixed;
+     bottom: 0;
+      width:100%; 
+      text-align: center;
+
+}
