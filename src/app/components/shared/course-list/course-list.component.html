@@ -1,10 +1,43 @@
-<!--
-  This is the course list component. It lists the courses that it's being passed
-  as Input(). For a user, it displays the courses of a given category. Every course
-  can be opened separately by navigating to the specific course route, by id. While
-  used for the admin - this component displays all the courses and offers the ability
-  to create a new course, edit or remove an existing course.
--->
-<p>
-  course-list works!
-</p>
+<div class="section">
+
+  <div class="title">
+    Browse through best learning course for Alexa
+  </div>
+  <div class="subtitle">
+    Pick the one you like and start learning
+  </div>
+
+</div>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col col-md-3"></div>
+    <div class="col col-md-6">
+
+      <div class="search">
+        <input type="text" placeholder="    search here...">
+        <button type="submit" class="btn btn-primary mybtn"> Search </button>
+      </div>
+
+    </div>
+    <div class="col col-md-3"></div>
+
+  </div>
+
+  <div class="row margin">
+
+    <div class="col col-md-3"></div>
+    <div class="col col-md-8">
+      <div class="col col-md-2 rectangle color1" *ngFor="let data of datas"> <p> <a [routerLink]="data.getId()"> {{ data.getTitle() }}</a> </p> </div>
+    </div>
+    <div class="col col-md-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
+    <div class="col col-md-5"></div>
+  </div>
+
+</div>

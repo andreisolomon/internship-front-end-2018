@@ -18,7 +18,8 @@ import { ChapterQuestionsComponent } from './components/shared/chapter-questions
 import { UserRegisterComponent } from './components/shared/user-register/user-register.component';
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ChapterContentComponent } from './chapter-content/chapter-content.component';
+import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
+import {CourseListService} from './components/shared/course-list/course-list.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { ChapterContentComponent } from './chapter-content/chapter-content.compo
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CourseListService],
   bootstrap: [AppComponent]
 })
 
