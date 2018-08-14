@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseListService } from './course-list.service';
+import {CourseList} from './course-list.model';
 
 @Component({
   selector: 'app-course-list',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
-  constructor() { }
+  public datas: CourseList[];
+  public discover: boolean = true;
+  public text: string = 'Discover more';
+
+  constructor(private courseListService: CourseListService) { }
 
   ngOnInit() {
+
+    this.datas = this.courseListService.getDatas().slice(0, 6);
+
+  }
+
+  load() {
+    if (this.text === 'Discover more'){
+
+      this.datas = this.courseListService.getDatas();
+      this.text = 'Looks less';
+
+    } else {
+
+      this.datas = this.courseListService.getDatas().slice(0, 6);
+      this.text = 'Discover more';
+
+    }
+
   }
 
 }

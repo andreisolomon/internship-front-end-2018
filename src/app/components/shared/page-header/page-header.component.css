@@ -1,10 +1,19 @@
 li>a{
   color: darkblue;
-  font-size: 20px;
-
+  font-size: 16px;
+  font-weight: lighter;
 }
 
-.row{
-  padding-top: 2.5em;
-  padding-bottom: 2.5em;
+#myNavbar{
+  padding-top: 1.8em;
+  padding-bottom: 1.8em;
+}
+
+.margin{
+  padding-right: 10em;
+}
+
+.navbar-brand{
+  padding-top: 1.4em;
+  padding-left: 6em;
 }
