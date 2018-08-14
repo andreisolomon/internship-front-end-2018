@@ -25,5 +25,5 @@ export class LoginComponent implements OnInit {
       // back-end
 
     }
-
+  }
 }

@@ -25,5 +25,5 @@ export class UserRegisterComponent implements OnInit {
       // back-end
 
     }
-
+  }
 }
