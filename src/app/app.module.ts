@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -16,25 +15,10 @@ import { ChapterListComponent } from './components/shared/chapter-list/chapter-l
 import { MyAccountComponent } from './components/shared/my-account/my-account.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChapterQuestionsComponent } from './components/shared/chapter-questions/chapter-questions.component';
-
-const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'account', component: MyAccountComponent },
-  { path: 'users', component: UserListComponent },
-  { path: 'users/:id', component: UserComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'courses', component: CourseListComponent },
-  {
-    path: 'courses/:id',
-    component: ChapterListComponent
-  },
-  {
-    path: 'courses/:courseId/:chapterId',
-    component: ChapterQuestionsComponent
-  },
-  { path: '**', redirectTo: 'dashboard' },
-  { path: 'login', component: LoginComponent }
-];
+import { UserRegisterComponent } from './components/shared/user-register/user-register.component';
+import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ChapterContentComponent } from './chapter-content/chapter-content.component';
 
 @NgModule({
   declarations: [
@@ -49,13 +33,16 @@ const routes: Routes = [
     ChapterListComponent,
     MyAccountComponent,
     DashboardComponent,
-    ChapterQuestionsComponent
+    ChapterQuestionsComponent,
+    UserRegisterComponent,
+    ResetPasswordComponent,
+    ChapterContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
