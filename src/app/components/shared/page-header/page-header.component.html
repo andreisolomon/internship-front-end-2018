@@ -1,22 +1,24 @@
-<!--
-  This component represents the header of the page with the navigation bar. It
-  should be displayed on all pages, except for the login ones and should conditionally
-  display certain links according to the logged in user role (admin / user).
--->
+<script src="" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <nav class="navbar navbar-default">
     <div class="container">
       <div class="row">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a routerLink="/dashboard" class="navbar-brand">ASSIST</a>
         </div>
 
-        <div class="navbar-default">
+        <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a routerLink="/account">User</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" style="margin-right: 70px">
             <li><a routerLink="/courses">Courses</a></li>
-            <li><a href="#">What's new</a></li>
+            <li><a routerLink="/">What's new</a></li>
             <li><a href="#">About</a></li>
           </ul>
         </div>
