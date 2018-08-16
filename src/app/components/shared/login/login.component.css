@@ -27,17 +27,20 @@ p{
     color: white;
     text-align: center;
 }
-p.youracc{
+.youracc{
     font-size: 30px;
 }
 
-p.welcome{
+.welcome{
+
     font-size: 20px;
-    color: gray;
+    opacity: 0.5;
+    color: #F7F7F7;
     text-align: center;
     margin-top: 15%;
 }
-p.sup{
+.sup{
+
     color: white;
     bottom: 0;
     text-align: center; 
