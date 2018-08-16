@@ -1,0 +1,46 @@
+#bt{
+  border:none;
+  color: #6b39ff;
+  background-color: transparent;
+}
+
+#checkbox{
+
+  background-color:transparent;
+  color : darkblue;
+}
+
+#image{
+  width: 50px;
+}
+
+.user-bar{
+  margin: 10px 0;
+  border: 1px solid grey;
+
+}
+td {
+  vertical-align:10px;
+  text-align: left;
+}
+
+thead{
+  color:grey;
+}
+
+tr{
+  margin-bottom:120px;
+}
+
+table {
+  border: 1px solid grey;
+
+}
+
+.tag  {
+  padding: 5px;
+  text-underline: none;
+  background-color: aqua;
+  border-radius: 2px;
+  margin: 0 2px;
+}
