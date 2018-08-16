@@ -1,13 +1,5 @@
-<div class="section">
+<app-page-section [title]="title" [subtitle]="subtitle"></app-page-section>
 
-  <div class="title">
-    Browse through best learning course for Alexa
-  </div>
-  <div class="subtitle">
-    Pick the one you like and start learning
-  </div>
-
-</div>
 <div class="container">
 
   <div class="row">
@@ -27,11 +19,13 @@
 
   <div class="row margin">
 
-    <div class="col col-md-3"></div>
-    <div class="col col-md-8">
-      <div class="col col-md-2 rectangle color1" *ngFor="let data of datas"> <p> <a [routerLink]="data.getId()"> {{ data.getTitle() }}</a> </p> </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> Chapter with id {{ id }} does not exist. Please choose another course.
+      </div>
+      <div class="col-md-3 rectangle" *ngFor="let data of datas" [ngStyle]="setBackground(data.getBackground())" > <p> <a [routerLink]="data.getId()"> {{ data.getTitle() }}</a> </p> </div>
     </div>
-    <div class="col col-md-1"></div>
   </div>
 
   <div class="row">

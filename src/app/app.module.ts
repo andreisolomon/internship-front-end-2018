@@ -19,7 +19,9 @@ import { UserRegisterComponent } from './components/shared/user-register/user-re
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
-import {CourseListService} from './components/shared/course-list/course-list.service';
+import { CourseListService } from './components/shared/course-list/course-list.service';
+import { PageSectionComponent } from './components/shared/page-section/page-section.component';
+import { ChapterListService } from './components/shared/chapter-list/chapter-list.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {CourseListService} from './components/shared/course-list/course-list.ser
     ChapterQuestionsComponent,
     UserRegisterComponent,
     ResetPasswordComponent,
-    ChapterContentComponent
+    ChapterContentComponent,
+    PageSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import {CourseListService} from './components/shared/course-list/course-list.ser
     HttpModule,
     AppRoutingModule
   ],
-  providers: [CourseListService],
+  providers: [CourseListService, ChapterListService],
   bootstrap: [AppComponent]
 })
 
