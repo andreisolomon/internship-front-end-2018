@@ -15,8 +15,8 @@ export class ChapterListComponent implements OnInit {
   public title: string = 'Browse through all Finance courses for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
   public id: number;
-  public courseTitle: string;
-  public courseBackground: string;
+  public courseTitle: any;
+  public courseBackground: any;
   public text: string = 'Discover more';
 
   constructor(private route: ActivatedRoute, private chapterListService: ChapterListService, private router: Router, private courseListService: CourseListService) { }
@@ -34,9 +34,9 @@ export class ChapterListComponent implements OnInit {
 
     this.chapters = this.chapterListService.getChaptersFromCourse(this.id).slice(0, 6);
 
-    this.courseTitle = this.courseListService.getCourseById(this.id).getTitle();
+    this.courseTitle = this.courseListService.getCourseTitleById(this.id);
 
-    this.courseBackground = this.courseListService.getCourseById(this.id).getBackground();
+    this.courseBackground = this.courseListService.getCourseBackgroundById(this.id);
 
   }
 
