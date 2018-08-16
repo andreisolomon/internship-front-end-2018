@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chapter-questions.component.css']
 })
 export class ChapterQuestionsComponent implements OnInit {
-
-  constructor() { }
+  // question: any [];
+  constructor() {
+    // this.question  = [{isChecked : 1}];
+  }
 
   ngOnInit() {
   }

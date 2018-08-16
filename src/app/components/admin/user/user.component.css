@@ -1,5 +1,69 @@
 #bt{
   border:none;
   color: #6b39ff;
+  background-color: transparent;
+}
+#checkbox{
+
+  background-color:transparent;
+  color : darkblue;
 }
 
+#image{
+  width: 50px;
+ /* padding-top: 10px;
+  padding-bottom: 10px;
+
+padding-right: 10px;
+
+padding-left: 10px;*/
+
+}
+.user-bar{
+  margin: 10px 0;
+  border: 1px solid grey;
+
+}
+td {
+
+  vertical-align:10px;
+  /*padding-top: .5em;*/
+  /*padding-bottom: .5em;*/
+
+text-align: left;
+}
+thead{
+  color:grey;}
+tbody{
+
+
+}
+tr{
+  margin-bottom:120px;
+  /*border:1px;*/
+  /*border-collapse: separate;*/
+  /*border-spacing: 0 5em;*/
+}
+table {
+  /*width:40%;*/
+  /*margin-left:25%;*/
+  /*margin-right:15%;*/
+  /*margin-top:5%*/
+  /**/
+  /*border-collapse: collapse;*/
+  /*align: center;*/
+  /*width: 50%;*/
+  /*border-spacing: 15px 12px;*/
+/*<  padding: 0 8px 8px 0;*/
+  border: 1px solid grey;
+  /*border-collapse: separate;*/
+  /*border-spacing: 0 5em ;*/
+}
+
+.tag  {
+  padding: 5px;
+  text-underline: none;
+  background-color: aqua;
+  border-radius: 2px;
+  margin: 0 2px;
+}

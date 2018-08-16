@@ -12,7 +12,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { HeroComponent } from './components/shared/hero/hero.component';
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
-import { MyAccountComponent } from './components/shared/my-account/my-account.component';
+import { MyAccountComponent } from './components/admin/my-account/my-account.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChapterQuestionsComponent } from './components/shared/chapter-questions/chapter-questions.component';
 import { UserRegisterComponent } from './components/shared/user-register/user-register.component';

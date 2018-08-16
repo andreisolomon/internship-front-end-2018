@@ -1,5 +1,5 @@
 import { LoginComponent } from './components/shared/login/login.component';
-import { MyAccountComponent } from './components/shared/my-account/my-account.component';
+import { MyAccountComponent } from './components/admin/my-account/my-account.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { UserComponent } from './components/admin/user/user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -18,6 +18,7 @@ const routers: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'courses', component: CourseListComponent },
   { path: 'courses', component: CourseListComponent },
   {
     path: 'courses/:id',
