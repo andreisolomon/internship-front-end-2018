@@ -45,7 +45,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   load() {
-    if (this.text === 'Discover more') {
+    if (this.text === 'Discover more'){
 
       this.datas = this.categoryListService.getData();
       this.text = 'Looks less';
