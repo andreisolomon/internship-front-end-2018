@@ -10,8 +10,8 @@ import { UserListComponent } from './components/admin/user-list/user-list.compon
 import { UserComponent } from './components/admin/user/user.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { HeroComponent } from './components/shared/hero/hero.component';
+import { CategoryListComponent } from './components/shared/category-list/category-list.component';
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
-import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { MyAccountComponent } from './components/shared/my-account/my-account.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChapterQuestionsComponent } from './components/shared/chapter-questions/chapter-questions.component';
@@ -19,9 +19,11 @@ import { UserRegisterComponent } from './components/shared/user-register/user-re
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
-import { CourseListService } from './components/shared/course-list/course-list.service';
+import { CategoryListService } from './components/shared/category-list/category-list.service';
 import { PageSectionComponent } from './components/shared/page-section/page-section.component';
-import { ChapterListService } from './components/shared/chapter-list/chapter-list.service';
+import { CourseListService } from './components/shared/course-list/course-list.service';
+import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
+import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +34,17 @@ import { ChapterListService } from './components/shared/chapter-list/chapter-lis
     UserComponent,
     LoginComponent,
     HeroComponent,
+    CategoryListComponent,
     CourseListComponent,
-    ChapterListComponent,
     MyAccountComponent,
     DashboardComponent,
     ChapterQuestionsComponent,
     UserRegisterComponent,
     ResetPasswordComponent,
     ChapterContentComponent,
-    PageSectionComponent
+    PageSectionComponent,
+    ChapterListComponent,
+    PageSectionSmallComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ import { ChapterListService } from './components/shared/chapter-list/chapter-lis
     HttpModule,
     AppRoutingModule
   ],
-  providers: [CourseListService, ChapterListService],
+  providers: [CategoryListService, CourseListService],
   bootstrap: [AppComponent]
 })
 

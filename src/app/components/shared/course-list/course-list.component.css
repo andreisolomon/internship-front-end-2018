@@ -1,66 +1,68 @@
-.search {
-  border:5px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: white;
-  background-color: white;
-  width: 50em;
-  text-align: center;
-}
-
-.search>input{
-  border-radius: 5px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  width: 30em;
-  height: 45px;
-  background-color: whitesmoke;
-  z-index:1;
-}
-
 .container{
-  position: absolute;
-  margin-top: -50px;
+  margin-top: 2em;
 }
 
-.mybtn {
-  width: 180px;
-  height: 42px;
-  margin-left: 10px;
-}
-
-.rectangle{
-  border-radius: 5px;
-  width: 220px;
-  text-align: center;
+.rectangle {
+  width: auto;
+  max-width: 289px;
+  min-width: 270px;
+  height: 400px;
+  border-style: ridge;
+  border-color: darkgrey;
+  border-width: 2px;
+  border-radius: 10px;
+  margin-bottom: 1em;
   margin-right: 1em;
+}
+
+.rectangle>img{
+  position:absolute;
+  width: 101%;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-left: -1.10em;
+  margin-top: -1px;
+}
+
+.rectangle>div{
+  margin-top: 275px;
+}
+
+.title {
+  font-size: 12px;
+  color: black;
   font-weight: bold;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 1em;
-  background: #6f0000;
 }
 
-.rectangle>p{
-  padding-top: 3em;
-  padding-bottom: 3em;
+.describe {
+  font-size: 11px;
+  color: darkgrey;
+  font-weight: lighter;
 }
 
-.margin {
-  margin-top: 7em;
-  margin-bottom: 1em;
+.margin{
+  margin-left: -1em;
 }
 
-a{
-  text-decoration:none;
-  color: white;
+.divinline {
+  font-size: 10px;
+  font-weight: lighter;
 }
 
-a:hover{
-  color: white;
+.tags{
+  width: 5em;
+  color:white;
+  border-radius: 2px;
+
 }
 
-.alert{
-  margin-top: -3em;
-  width: 50em;
+.tags>p{
+  text-align: center;
+  margin-bottom: -3px;
+}
+
+.divinline>div{
+  float: left;
+  clear: none;
 }

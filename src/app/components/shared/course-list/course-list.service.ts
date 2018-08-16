@@ -2,25 +2,48 @@ import { Course } from './course-list.model';
 
 export class CourseListService {
 
-  constructor(){}
+  constructor() {}
 
   private data: Course[] = [
 
-    new Course(1, 'title 1', 'linear-gradient(to right, #0f2027, #203a43, #2c5364)'),
-    new Course(2, 'title 2', 'linear-gradient(to right, #bc4e9c, #f80759)'),
-    new Course(3, 'title 3', 'linear-gradient(to right, #59c173, #a17fe0, #5d26c1)'),
-    new Course(4, 'title 4', 'linear-gradient(to right, #c31432, #240b36)'),
-    new Course(5, 'title 5', 'linear-gradient(to right, #1f4037, #99f2c8)'),
-    new Course(6, 'title 6', 'linear-gradient(to right, #fc4a1a, #f7b733)'),
-    new Course(7, 'title 7', 'linear-gradient(to right, #0f0c29, #302b63, #24243e)'),
-    new Course(8, 'title 8', 'linear-gradient(to right, #000000, #0f9b0f)'),
-    new Course(9, 'title 9', 'linear-gradient(to right, #200122, #6f0000)'),
-    new Course(10, 'title 10', 'linear-gradient(to right, #000428, #004e92)')
+    new Course(1, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(2, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(3, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(4, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(5, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(6, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(7, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(8, 4, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(9, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(10, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(11, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(12, 3, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(13, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(14, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(15, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(16, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(17, 5, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(18, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(19, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(20, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
+    new Course(21, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg')
 
   ];
 
-  getData(){
+  getData() {
     return this.data;
+  }
+
+  getCoursesFromCategory(course_id: number) {
+    let courses: Course[] = [];
+
+    for (let course of this.data) {
+      if (course.getCategoryId() === course_id) {
+        courses.push(course);
+      }
+    }
+
+    return courses;
   }
 
   getCourseById(id: number) {
@@ -32,7 +55,11 @@ export class CourseListService {
     return false;
   }
 
-  getCourseTitleById(id: number) {
+  getSizeById(id: number) {
+    return this.getCoursesFromCategory(id).length;
+  }
+
+  getCourseTitleById(id: number){
     for (let course of this.data) {
       if (course.getId() === id) {
         return course.getTitle();
@@ -40,10 +67,10 @@ export class CourseListService {
     }
   }
 
-  getCourseBackgroundById(id: number) {
+  getCourseMinDescriptionById(id: number){
     for (let course of this.data) {
       if (course.getId() === id) {
-        return course.getBackground();
+        return course.getMinDescription();
       }
     }
   }
