@@ -1,28 +1,3 @@
-.section {
-  margin-top: -2em;
-  height: 28em;
-  background-image: url('../../../../assets/images/bg_image.png');
-  background-repeat: no-repeat;
-  background-color: #272340;
-  background-position-x: -8em;
-  background-position-y: -25em;
-}
-
-
-.section>.title {
-  color:white;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-  padding-top: 7em;
-}
-
-.section>.subtitle {
-  color:darkgrey;
-  font-size: 17px;
-  text-align: center;
-}
-
 .search {
   border:5px;
   border-style: solid;
@@ -58,19 +33,12 @@
   border-radius: 5px;
   width: 220px;
   text-align: center;
-  margin-right: 15px;
+  margin-right: 1em;
   font-weight: bold;
   color: white;
   font-size: 20px;
-  margin-bottom: 15px;
-  background: rgba(248,80,50,1);
-  background: -moz-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 24%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(248,80,50,1)), color-stop(24%, rgba(241,111,92,1)), color-stop(79%, rgba(246,41,12,1)), color-stop(86%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
-  background: -webkit-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 24%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
-  background: -o-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 24%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
-  background: -ms-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 24%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
-  background: linear-gradient(to right, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 24%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
+  margin-bottom: 1em;
+  background: #6f0000;
 }
 
 .rectangle>p{
@@ -83,16 +51,6 @@
   margin-bottom: 1em;
 }
 
-.btndiscover{
-  height: 30px;
-  width: 130px;
-  background-color: white;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: darkorchid;
-  margin-bottom: 7em;
-}
-
 a{
   text-decoration:none;
   color: white;
@@ -100,4 +58,9 @@ a{
 
 a:hover{
   color: white;
+}
+
+.alert{
+  margin-top: -3em;
+  width: 50em;
 }

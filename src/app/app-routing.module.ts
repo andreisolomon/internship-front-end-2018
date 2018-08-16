@@ -24,6 +24,10 @@ const routers: Routes = [
     component: ChapterListComponent
   },
   {
+    path: 'courses/:id/notfound',
+    component: CourseListComponent
+  },
+  {
     path: 'courses/:courseId/:chapterId',
     component: ChapterContentComponent
   },

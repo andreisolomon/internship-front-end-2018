@@ -1,3 +1,43 @@
+<app-page-section [title]="title" [subtitle]="subtitle"></app-page-section>
 <div class="container">
-  salt
+
+  <div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-10 margin">
+
+      <div class="col col-md-3 rectangle" *ngFor="let chapter of chapters">
+
+        <img src="{{ chapter.getImg() }}">
+
+        <div>
+
+          <p class="title"> {{ chapter.getTitle() }} </p>
+
+          <p class="describe"> {{ chapter.getDescription() }} </p>
+
+          <div class="divinline">
+
+            <div class="tags" [ngStyle]="{'background': courseBackground}"> <p> {{ courseTitle }} </p> </div>
+            <div> &nbsp;<span class="glyphicon glyphicon-time" aria-hidden="true"></span>2h course </div>
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
+    <div class="col col-md-5"></div>
+  </div>
+
 </div>
