@@ -14,8 +14,10 @@
 
     <div class="col-md-2"></div>
     <div class="col-md-10 margin">
-
-      <div class="col col-md-3 rectangle" *ngFor="let course of courses" routerLink="{{ course.getId() }}">
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> Course with id {{ course_id }} does not exist in category with id {{ id }}. Please choose another category.
+      </div>
+      <div class="col col-md-3 rectangle" *ngFor="let course of courses" [routerLink]="link + course.getId()">
 
         <img src="{{ course.getImg() }}">
 
