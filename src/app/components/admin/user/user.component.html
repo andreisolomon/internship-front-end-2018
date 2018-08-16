@@ -3,27 +3,43 @@
   provided, then it's an edit, otherwise it's a create. It allows editing the user
   image and user details.
 -->
-<table class="table">
-  <thead>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Email</th>
-    <th>5</th>
+<div class="container">
 
-    <th>7</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users">
-    <td><input type="checkbox" [(ngModel)]="user.isAdmin" ></td>
-    <input type="image" id="image" alt="user image"src='../../../../../assets/images/img3.jpeg' class="img-circle">
-    <td>{{user.name}}</td>
-    <td>{{user.score}}</td>
-    <td>{{user.tag}}</td>
-    <td></td>
-    <td><button type="button" class="btn btn-default"id="bt" ><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></button></td>
-  </tr>
+  <div class="col-md-2"></div>
+  <div  class="col-md-8" >
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th>BASIC INFO</th>
+        <th>SCORE</th>
+        <th>TAG</th>
+        <th>DATA CREATED</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users" class="user-bar">
+        <td><input type="checkbox" [(ngModel)]="user.isAdmin" id="checkbox"></td>
+        <td><input type="image" id="image" alt="user image" src='../../../../../assets/images/img3.jpeg'
+                   class="img-circle"></td>
+        <td>{{user.name}}</td>
+        <td>{{user.score}}</td>
+        <td>
+          <a *ngFor="let tag of user.tags" href="#" class="tag">{{tag}}</a>
+          <!--<ul>-->
+            <!--<li *ngFor="let tag of user.tags"><a href="#">{{tag}}</a></li>-->
+          <!--</ul>-->
+        </td>
 
-  </tbody>
-</table>
+        <td>{{user.date}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" id="bt"><span class="glyphicon glyphicon-option-horizontal"
+                                                                      aria-hidden="true"></span></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
