@@ -9,8 +9,8 @@ export class PageSectionSmallComponent implements OnInit {
 
   @Input() title: string;
   @Input() subtitle: string;
-  @Input() courseBackground: string;
-  @Input() courseTitle: string;
+  @Input() categoryBackground: string;
+  @Input() categoryTitle: string;
   @Input() showCourse: boolean;
 
   constructor() { }

@@ -12,37 +12,39 @@ import { ResetPasswordComponent } from './components/shared/reset-password/reset
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
+import {CourseComponent} from './components/admin/course/course.component';
 
 const routers: Routes = [
+  { path: '', component: CategoryListComponent},
+  { path: 'dashboard', component: CategoryListComponent},
   { path: 'login', component: LoginComponent },
   { path: 'account', component: MyAccountComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserComponent },
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'courses', component: CategoryListComponent },
   {
-    path: 'courses/:id',
+    path: 'courses/:categoryId',
     component: CourseListComponent
   },
   {
-    path: 'courses/:id/notfound',
+    path: 'courses/:categoryId/notfound',
     component: CategoryListComponent
   },
   {
-    path: 'courses/:id/:courseId',
+    path: 'courses/:categoryId/:courseId',
     component: ChapterListComponent
   },
   {
-    path: 'courses/:id/:courseId/:chapterId',
+    path: 'courses/:categoryId/:courseId/:chapterId',
     component: ChapterContentComponent
   },
   {
-    path: 'courses/:id/:courseId/:chapterId/quiz',
+    path: 'courses/:categoryId/:courseId/:chapterId/quiz',
     component: ChapterQuestionsComponent
   },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
-  { path: '**', redirectTo: 'dashboard' },
+  { path: '**', redirectTo: 'courses' },
 
 ];
 

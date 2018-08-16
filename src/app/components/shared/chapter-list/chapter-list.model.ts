@@ -1,3 +1,0 @@
-export class ChapterListModel{
-  constructor() { }
-}

@@ -1,0 +1,49 @@
+.container {
+  margin-top: 2em;
+  text-align: justify;
+}
+
+.chapter {
+  color: blue;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.content {
+  font-weight: lighter;
+  color: grey;
+}
+
+
+.btnstart{
+  height: 30px;
+  width: 50px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: blue;
+  color: blue;
+}
+
+.btnstart:hover{
+  background: blue;
+  color: white;
+}
+
+.pdd {
+  padding-top: 5em;
+}
+
+.btndiscover {
+  width: 18em;
+}
+
+.pdd2{
+  padding-left: 17em;
+}

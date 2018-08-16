@@ -5,11 +5,10 @@
 <div class="container">
 
 <div class="alert alert-warning" *ngIf="!size; else found">
-  <strong>Warning!</strong> There are no chapters in this course.
+  <strong>Warning!</strong> There are no courses in this category.
 </div>
 
-<ng-template  #found>
-
+<ng-template #found>
 
   <div class="row">
 
@@ -49,5 +48,6 @@
     <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
     <div class="col col-md-5"></div>
   </div>
+
 </ng-template>
 </div>

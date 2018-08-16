@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from '../course-list/course-list.service';
+import { Chapter} from '../chapter-content/chapter.model';
+import {ChapterService} from '../chapter-content/chapter.service';
 
 @Component({
   selector: 'app-single-course',
@@ -15,14 +17,17 @@ export class ChapterListComponent implements OnInit {
   public categoryTitle: string;
   public categoryBackground: string;
   public course_id: number;
+  public chapters: Chapter[] = [];
+  public size: number;
+  public text: string = 'See the full curriculum';
 
-  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService) { }
+  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService, private chapterListService: ChapterService) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(
       (params: Params) => {
-        const id = +params['id'];
+        const id = +params['categoryId'];
         this.course_id = +params['courseId'];
         this.categoryTitle = this.categoryListService.getCategoryTitleById(id);
         this.categoryBackground = this.categoryListService.getCategoryBackgroundById(id);
@@ -32,6 +37,25 @@ export class ChapterListComponent implements OnInit {
 
     this.title = this.courseListService.getCourseTitleById(this.course_id);
     this.subtitle = this.courseListService.getCourseMinDescriptionById(this.course_id);
+
+    this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id).slice(0, 4);
+
+    this.size = this.chapterListService.getSizeById(this.course_id);
+
+  }
+
+  load() {
+    if (this.text === 'See the full curriculum'){
+
+      this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id);
+      this.text = 'Looks less';
+
+    } else {
+
+      this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id).slice(0, 4);
+      this.text = 'See the full curriculum';
+
+    }
 
   }
 

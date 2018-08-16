@@ -26,10 +26,10 @@ export class CategoryListComponent implements OnInit {
 
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = +params['id'];
+        this.id = +params['categoryId'];
         this.link = '';
         if (this.categoryListService.getCategoryById(this.id) === false) {
-          this.error = params['id'] != null;
+          this.error = params['categoryId'] != null;
         }
       }
     );
@@ -45,7 +45,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   load() {
-    if (this.text === 'Discover more'){
+    if (this.text === 'Discover more') {
 
       this.datas = this.categoryListService.getData();
       this.text = 'Looks less';
