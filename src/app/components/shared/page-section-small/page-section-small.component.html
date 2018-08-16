@@ -1,0 +1,36 @@
+<div class="section">
+
+    <div class="row padd"></div>
+    <div class="row" *ngIf="showCourse">
+      <div class="col col-md-2"></div>
+      <div class="col col-md-7">
+        <div class="tags" [ngStyle]="{'background': courseBackground}"> <p> {{ courseTitle | uppercase }} </p> </div>
+      </div>
+      <div class="col col-md-3"></div>
+    </div>
+
+  <div class="row">
+
+    <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+      <p class="title">
+        {{ title }}
+      </p>
+    </div>
+    <div class="col col-md-2"></div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col col-md-2"></div>
+    <div class="col col-md-5">
+      <p class="subtitle">
+        {{ subtitle }}
+      </p>
+    </div>
+    <div class="col col-md-5"></div>
+
+  </div>
+
+</div>

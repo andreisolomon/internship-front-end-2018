@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CategoryListService } from '../category-list/category-list.service';
+import { Category } from '../category-list/category-list.model';
 import { CourseListService } from './course-list.service';
-import { Course } from './course-list.model';
-import {ActivatedRoute, Params } from '@angular/router';
+
 
 @Component({
   selector: 'app-course-list',
@@ -10,56 +12,51 @@ import {ActivatedRoute, Params } from '@angular/router';
 })
 export class CourseListComponent implements OnInit {
 
-  public datas: Course[];
-  public text: string = 'Discover more';
-  public title: string = 'Browse through best learning course for Alexa';
+  public courses: any[];
+  public title: string = 'Browse through all Finance courses for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
-  public error: boolean = false;
   public id: number;
+  public categoryTitle: any;
+  public categoryBackground: any;
+  public text: string = 'Discover more';
+  public size: number;
 
-  constructor(private courseListService: CourseListService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 
   ngOnInit() {
-
-    this.datas = this.courseListService.getData().slice(0, 6);
 
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
         if (this.courseListService.getCourseById(this.id) === false) {
-          this.error = params['id'] != null;
+          this.router.navigate(['/courses/', this.id, 'notfound']);
         }
       }
     );
 
-    if (this.error === true) {
-      setTimeout(() => {
-        this.id = 0;
-        this.error = false;
-      }, 10000);
-    }
+    this.courses = this.courseListService.getCoursesFromCategory(this.id).slice(0, 6);
+
+    this.size = this.courseListService.getSizeById(this.id);
+
+    this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
+
+    this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
 
   }
 
   load() {
     if (this.text === 'Discover more'){
 
-      this.datas = this.courseListService.getData();
+      this.courses = this.courseListService.getCoursesFromCategory(this.id);
       this.text = 'Looks less';
 
     } else {
 
-      this.datas = this.courseListService.getData().slice(0, 6);
+      this.courses = this.courseListService.getCoursesFromCategory(this.id).slice(0, 6);
       this.text = 'Discover more';
 
     }
 
   }
-
-  setBackground(background) {
-    return {'background': background };
-  }
-
-
 
 }

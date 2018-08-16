@@ -1,57 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ChapterListService } from '../chapter-list/chapter-list.service';
-import { Chapter } from './chapter-list.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from '../course-list/course-list.service';
 
 @Component({
-  selector: 'app-chapter-list',
+  selector: 'app-single-course',
   templateUrl: './chapter-list.component.html',
   styleUrls: ['./chapter-list.component.css']
 })
 export class ChapterListComponent implements OnInit {
 
-  public chapters: Chapter[];
-  public title: string = 'Browse through all Finance courses for Alexa';
-  public subtitle: string = 'Pick the one you like and start learning';
-  public id: number;
-  public courseTitle: any;
-  public courseBackground: any;
-  public text: string = 'Discover more';
+  public title: string;
+  public subtitle: string;
+  public categoryTitle: string;
+  public categoryBackground: string;
+  public course_id: number;
 
-  constructor(private route: ActivatedRoute, private chapterListService: ChapterListService, private router: Router, private courseListService: CourseListService) { }
+  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = +params['id'];
-        if (this.chapterListService.getChapterById(this.id) === false) {
-          this.router.navigate(['/courses/', this.id, 'notfound']);
-        }
+        const id = +params['id'];
+        this.course_id = +params['courseId'];
+        this.categoryTitle = this.categoryListService.getCategoryTitleById(id);
+        this.categoryBackground = this.categoryListService.getCategoryBackgroundById(id);
+
       }
     );
 
-    this.chapters = this.chapterListService.getChaptersFromCourse(this.id).slice(0, 6);
-
-    this.courseTitle = this.courseListService.getCourseTitleById(this.id);
-
-    this.courseBackground = this.courseListService.getCourseBackgroundById(this.id);
-
-  }
-
-  load() {
-    if (this.text === 'Discover more'){
-
-      this.chapters = this.chapterListService.getChaptersFromCourse(this.id);
-      this.text = 'Looks less';
-
-    } else {
-
-      this.chapters = this.chapterListService.getChaptersFromCourse(this.id).slice(0, 6);
-      this.text = 'Discover more';
-
-    }
+    this.title = this.courseListService.getCourseTitleById(this.course_id);
+    this.subtitle = this.courseListService.getCourseMinDescriptionById(this.course_id);
 
   }
 

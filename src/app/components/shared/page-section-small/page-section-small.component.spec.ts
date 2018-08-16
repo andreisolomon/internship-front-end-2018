@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChapterListComponent } from './chapter-list.component';
+import { PageSectionSmallComponent } from './page-section-small.component';
 
-describe('ChapterListComponent', () => {
-  let component: ChapterListComponent;
-  let fixture: ComponentFixture<ChapterListComponent>;
+describe('PageSectionSmallComponent', () => {
+  let component: PageSectionSmallComponent;
+  let fixture: ComponentFixture<PageSectionSmallComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChapterListComponent ]
+      declarations: [ PageSectionSmallComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChapterListComponent);
+    fixture = TestBed.createComponent(PageSectionSmallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
