@@ -1,12 +1,42 @@
-<!--
-  This is the component that lists the users of the website. It can be accessed
-  only by the admin and occurs when the admin clicks the 'users' link in the
-  navigation menu.
-  Every user can be edited, duplicated, removed or his role may be changed.
-  There's also a possibility to create a new user.
--->
-<p>
-  user-list works!
+<app-page-header></app-page-header>
 
-  <app-user></app-user>
-</p>
+<div class="container">
+
+  <div class="col-md-2"></div>
+  <div  class="col-md-8" >
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th>BASIC INFO</th>
+        <th>SCORE</th>
+        <th>TAG</th>
+        <th>DATA CREATED</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users" class="user-bar">
+        <td><input type="checkbox" [(ngModel)]="user.isAdmin" id="checkbox"></td>
+        <td><input type="image" id="image" alt="user image" src='../../../../../assets/images/img3.jpeg'
+                   class="img-circle"></td>
+        <td>{{user.name}}</td>
+        <td>{{user.score}}</td>
+        <td>
+          <a *ngFor="let tag of user.tags" href="#" class="tag">{{tag}}</a>
+          <!--<ul>-->
+          <!--<li *ngFor="let tag of user.tags"><a href="#">{{tag}}</a></li>-->
+          <!--</ul>-->
+        </td>
+
+        <td>{{user.date}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" id="bt"><span class="glyphicon glyphicon-option-horizontal"
+                                                                      aria-hidden="true"></span></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
