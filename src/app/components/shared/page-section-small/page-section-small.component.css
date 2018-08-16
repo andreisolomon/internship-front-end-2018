@@ -19,8 +19,8 @@
   font-size: 17px;
 }
 
-.section>.padd{
-  padding-top: 10em;
+.section>.container{
+  padding-top: 9em;
 }
 
 .tags{
@@ -35,4 +35,8 @@
 .tags>p{
   text-align: center;
   margin-bottom: -3px;
+}
+
+.container{
+  padding-right: 8em;
 }

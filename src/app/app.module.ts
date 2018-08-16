@@ -24,6 +24,7 @@ import { PageSectionComponent } from './components/shared/page-section/page-sect
 import { CourseListService } from './components/shared/course-list/course-list.service';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
+import { ChapterService } from './components/shared/chapter-content/chapter.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { PageSectionSmallComponent } from './components/shared/page-section-smal
     HttpModule,
     AppRoutingModule
   ],
-  providers: [CategoryListService, CourseListService],
+  providers: [CategoryListService, CourseListService, ChapterService],
   bootstrap: [AppComponent]
 })
 

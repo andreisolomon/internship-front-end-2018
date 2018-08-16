@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CategoryListService } from '../category-list/category-list.service';
-import { Category } from '../category-list/category-list.model';
 import { CourseListService } from './course-list.service';
+import { Course } from './course-list.model';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { CourseListService } from './course-list.service';
 })
 export class CourseListComponent implements OnInit {
 
-  public courses: any[];
+  public courses: Course[];
   public title: string = 'Browse through all Finance courses for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
   public id: number;
@@ -27,7 +27,7 @@ export class CourseListComponent implements OnInit {
 
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = +params['id'];
+        this.id = +params['categoryId'];
         if (this.courseListService.getCourseById(this.id) === false) {
           this.router.navigate(['/courses/', this.id, 'notfound']);
         }
