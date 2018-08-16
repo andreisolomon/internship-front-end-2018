@@ -1,0 +1,66 @@
+.search {
+  border:5px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: white;
+  background-color: white;
+  width: 50em;
+  text-align: center;
+}
+
+.search>input{
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 30em;
+  height: 45px;
+  background-color: whitesmoke;
+  z-index:1;
+}
+
+.container{
+  position: absolute;
+  margin-top: -50px;
+}
+
+.mybtn {
+  width: 180px;
+  height: 42px;
+  margin-left: 10px;
+}
+
+.rectangle{
+  border-radius: 5px;
+  width: 220px;
+  text-align: center;
+  margin-right: 1em;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 1em;
+  background: #6f0000;
+}
+
+.rectangle>p{
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.margin {
+  margin-top: 7em;
+  margin-bottom: 1em;
+}
+
+a{
+  text-decoration:none;
+  color: white;
+}
+
+a:hover{
+  color: white;
+}
+
+.alert{
+  margin-top: -3em;
+  width: 50em;
+}

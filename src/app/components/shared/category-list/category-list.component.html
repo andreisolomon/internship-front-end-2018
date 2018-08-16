@@ -1,0 +1,39 @@
+<app-page-header></app-page-header>
+
+<app-page-section [title]="title" [subtitle]="subtitle"></app-page-section>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col col-md-3"></div>
+    <div class="col col-md-6">
+
+      <div class="search">
+        <input type="text" placeholder="    search here...">
+        <button type="submit" class="btn btn-primary mybtn"> Search </button>
+      </div>
+
+    </div>
+    <div class="col col-md-3"></div>
+
+  </div>
+
+  <div class="row margin">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> Chapter with id {{ id }} does not exist. Please choose another course.
+      </div>
+      <div class="col-md-3 rectangle" *ngFor="let data of datas" [ngStyle]="setBackground(data.getBackground())" > <p> <a [routerLink]=" link + data.getId() "> {{ data.getTitle() }}</a> </p> </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
+    <div class="col col-md-5"></div>
+  </div>
+
+</div>

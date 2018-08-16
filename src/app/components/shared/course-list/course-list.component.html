@@ -1,10 +1,53 @@
-<!--
-  This is the course list component. It lists the courses that it's being passed
-  as Input(). For a user, it displays the courses of a given category. Every course
-  can be opened separately by navigating to the specific course route, by id. While
-  used for the admin - this component displays all the courses and offers the ability
-  to create a new course, edit or remove an existing course.
--->
-<p>
-  course-list works!
-</p>
+<app-page-header></app-page-header>
+
+<app-page-section [title]="title" [subtitle]="subtitle"></app-page-section>
+
+<div class="container">
+
+<div class="alert alert-warning" *ngIf="!size; else found">
+  <strong>Warning!</strong> There are no chapters in this course.
+</div>
+
+<ng-template  #found>
+
+
+  <div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-10 margin">
+
+      <div class="col col-md-3 rectangle" *ngFor="let course of courses" routerLink="{{ course.getId() }}">
+
+        <img src="{{ course.getImg() }}">
+
+        <div>
+
+          <p class="title"> {{ course.getTitle() }} </p>
+
+          <p class="describe"> {{ course.getDescription() }} </p>
+
+          <div class="divinline">
+
+            <div class="tags" [ngStyle]="{'background': categoryBackground}"> <p> {{ categoryTitle }} </p> </div>
+            <div> &nbsp;<span class="glyphicon glyphicon-time" aria-hidden="true"></span>2h course </div>
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row" *ngIf="size > 6">
+    <div class="col col-md-6"></div>
+    <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
+    <div class="col col-md-5"></div>
+  </div>
+</ng-template>
+</div>
