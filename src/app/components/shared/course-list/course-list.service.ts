@@ -32,4 +32,20 @@ export class CourseListService {
     return false;
   }
 
+  getCourseTitleById(id: number) {
+    for (let course of this.data) {
+      if (course.getId() === id) {
+        return course.getTitle();
+      }
+    }
+  }
+
+  getCourseBackgroundById(id: number) {
+    for (let course of this.data) {
+      if (course.getId() === id) {
+        return course.getBackground();
+      }
+    }
+  }
+
 }
