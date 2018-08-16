@@ -3,28 +3,51 @@
     background-image: url('../../../../assets/images/bg_image.png');
     background-position-x: center;
     background-repeat: no-repeat;
-    background-color: #07182e;
+    background-color: #021833;
     background-size: cover;
     margin-bottom: -1em;
+    height: 100%;
     
 }
-
+.row{
+    margin-top: 37%;
+}
+.row2{
+    margin-top: 25%;
+}
 
 form {
         display: inline-block;
-        margin-top: 40%;
-        margin-left: 60%;
         text-align: center;
-    }
+        width: 110%;
+        margin-left: 35%;
+        
+ }
 p{
     color: white;
     text-align: center;
 }
+p.youracc{
+    font-size: 30px;
+}
+
+p.welcome{
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+    margin-top: 15%;
+}
 p.sup{
     color: white;
-    position: fixed;
-     bottom: 0;
-      width:100%; 
-      text-align: center;
+    bottom: 0;
+    text-align: center; 
 
+}
+.btn{
+    background-color: #006FFF;
+    font: bold;
+    
+}
+.help-block{
+    color: red;
 }
