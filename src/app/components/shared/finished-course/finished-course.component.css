@@ -1,0 +1,25 @@
+.middle{
+  position: fixed;
+  top: 50%;
+}
+
+p{
+  text-align: center;
+}
+
+.congrats {
+  font-weight: bold;
+  color: darkgrey;
+  font-size: 18px;
+}
+
+.finished {
+  font-weight:bold;
+  color: black;
+  font-size: 25px;
+}
+
+.btndiscover{
+  width:15em;
+}
+

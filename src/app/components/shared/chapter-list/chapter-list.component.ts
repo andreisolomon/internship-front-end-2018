@@ -38,8 +38,6 @@ export class ChapterListComponent implements OnInit {
       }
     );
 
-
-
     this.title = this.courseListService.getCourseTitleById(this.course_id);
     this.subtitle = this.courseListService.getCourseMinDescriptionById(this.course_id);
 

@@ -16,7 +16,7 @@
         <div class="row">
             <p class="chapter"> CHAPTER {{ i+1 }} </p>
             <p class="title"> {{ chapter.getTitle() }} </p>
-            <p class="content"> {{ chapter.getContent() }}  </p>
+            <p class="content"> {{ chapter.getContent() | short }}  </p>
           <hr>
         </div>
       </div>

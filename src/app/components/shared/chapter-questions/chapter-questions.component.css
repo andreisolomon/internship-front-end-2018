@@ -31,7 +31,7 @@
   border-color: darkgrey;
 }
 
-.divinline>div{
+.divinline{
   float: left;
   clear: none;
   margin-left: 1em;
@@ -94,4 +94,25 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.panel-heading {
+    background-color: darkblue;
+    border-color: darkblue;
+}
+
+
+.divinline2>button{
+  float: right;
+  clear: none;
+  margin-left: 1em;
+}
+
+.btnstart {
+  width: 10em;
+  margin-bottom: 2em;
+}
+
+hr {
+  margin-top: 2em;
 }

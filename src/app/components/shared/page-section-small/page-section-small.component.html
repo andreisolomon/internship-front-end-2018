@@ -13,7 +13,8 @@
 
     <div class="col col-md-2"></div>
     <div class="col col-md-9">
-      <p class="title">
+      <p class="title" *ngIf="chapter">CHAPTER {{ noChapter }}</p>
+      <p class="title" >
         {{ title }}
       </p>
     </div>

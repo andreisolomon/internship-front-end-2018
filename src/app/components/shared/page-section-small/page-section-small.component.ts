@@ -12,6 +12,8 @@ export class PageSectionSmallComponent implements OnInit {
   @Input() categoryBackground: string;
   @Input() categoryTitle: string;
   @Input() showCourse: boolean;
+  @Input() noChapter: number;
+  @Input() chapter: boolean;
 
   constructor() { }
 

@@ -10,6 +10,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
+import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
+import {ChapterContentComponent} from './components/shared/chapter-content/chapter-content.component';
 
 const routers: Routes = [
   { path: '', component: CategoryListComponent},
@@ -37,7 +39,15 @@ const routers: Routes = [
   },
   {
     path: 'courses/:categoryId/:courseId/:chapterId',
+    component: ChapterContentComponent
+  },
+  {
+    path: 'courses/:categoryId/:courseId/:chapterId/quiz',
     component: ChapterQuestionsComponent
+  },
+  {
+    path: 'finished',
+    component: FinishedCourseComponent
   },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
