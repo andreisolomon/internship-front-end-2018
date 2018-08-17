@@ -48,6 +48,8 @@ const routers: Routes = [
   },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
+
+  { path: ':catergoryId', redirectTo:'courses/:categoryId'},
   { path: '**', redirectTo: 'courses' },
 
 ];

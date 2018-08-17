@@ -1,56 +1,87 @@
 .login{
    
     background-image: url('../../../../assets/images/bg_image.png');
-    background-position-x: center;
+    background-position: center center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-color: #021833;
+    background-color: #07182e;
     background-size: cover;
     margin-bottom: -1em;
-    height: 100%;
-    
+    background-size:auto 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;    
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .row{
-    margin-top: 37%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .row2{
-    margin-top: 25%;
+    position: absolute;
+    bottom: 33px;
+
+} 
+
+form{
+        display: inline-block;
+        text-align: center; 
+        width: 100%;
 }
 
-form {
-        display: inline-block;
-        text-align: center;
-        width: 110%;
-        margin-left: 35%;
-        
- }
 p{
     color: white;
     text-align: center;
+    
 }
 .youracc{
-    font-size: 30px;
+        height: 96px;
+        width: 353px;
+        color: #F7F7F7;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
 }
 
 .welcome{
-
-    font-size: 20px;
-    opacity: 0.5;
-    color: #F7F7F7;
-    text-align: center;
-    margin-top: 15%;
+        height: 52px;
+        opacity: 0.5;
+        color: #F7F7F7;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
 }
-.sup{
 
-    color: white;
-    bottom: 0;
-    text-align: center; 
 
-}
 .btn{
     background-color: #006FFF;
     font: bold;
+    color: white;
     
 }
 .help-block{
     color: red;
+} 
+.signupbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  a {
+    color: #ffffff;
+    }
