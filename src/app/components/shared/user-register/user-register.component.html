@@ -2,14 +2,14 @@
 <div class="register">
 <div class="container">
   <div class="row">
-      <div class="col-md-2">&nbsp;</div>
-      <div class="col-md-4">
-        <p class="welcome">You're one step closer</p>
-        <p class="youracc">Create a new account</p>
+      <div class="col-md-1">&nbsp;</div>
+      <div class="col-lg-5">
+        <p class="you-re-one-step-closer col-xs-12">You're one step closer</p>
+        <p class="create-a-new-account col-xs-12">Create a new account</p>
       </div>
 
       <div class="col-md-5">
- <form (ngSubmit)="validation(f)" #f="ngForm">
+ <form (ngSubmit)="validation(f)" #f="ngForm" class="col-sm-12">
     <div class="form-group">
       <input type="text" class="form-control input-lg" name="firstname"  pattern="[a-zA-Z]*" title="Must contain only characters" required id="firstname" id="firstname" ngModel required firstname #firstname="ngModel" placeholder="first name">
       <span class="help-block" *ngIf="!firstname.valid && firstname.touched"> Please enter your first name! </span>

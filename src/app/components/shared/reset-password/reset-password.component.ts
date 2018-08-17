@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
-  public resetpass = 'ss';
-  public resetpassconfirm = 'ss';
+  public resetpass = '';
+  public resetpassconfirm = '';
   public confirm = true;
   constructor() { }
 
