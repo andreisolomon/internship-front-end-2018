@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from '../course-list/course-list.service';
-import { Chapter} from '../chapter-content/chapter.model';
-import {ChapterService} from '../chapter-content/chapter.service';
+import { Chapter} from './chapter.model';
+import { ChapterService } from './chapter.service';
 
 @Component({
   selector: 'app-single-course',
@@ -12,6 +12,7 @@ import {ChapterService} from '../chapter-content/chapter.service';
 })
 export class ChapterListComponent implements OnInit {
 
+  public id: number;
   public title: string;
   public subtitle: string;
   public categoryTitle: string;
@@ -21,19 +22,23 @@ export class ChapterListComponent implements OnInit {
   public size: number;
   public text: string = 'See the full curriculum';
 
-  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService, private chapterListService: ChapterService) { }
+  constructor(private router: Router, private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService, private chapterListService: ChapterService) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(
       (params: Params) => {
-        const id = +params['categoryId'];
+        this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
-        this.categoryTitle = this.categoryListService.getCategoryTitleById(id);
-        this.categoryBackground = this.categoryListService.getCategoryBackgroundById(id);
-
+        if (!this.courseListService.courseInCategoryById(this.course_id, this.id)) {
+          this.router.navigate(['/courses/', this.id, this.course_id, 'notfound']);
+        }
+        this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
+        this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
       }
     );
+
+
 
     this.title = this.courseListService.getCourseTitleById(this.course_id);
     this.subtitle = this.courseListService.getCourseMinDescriptionById(this.course_id);
@@ -45,7 +50,7 @@ export class ChapterListComponent implements OnInit {
   }
 
   load() {
-    if (this.text === 'See the full curriculum'){
+    if (this.text === 'See the full curriculum') {
 
       this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id);
       this.text = 'Looks less';
@@ -56,7 +61,10 @@ export class ChapterListComponent implements OnInit {
       this.text = 'See the full curriculum';
 
     }
+  }
 
+  loadPage(id: number){
+    this.router.navigate(['courses', this.id, this.course_id, id]);
   }
 
 }

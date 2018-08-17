@@ -1,7 +1,5 @@
 import {User} from '../user/user.model';
 
-
-
 export class UserListService {
 
   constructor() {
@@ -69,4 +67,8 @@ export class UserListService {
       }
     }
   }
+=======
+export class UserListService {
+  constructor() {}
+
 }

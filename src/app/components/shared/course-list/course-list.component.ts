@@ -20,6 +20,9 @@ export class CourseListComponent implements OnInit {
   public categoryBackground: any;
   public text: string = 'Discover more';
   public size: number;
+  public error: boolean;
+  public course_id: number;
+  public link: string;
 
   constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 
@@ -28,8 +31,13 @@ export class CourseListComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];
+        this.link = '';
         if (this.courseListService.getCourseById(this.id) === false) {
           this.router.navigate(['/courses/', this.id, 'notfound']);
+        }
+        if (params['courseId'] != null) {
+          this.course_id = +params['courseId'];
+          this.error = true;
         }
       }
     );
@@ -41,6 +49,14 @@ export class CourseListComponent implements OnInit {
     this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
 
     this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
+
+    if (this.error === true) {
+      this.link = '../../';
+      setTimeout(() => {
+        this.id = 0;
+        this.error = false;
+      }, 10000);
+    }
 
   }
 
@@ -56,7 +72,6 @@ export class CourseListComponent implements OnInit {
       this.text = 'Discover more';
 
     }
-
   }
 
 }

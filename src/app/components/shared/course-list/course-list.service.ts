@@ -75,4 +75,13 @@ export class CourseListService {
     }
   }
 
+  courseInCategoryById(id: number, category_id: number) {
+    for (let course of this.data) {
+      if (course.getId() === id && course.getCategoryId() === category_id){
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

@@ -16,12 +16,12 @@
  <form (ngSubmit)="validation(f)" #f="ngForm">
 
         <div class="form-group">
-          <input type="email" class="form-control input-lg" name="email" id=""email ngModel required email #email="ngModel" placeholder="email adress">
+          <input type="email" class="form-control input-lg" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required id="email" id=""email ngModel required email #email="ngModel" placeholder="email adress">
           <span class="help-block" *ngIf="!email.valid && email.touched"> Please enter your valid email! </span>
         </div>
     
         <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" id="password" ngModel required password #password="ngModel" placeholder="********">
+          <input type="password" class="form-control input-lg" name="password"  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required id="password" id="password" ngModel required password #password="ngModel" placeholder="********">
           <span class="help-block" *ngIf="!password.valid && password.touched"> Please enter a password! </span>
     
         </div>
