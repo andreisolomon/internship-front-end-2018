@@ -6,3 +6,71 @@
   font-size: 24px;
   font-weight: bold;
   line-height: 38px;}
+.container{
+  margin-top:50px;
+  width: 80%;
+}
+#info{
+  height: 46px;
+  width: 699px;
+  color: #AEB5BB;
+  /*font-family: Roboto;*/
+  font-size: 14px;
+  line-height: 23px;
+}
+#log{
+  height: 31px;
+  width:75px;
+  border-radius: 5px;
+  background-color: #006FFF;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;}
+#account_info{
+  height: 38px;
+  width: 774px;
+  color: #4A4A4A;
+  /*font-family: Roboto;*/
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 38px;
+}
+#image{
+  height: 140px;
+  width: 140px;
+  border-radius: 5px;
+}
+#information {
+  height: 92px;
+  width: 256px;
+  color: #AEB5BB;
+  /*font-family: Roboto;*/
+  font-size: 14px;
+  line-height: 23px;
+}
+form{
+	height: 45px;
+  width: 300px;
+  /*border: 1px solid #AEB5BB;*/
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}#upload
+ {
+height: 31px;
+   width: 56px;
+   border: 1px solid #006FFF;
+   /*border-radius: 5px;*/
+ }
+#save
+{
+	height: 31px;
+  width: 56px;
+  /*border-radius: 5px;*/
+  background-color: #006FFF;
+}
+#cancel
+{
+	height: 1440px;
+  width: 1440px;
+  background-color: #F6FAFC;
+}
