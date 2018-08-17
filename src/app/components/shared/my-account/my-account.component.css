@@ -20,7 +20,7 @@
 }
 #log{
   height: 31px;
-  width: 56px;
+  width:75px;
   border-radius: 5px;
   background-color: #006FFF;
   font-size: 16px;
@@ -35,25 +35,42 @@
   font-weight: bold;
   line-height: 38px;
 }
-#img{
+#image{
   height: 140px;
   width: 140px;
   border-radius: 5px;
 }
-#information{
-  height: 92px;	width: 256px;	color: #AEB5BB;	font-family: Roboto;	font-size: 14px;	line-height: 23px;
+#information {
+  height: 92px;
+  width: 256px;
+  color: #AEB5BB;
+  /*font-family: Roboto;*/
+  font-size: 14px;
+  line-height: 23px;
 }
 form{
-	height: 45px;	width: 300px;	border: 1px solid #AEB5BB;	border-radius: 5px;	background-color: #FFFFFF;
+	height: 45px;
+  width: 300px;
+  /*border: 1px solid #AEB5BB;*/
+  border-radius: 5px;
+  background-color: #FFFFFF;
 }#upload
  {
-height: 31px;	width: 56px;	border: 1px solid #006FFF;	border-radius: 5px;
+height: 31px;
+   width: 56px;
+   border: 1px solid #006FFF;
+   /*border-radius: 5px;*/
  }
 #save
 {
-	height: 31px;	width: 56px;	border-radius: 5px;	background-color: #006FFF;
+	height: 31px;
+  width: 56px;
+  /*border-radius: 5px;*/
+  background-color: #006FFF;
 }
 #cancel
 {
-	height: 1440px;	width: 1440px;	background-color: #F6FAFC;
+	height: 1440px;
+  width: 1440px;
+  background-color: #F6FAFC;
 }
