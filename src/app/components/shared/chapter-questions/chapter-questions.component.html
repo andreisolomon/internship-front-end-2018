@@ -1,13 +1,29 @@
-<!--
-  This is the component that lists the questions for a chapter. The answers for the
-  questions should be checked before being able to pass next. There are links at the
-  bottom, that allow navigation to the next' or previous' chapter questions. After
-  the last chapter, the link should go to a screen that displays a finalization
-  message - this message can be part of this same component.
--->
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
+<app-page-header></app-page-header>
+<app-page-section-small></app-page-section-small>
+<div class="container">
+  <div class="row" *ngFor="let question of questions">
+    <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading question divinline"><div class="space">Q:</div> {{ question.getText() }} </div>
+      </div>
+      <div class="panel costum">
+        {{ log(question.getId()) }}
+        {{ loadAnswersFromQuestion(question.getId()+1) }}
+        <div class="panel-body divinline" *ngFor="let answer of answers">
+          <div class="space">
+            <label class="checkbox">
+
+              <input type="radio" [name]="question.getId()">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="answer"> {{ answer.getText() }} </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
 

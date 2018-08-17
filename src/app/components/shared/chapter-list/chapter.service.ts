@@ -8,16 +8,16 @@ export class ChapterService {
 
   private data: Chapter[] = [
     new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content)
+    new Chapter(2, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(3, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(4, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(5, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(6, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(7, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(8, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(9, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(10, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
+    new Chapter(11, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content)
   ];
 
   getData() {
