@@ -1,6 +1,7 @@
 .container {
   margin-top: 2em;
   text-align: justify;
+  padding-left: 2.5em;
 }
 
 .chapter {
@@ -19,23 +20,6 @@
   color: grey;
 }
 
-
-.btnstart{
-  height: 30px;
-  width: 50px;
-  background-color: white;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: blue;
-  color: blue;
-}
-
-.btnstart:hover{
-  background: blue;
-  color: white;
-}
-
 .pdd {
   padding-top: 5em;
 }
@@ -46,4 +30,8 @@
 
 .pdd2{
   padding-left: 17em;
+}
+
+.pdd3 {
+
 }

@@ -26,6 +26,9 @@ import { PageSectionSmallComponent } from './components/shared/page-section-smal
 import { ChapterService } from './components/shared/chapter-list/chapter.service';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
+import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
+import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
+import { ShortenPipe } from './shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { AnswersService } from './components/shared/chapter-questions/answers.se
     ResetPasswordComponent,
     PageSectionComponent,
     ChapterListComponent,
-    PageSectionSmallComponent
+    PageSectionSmallComponent,
+    FinishedCourseComponent,
+    ChapterContentComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,

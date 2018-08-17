@@ -1,4 +1,5 @@
 import { Chapter } from './chapter.model';
+import index from '../../../../../node_modules/@angular/cli/lib/cli';
 
 export class ChapterService {
 
@@ -25,8 +26,8 @@ export class ChapterService {
   }
 
   getChaptersFromCourseById(id: number) {
-    let chapters: Chapter[] = [];
-    for (let chapter of this.data){
+    const chapters: Chapter[] = [];
+    for (const chapter of this.data) {
       if (chapter.getCourseId() === id) {
         chapters.push(chapter);
       }
@@ -43,11 +44,51 @@ export class ChapterService {
   }
 
   getChapterCourseById(id: number) {
-    for (let chapter of this.data){
+    for (const chapter of this.data) {
       if (chapter.getId() === id) {
         return chapter.getCourseId();
       }
     }
+  }
+
+  getChapterTitleById(id: number) {
+    for (let chapter of this.data) {
+      if (chapter.getId() === id) {
+        return chapter.getTitle();
+      }
+    }
+  }
+
+  noOfChapterInCourse(course_id: number, chapter_id: number) {
+
+    const chapters: Chapter[] = this.getChaptersFromCourseById(course_id);
+
+    for (let i = 0; i < chapters.length; i++) {
+      if(chapters[i].getId() === chapter_id) {
+        return i + 1;
+      }
+    }
+
+  }
+
+  getPrevNext(course_id: number, chapter_id: number, type: number) {
+
+    const chapters: Chapter[] = this.getChaptersFromCourseById(course_id);
+
+    let len = chapters.length;
+
+    let pos = this.noOfChapterInCourse(course_id, chapter_id) - 1;
+
+    if ( type === 1 ) {
+      if (pos === 0)
+        return -1;
+      return chapters[pos - 1].getId();
+    } else {
+      if (pos === len - 1)
+        return -1;
+      return chapters[pos + 1].getId();
+    }
+
   }
 
 }
