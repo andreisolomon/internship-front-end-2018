@@ -18,13 +18,14 @@ import { ChapterQuestionsComponent } from './components/shared/chapter-questions
 import { UserRegisterComponent } from './components/shared/user-register/user-register.component';
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { CategoryListService } from './components/shared/category-list/category-list.service';
 import { PageSectionComponent } from './components/shared/page-section/page-section.component';
 import { CourseListService } from './components/shared/course-list/course-list.service';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
-import { ChapterService } from './components/shared/chapter-content/chapter.service';
+import { ChapterService } from './components/shared/chapter-list/chapter.service';
+import { QuestionsService } from './components/shared/chapter-questions/questions.service';
+import { AnswersService } from './components/shared/chapter-questions/answers.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,6 @@ import { ChapterService } from './components/shared/chapter-content/chapter.serv
     ChapterQuestionsComponent,
     UserRegisterComponent,
     ResetPasswordComponent,
-    ChapterContentComponent,
     PageSectionComponent,
     ChapterListComponent,
     PageSectionSmallComponent
@@ -53,7 +53,7 @@ import { ChapterService } from './components/shared/chapter-content/chapter.serv
     HttpModule,
     AppRoutingModule
   ],
-  providers: [CategoryListService, CourseListService, ChapterService],
+  providers: [CategoryListService, CourseListService, ChapterService, QuestionsService, AnswersService],
   bootstrap: [AppComponent]
 })
 

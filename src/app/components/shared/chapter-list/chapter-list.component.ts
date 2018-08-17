@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from '../course-list/course-list.service';
-import { Chapter} from '../chapter-content/chapter.model';
-import { ChapterService } from '../chapter-content/chapter.service';
+import { Chapter} from './chapter.model';
+import { ChapterService } from './chapter.service';
 
 @Component({
   selector: 'app-single-course',
