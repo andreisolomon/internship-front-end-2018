@@ -50,7 +50,7 @@ export class ChapterListComponent implements OnInit {
   }
 
   load() {
-    if (this.text === 'See the full curriculum'){
+    if (this.text === 'See the full curriculum') {
 
       this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id);
       this.text = 'Looks less';
@@ -63,6 +63,8 @@ export class ChapterListComponent implements OnInit {
     }
   }
 
-
+  loadPage(id: number){
+    this.router.navigate(['courses', this.id, this.course_id, id]);
+  }
 
 }
