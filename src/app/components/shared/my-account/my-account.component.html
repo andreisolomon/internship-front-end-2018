@@ -1,21 +1,106 @@
-<!--
-  This component represents the account of the logged in user. The user can
-  log out here, change the account information and profile picture. The user
-  can view the started courses and the progress that was made on a specific
-  course. Any started course can be closed on this page.
--->
+<app-page-header></app-page-header>
 <div class="container">
   <div class="row">
-    <div class="col-4-md"></div>
-    <div class="col-4-md"id="my-account">My account</div>
-    <div class="col-4-md"></div>
+
+    <div class="col-md-4" id="my-account">My account</div>
+
   </div>
   <div class="row">
-    <div class="col-2-md"></div>
-    <div class="col-2-md"></div>
-    <div class="col-2-md"></div>
+
+
+    <div class="col-md-3" id="info">Here you can edit your account’s informations, courses you started and the progress
+      for each one.
+      Contact us at contact@alexateachme.com, if you need any help.
+    </div>
   </div>
   <div class="row">
-    ...
+    <div class="col-md-3" id="btn_log">
+      <button type="button" class="btn btn-primary" id="log" (click)="toLogout()">LOG OUT</button>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-12" id="account_info">Account Informations</div>
+  </div>
+  <div class="container2">
+    <div class="row">
+
+      <div class="col-md-2" id="img"><input type="image" id="image" alt="user image"
+                                            src='../../../../../assets/images/img3.jpeg'></div>
+      <div class="col-md-2" id="information">To quickly change your profile picture, just drag&drop an image or upload
+        a file.
+        Image selected, should have maximum 15 MB size.
+      </div>
+      <div class="col-md-2" id="form">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="username" placeholder="username"></div>
+          <div class="form-group"><input type="email" class="form-control" id="exampleInputEmail1"
+                                         aria-describedby="emailHelp"
+                                         placeholder="Enter email">
+          </div>
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2" id="upload">
+      <button type="button" class="btn btn-default">Upload file</button>
+    </div>
+
+    <div class="col-md-4"></div>
+    <div class="col-md-2" id="save">
+      <button type="button" class="btn btn-primary">Save</button>
+    </div>
+    <div class="col-md-2" id="cancel">
+      <button type="button" class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container3">
+  <div class="alert alert-warning" *ngIf="!size; else found">
+    <strong>Warning!</strong> There are no courses in this category.
+  </div>
+
+  <ng-template #found>
+
+    <div class="row">
+
+      <div class="col-md-2"></div>
+      <div class="col-md-10 margin">
+
+        <div class="col col-md-3 rectangle" *ngFor="let course of courses" routerLink="{{ course.getId() }}">
+
+          <img src="{{ course.getImg() }}">
+
+          <div>
+
+            <p class="title"> {{ course.getTitle() }} </p>
+
+            <p class="describe"> {{ course.getDescription() }} </p>
+
+            <div class="divinline">
+
+              <div class="tags" [ngStyle]="{'background': categoryBackground}"><p> {{ categoryTitle }} </p></div>
+              <div> &nbsp;<span class="glyphicon glyphicon-time" aria-hidden="true"></span>2h course</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="size > 6">
+      <div class="col col-md-6"></div>
+      <div class="col-col-md-1">
+        <button class="btndiscover" (click)="load()"> {{ text }}</button>
+      </div>
+      <div class="col col-md-5"></div>
+    </div>
+  </ng-template>
 </div>
