@@ -2,18 +2,23 @@ export class User {
 private isAdmin: number;
   private id: number;
   private image: string;
-  private name: string;
+  private firstname: string;
   private tags: string;
   private date: string;
   private score: number;
+  private lastname: string;
+  private email: string;
+  private password: string;
 
-
-  constructor(isAdmin: number, id: number, image: string, name: string, tags: string, score: number, date: string) {
+  constructor(isAdmin: number, id: number, image: string, firstname: string, lastname: string, email: string, password: string, tags: string, score: number, date: string) {
     this.setAdmin(isAdmin);
     this.setId(id);
     this.setScore(score);
     this.setImage(image);
-    this.setName(name);
+    this.setFirstName(firstname);
+    this.setLastName(lastname);
+    this.setEmail(email);
+    this.setPassword(password);
     this.setTags(tags);
     this.setDate(date);
 
@@ -31,8 +36,17 @@ private isAdmin: number;
   setImage(image: string) {
     this.image = image;
   }
-  setName(name: string) {
-    this.name = name;
+  setFirstName(firstname: string) {
+    this.firstname = firstname;
+  }
+  setLastName(lastname: string) {
+    this.lastname = lastname;
+  }
+  setEmail(email: string) {
+    this.email = email;
+  }
+  setPassword(password: string) {
+    this.password = password;
   }
   setTags(tags: string) {
     this.tags = tags;
@@ -53,8 +67,17 @@ private isAdmin: number;
   getImage() {
     return this.image;
   }
-  getName() {
-    return this.name;
+  getFirstName() {
+    return this.firstname;
+  }
+  getLastName() {
+    return this.lastname;
+  }
+  getEmail() {
+    return this.email;
+  }
+  getPassword() {
+    return this.password;
   }
   getTags() {
     return this.tags;
