@@ -9,14 +9,20 @@ export class Course {
 
   constructor(id: number, category_id: number, title: string, minDescription: string, description: string, img: string) {
 
+    this.setId(id);
+    this.setCategoryId(category_id);
+    this.setTitle(title);
+    this.setMinDescription(minDescription);
+    this.setDescription(description);
+    this.setImg(img);
 
   }
 
-  setId(id: number){
+  setId(id: number) {
     this.id = id;
   }
 
-  setCategoryId(category_id: number){
+  setCategoryId(category_id: number) {
     this.category_id = category_id;
   }
 
@@ -28,11 +34,11 @@ export class Course {
     this.minDescription = minDescription;
   }
 
-  setDescription(description: string){
+  setDescription(description: string) {
     this.description = description;
   }
 
-  setImg(img: string){
+  setImg(img: string) {
     this.img = img;
   }
 

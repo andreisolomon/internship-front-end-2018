@@ -23,7 +23,7 @@ export class ChapterContentComponent implements OnInit {
   constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(
+    /*this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
@@ -34,7 +34,7 @@ export class ChapterContentComponent implements OnInit {
     this.prev = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 1);
     this.next = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 2);
     this.noChapter = this.chapterService.noOfChapterInCourse(this.course_id, this.chapter_id);
-    this.title = this.chapterService.getChapterTitleById(this.chapter_id);
+    this.title = this.chapterService.getChapterTitleById(this.chapter_id);*/
   }
 
 }

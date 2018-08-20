@@ -34,11 +34,11 @@ export class CourseListService {
     return this.data;
   }
 
-  getCoursesFromCategory(course_id: number) {
+  getCoursesFromCategory(id: number) {
     let courses: Course[] = [];
 
     for (let course of this.data) {
-      if (course.getCategoryId() === course_id) {
+      if (course.getCategoryId() === id) {
         courses.push(course);
       }
     }

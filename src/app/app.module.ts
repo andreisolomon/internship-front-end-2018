@@ -23,7 +23,7 @@ import { PageSectionComponent } from './components/shared/page-section/page-sect
 import { CourseListService } from './components/shared/course-list/course-list.service';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
-import { ChapterService } from './components/shared/chapter-content/chapter.service';
+import { ChapterService } from './components/shared/chapter-list/chapter.service';
 import { UserListService } from './components/admin/user-list/user-list.service';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
