@@ -9,6 +9,12 @@ export class Course {
 
   constructor(id: number, category_id: number, title: string, minDescription: string, description: string, img: string) {
 
+    this.setId(id);
+    this.setCategoryId(category_id);
+    this.setTitle(title);
+    this.setMinDescription(minDescription);
+    this.setDescription(description);
+    this.setImg(img);
 
   }
 
