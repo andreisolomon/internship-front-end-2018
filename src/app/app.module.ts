@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+// import './polyfills';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -26,6 +26,11 @@ import { ChapterListComponent } from './components/shared/chapter-list/chapter-l
 import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
 import { ChapterService } from './components/shared/chapter-content/chapter.service';
 import { UserListService } from './components/admin/user-list/user-list.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserlistTableComponent } from './userlist-table/userlist-table.component';
+import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule,
+} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,13 +51,20 @@ import { UserListService } from './components/admin/user-list/user-list.service'
     ChapterContentComponent,
     PageSectionComponent,
     ChapterListComponent,
-    PageSectionSmallComponent
+    PageSectionSmallComponent,
+    UserlistTableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+
   ],
   providers: [CategoryListService, CourseListService, ChapterService, UserListService],
   bootstrap: [AppComponent]

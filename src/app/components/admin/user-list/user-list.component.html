@@ -1,4 +1,5 @@
 <app-page-header></app-page-header>
+<app-userlist-table></app-userlist-table>
 <!--<div class="container">-->
 
   <!--{{users}}asd-->
@@ -37,63 +38,63 @@
 <!--</div>-->
 <!--</div>-->
 
-<div class="container">
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th></th>
-      <th>BASIC INFO</th>
-      <th></th>
-      <th>SCORE</th>
-      <th>TAG</th>
-      <th>DATA CREATED</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users" class="user-bar">
-      <td></td>
-      <!--<td><input type="checkbox" [(ngModel)]="user.getAdmin()" id="checkbox"></td>-->
+<!--<div class="container">-->
+  <!--<table class="table table-hover">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th></th>-->
+      <!--<th>BASIC INFO</th>-->
+      <!--<th></th>-->
+      <!--<th>SCORE</th>-->
+      <!--<th>TAG</th>-->
+      <!--<th>DATA CREATED</th>-->
+      <!--<th></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr *ngFor="let user of users" class="user-bar">-->
+      <!--<td></td>-->
+      <!--&lt;!&ndash;<td><input type="checkbox" [(ngModel)]="user.getAdmin()" id="checkbox"></td>&ndash;&gt;-->
 
-      <td><input type="image" id="image" alt="user image" [src]='user.getImage()'
-                 class="img-circle"></td>
-      <td>{{user.getName()}}</td>
-      <td>{{user.getScore()}}
-      <!--<img [src]="user.getImage()" />-->
-      </td>
-      <td>
-        {{user.getTags()}}
-        <!--<a *ngFor="let tag of user.tags" href="#" class="tag">{{tag}}</a>-->
-        <!--<ul>-->
-        <!--<li *ngFor="let tag of user.tags"><a href="#">{{tag}}</a></li>-->
+      <!--<td><input type="image" id="image" alt="user image" [src]='user.getImage()'-->
+                 <!--class="img-circle"></td>-->
+      <!--<td>{{user.getName()}}</td>-->
+      <!--<td>{{user.getScore()}}-->
+      <!--&lt;!&ndash;<img [src]="user.getImage()" />&ndash;&gt;-->
+      <!--</td>-->
+      <!--<td>-->
+        <!--{{user.getTags()}}-->
+        <!--&lt;!&ndash;<a *ngFor="let tag of user.tags" href="#" class="tag">{{tag}}</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li *ngFor="let tag of user.tags"><a href="#">{{tag}}</a></li>&ndash;&gt;-->
+        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+      <!--</td>-->
+
+      <!--<td>{{user.getDate()}}</td>-->
+      <!--<td>-->
+        <!--<ul class="nav navbar-nav">-->
+          <!--<li class="dropdown">-->
+            <!--<button type="button" class="btn btn-primary" id="bt" data-toggle="dropdown" aria-haspopup="true"-->
+                    <!--aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal"-->
+                                                <!--aria-hidden="true"></span></button>-->
+            <!--&lt;!&ndash;<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>&ndash;&gt;-->
+            <!--<ul class="dropdown-menu">-->
+              <!--<li><a href="#" class="drop"><span class="glyphicon glyphicon-edit"></span>Edit </a></li>-->
+              <!--<li class="divider"></li>-->
+              <!--<li><a href="#" class="drop"> <span class="glyphicon glyphicon-trash"></span>Delete</a></li>-->
+              <!--<li class="divider"></li>-->
+              <!--<li><a href="#" class="drop">-->
+
+                <!--<i class="fas fa-key" id="key"></i>Make Adminstrator </a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
         <!--</ul>-->
-      </td>
-
-      <td>{{user.getDate()}}</td>
-      <td>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <button type="button" class="btn btn-primary" id="bt" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal"
-                                                aria-hidden="true"></span></button>
-            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>-->
-            <ul class="dropdown-menu">
-              <li><a href="#" class="drop"><span class="glyphicon glyphicon-edit"></span>Edit </a></li>
-              <li class="divider"></li>
-              <li><a href="#" class="drop"> <span class="glyphicon glyphicon-trash"></span>Delete</a></li>
-              <li class="divider"></li>
-              <li><a href="#" class="drop">
-
-                <i class="fas fa-key" id="key"></i>Make Adminstrator </a></li>
-            </ul>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-<div class="col-md-2"></div>
+      <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+<!--</div>-->
+<!--<div class="col-md-2"></div>-->
 
 <!--<div class="dropdown">-->
 <!--<button class="btn btn-primary" type="button" id="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->

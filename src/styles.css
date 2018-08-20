@@ -12,3 +12,6 @@ html, body{
   border-color: darkorchid;
   margin-bottom: 7em;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
