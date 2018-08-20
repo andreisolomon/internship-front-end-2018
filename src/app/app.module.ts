@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import './polyfills';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -29,7 +28,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserlistTableComponent } from './userlist-table/userlist-table.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule,
 } from '@angular/material';
-import {MatSelectModule} from '@angular/material/select';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
@@ -55,7 +53,7 @@ import { ShortenPipe } from './shorten.pipe';
     PageSectionComponent,
     ChapterListComponent,
     PageSectionSmallComponent,
-    UserlistTableComponent
+    UserlistTableComponent,
     FinishedCourseComponent,
     ChapterContentComponent,
     ShortenPipe
@@ -69,8 +67,7 @@ import { ShortenPipe } from './shorten.pipe';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCheckboxModule,
-
+    MatCheckboxModule
   ],
   providers: [CategoryListService, CourseListService, ChapterService, QuestionsService, AnswersService, UserListService],
   bootstrap: [AppComponent]
