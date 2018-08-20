@@ -34,11 +34,11 @@ export class CourseListService {
     return this.data;
   }
 
-  getCoursesFromCategory(course_id: number) {
+  getCoursesFromCategory(id: number) {
     let courses: Course[] = [];
 
     for (let course of this.data) {
-      if (course.getCategoryId() === course_id) {
+      if (course.getCategoryId() === id) {
         courses.push(course);
       }
     }
@@ -73,6 +73,15 @@ export class CourseListService {
         return course.getMinDescription();
       }
     }
+  }
+
+  courseInCategoryById(id: number, category_id: number) {
+    for (let course of this.data) {
+      if (course.getId() === id && course.getCategoryId() === category_id){
+        return true;
+      }
+    }
+    return false;
   }
 
 }

@@ -18,19 +18,23 @@ import { ChapterQuestionsComponent } from './components/shared/chapter-questions
 import { UserRegisterComponent } from './components/shared/user-register/user-register.component';
 import { ResetPasswordComponent } from './components/shared/reset-password/reset-password.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { CategoryListService } from './components/shared/category-list/category-list.service';
 import { PageSectionComponent } from './components/shared/page-section/page-section.component';
 import { CourseListService } from './components/shared/course-list/course-list.service';
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { PageSectionSmallComponent } from './components/shared/page-section-small/page-section-small.component';
-import { ChapterService } from './components/shared/chapter-content/chapter.service';
+import { ChapterService } from './components/shared/chapter-list/chapter.service';
 import { UserListService } from './components/admin/user-list/user-list.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserlistTableComponent } from './userlist-table/userlist-table.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule,
 } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import { QuestionsService } from './components/shared/chapter-questions/questions.service';
+import { AnswersService } from './components/shared/chapter-questions/answers.service';
+import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
+import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
+import { ShortenPipe } from './shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -48,11 +52,13 @@ import {MatSelectModule} from '@angular/material/select';
     ChapterQuestionsComponent,
     UserRegisterComponent,
     ResetPasswordComponent,
-    ChapterContentComponent,
     PageSectionComponent,
     ChapterListComponent,
     PageSectionSmallComponent,
     UserlistTableComponent
+    FinishedCourseComponent,
+    ChapterContentComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
 
   ],
-  providers: [CategoryListService, CourseListService, ChapterService, UserListService],
+  providers: [CategoryListService, CourseListService, ChapterService, QuestionsService, AnswersService, UserListService],
   bootstrap: [AppComponent]
 })
 

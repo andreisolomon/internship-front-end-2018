@@ -1,13 +1,41 @@
-<!--
-  This is the component that lists the questions for a chapter. The answers for the
-  questions should be checked before being able to pass next. There are links at the
-  bottom, that allow navigation to the next' or previous' chapter questions. After
-  the last chapter, the link should go to a screen that displays a finalization
-  message - this message can be part of this same component.
--->
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
+<app-page-header></app-page-header>
+<app-page-section-small [title]="title" [noChapter]="noChapter" [chapter]="true"></app-page-section-small>
+<div class="container">
+  <div class="row" *ngFor="let question of questions; let i = index">
+    <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.getText() }} </div>
+      </div>
+      <div class="card costum">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let answer of questions[i]['answer']; let j = index">
+            <div class="">
+              <div class="space divinline">
+                <label class="checkbox">
+                  <input type="radio" [name]="question.getId()">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="answer"> {{ answer.getText() }} </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col col-md-4 divinline2">
+      <button class="btnstart" *ngIf="next != -1; else finish" (click)="load(2)"> Next chapter </button>
+      <ng-template #finish>
+        <button class="btnstart" (click)="load(3)"> Finish </button>
+      </ng-template>
+      <button class="btnstart" *ngIf="prev != -1" (click)="load(1)"> Previous chapter </button>
+    </div>
+  </div>
 </div>
+
+
+
 

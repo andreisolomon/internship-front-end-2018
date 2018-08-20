@@ -84,6 +84,33 @@
               <!--<li><a href="#" class="drop"> <span class="glyphicon glyphicon-trash"></span>Delete</a></li>-->
               <!--<li class="divider"></li>-->
               <!--<li><a href="#" class="drop">-->
+      <td><input type="image" id="image" alt="user image" [src]='user.getImage()'
+                 class="img-circle"></td>
+      <td>{{user.getName()}}</td>
+      <td>{{user.getScore()}}
+      <!--<img [src]="user.getImage()" />-->
+      </td>
+      <td>
+        {{user.getTags()}}
+        <!--<a *ngFor="let tag of user.tags" href="#" class="tag">{{tag}}</a>-->
+        <!--<ul>-->
+        <!--<li *ngFor="let tag of user.tags"><a href="#">{{tag}}</a></li>-->
+        <!--</ul>-->
+      </td>
+      <td>{{user.getDate()}}</td>
+      <td>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <button type="button" class="btn btn-primary" id="bt" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal"
+                                                aria-hidden="true"></span></button>
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>-->
+            <ul class="dropdown-menu">
+              <li><a href="#" class="drop"><span class="glyphicon glyphicon-edit"></span>Edit </a></li>
+              <li class="divider"></li>
+              <li><a href="#" class="drop"> <span class="glyphicon glyphicon-trash"></span>Delete</a></li>
+              <li class="divider"></li>
+              <li><a href="#" class="drop">
 
                 <!--<i class="fas fa-key" id="key"></i>Make Adminstrator </a></li>-->
             <!--</ul>-->

@@ -9,8 +9,30 @@ html, body{
   background-color: white;
   border-style: solid;
   border-radius: 5px;
-  border-color: darkorchid;
+  border-color: blue;
   margin-bottom: 7em;
+  color: blue;
+}
+
+.btnstart{
+  height: 30px;
+  width: 50px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: blue;
+  color: blue;
+}
+
+.btnstart:hover{
+  background: blue;
+  color: white;
+}
+
+.btndiscover:hover {
+  background: blue;
+  color: white;
 }
 
 html, body { height: 100%; }

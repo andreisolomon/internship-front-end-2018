@@ -16,11 +16,11 @@
         <div class="row">
             <p class="chapter"> CHAPTER {{ i+1 }} </p>
             <p class="title"> {{ chapter.getTitle() }} </p>
-            <p class="content"> {{ chapter.getContent() }}  </p>
+            <p class="content"> {{ chapter.getContent() | short }}  </p>
           <hr>
         </div>
       </div>
-      <div class="col-xs-1 col-md-3 pdd"> <button class="btnstart"> Start </button> </div>
+      <div class="col-xs-1 col-md-3 pdd"> <button class="btnstart" (click)="loadPage(chapter.getId())"> Start </button> </div>
     </div>
 
     <div class="row" *ngIf="size > 4">

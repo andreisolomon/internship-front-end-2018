@@ -41,7 +41,6 @@ export class Chapter {
   getTitle() {
     return this.title;
   }
-
   getContent() {
     return this.content;
   }

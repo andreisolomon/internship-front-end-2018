@@ -1,54 +1,49 @@
-
 <div class="login">
-  
-    <div class="container">
-     
-      <div class="row">
-        
-          <div class="col-md-2">&nbsp;</div>
-          <div class="col-md-4 wel">
-            <p class="welcome">Welcome back</p>
-            <p class="youracc">Login to your account</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <p class="welcome">Welcome back</p>
+        <p class="youracc">Login to your account</p>
+      </div>
+      <div class="col-md-5">
+        <form (ngSubmit)="validation(f)" #f="ngForm" class="col-sm-12">
+          <div class="form-group">
+            <input type="email" class="form-control input-lg" name="email" email ngModel required email #email="ngModel" placeholder="email adress">
+            <span class="help-block" *ngIf="!email.valid && email.touched"> Please enter your email! </span>
           </div>
-          <div class="col-md-3">
-         
-
- <form (ngSubmit)="validation(f)" #f="ngForm">
-
-        <div class="form-group">
-          <input type="email" class="form-control input-lg" name="email" id=""email ngModel required email #email="ngModel" placeholder="email adress">
-          <span class="help-block" *ngIf="!email.valid && email.touched"> Please enter your valid email! </span>
-        </div>
-    
-        <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" id="password" ngModel required password #password="ngModel" placeholder="********">
-          <span class="help-block" *ngIf="!password.valid && password.touched"> Please enter a password! </span>
-    
-        </div>
-    
-         <div class="form-group">
-          <button type="submit" class="btn btn-primary form-control input-lg" [disabled]="!f.valid" ><b>SIGN IN</b></button>
-         </div>
-        <p>Forgot password? <u>Reset it</u></p>
-
-     
-      </form>
+          <div class="form-group">
+            <input type="password" class="form-control input-lg" name="password"  ngModel required password #password="ngModel" placeholder="• • • • • • • •" >
+              <!-- <span toggle="#password" class="glyphicon glyphicon-eye-open toggle-password"></span> -->
+            <span class="help-block" *ngIf="!password.valid && password.touched"> Please enter your password! </span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control input-lg" [disabled]="!f.valid">
+              <b>SIGN IN</b>
+            </button>
+          </div>
+          <p>Forgot password?
+            <a routerLink="/resetpassword" routerLinkActive="active">
+              <u>Reset it</u>
+            </a>
+          </p>
+        </form>
+      </div>
 
     </div>
-   
-    <div class="col-md-3">&nbsp;</div>
-      </div>
-      <div class="row2">
-          <div class="col-md-2">&nbsp;</div>
-          <div class="col-md-2">&nbsp;</div>
-          <div class="col-md-4">
-            <p class="sup">Don't have an account?  <button type="submit" class="btn btn-primary form-group"  >SIGN UP</button></p> 
-          </div>
-          <div class="col-md-2">&nbsp;</div>
-          <div class="col-md-2">&nbsp;</div>
-      </div>
 
-      
+    <div class="row2">
+
+      <div class="col-md-12 signupbar">
+        <p class="sup">Don't have an account?
+          <button type="submit" class="btn btn-primary form-group" >
+              <a routerLink="/register">
+            <b>SIGN UP</b>
+            </a>
+          </button>
+        </p>
+      </div>
 
     </div>
   </div>
+</div>
+
