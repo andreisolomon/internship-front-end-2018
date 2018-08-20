@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+
+  <!--class="mat-elevation-z8"-->
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <!--<mat-checkbox (change)="$event ? masterToggle() : null"-->
+                    <!--[checked]="selection.hasValue() && isAllSelected()"-->
+                    <!--[indeterminate]="selection.hasValue() && !isAllSelected()">-->
+      <!--</mat-checkbox>-->
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <!--<mat-checkbox [ngModel]="element.isAdmin" class="example-margin">-->
+
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="image" id = "image ">
+    <th mat-header-cell *matHeaderCellDef> Basic info </th>
+    <td mat-cell *matCellDef="let element" > <input type="image" src ="{{element.image}}" id="img" class="img-circle" ></td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element" id ="name"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="tags">
+    <th mat-header-cell *matHeaderCellDef> Tags </th>
+    <td mat-cell *matCellDef="let element"> {{element.tags  }} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score </th>
+    <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)" id ="ok">
+  </tr>
+  <ng-container matColumnDef="button">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let row">
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+      <button type="button" class="btn btn-primary" id="bt" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal"
+      aria-hidden="true"></span></button>
+      <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>-->
+      <ul class="dropdown-menu">
+      <li><a href="#" class="drop"><span class="glyphicon glyphicon-edit"></span>Edit </a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="drop"> <span class="glyphicon glyphicon-trash"></span>Delete</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="drop">
+
+      <i class="fas fa-key" id="key"></i>Make Adminstrator </a></li>
+      </ul>
+      </li>
+      </ul>
+      </td>
+      <!--<button type="button" class="btn btn-primary" id="bt"><span class="glyphicon glyphicon-option-horizontal"-->
+<!--aria-hidden="true"></span></button> </td>-->
+  </ng-container>
+
+</table>
+  </div>
+  <div class ="col-md-2"></div>
+</div>
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
