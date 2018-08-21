@@ -30,7 +30,4 @@ export class UserlistTableComponent {
   displayedColumns: string[] = ['select', 'image', 'name', 'tags', 'score', 'date', 'button'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
-
-  
-
 }

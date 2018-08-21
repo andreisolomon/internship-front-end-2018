@@ -10,7 +10,6 @@ export class UserListService {
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
-
   ];
 
   getData() {

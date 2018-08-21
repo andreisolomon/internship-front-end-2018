@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {  NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PageHeaderComponent } from './components/shared/page-header/page-header.component';
 import { CourseComponent } from './components/admin/course/course.component';
@@ -26,13 +26,13 @@ import { ChapterService } from './components/shared/chapter-list/chapter.service
 import { UserListService } from './components/admin/user-list/user-list.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserlistTableComponent } from './components/admin/userlist-table/userlist-table.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule,
-} from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule } from '@angular/material';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { ShortenPipe } from './shorten.pipe';
+import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 
 @NgModule({
@@ -69,9 +69,18 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [CategoryListService, CourseListService, ChapterService, QuestionsService, AnswersService, UserListService],
+  providers: [
+    CourseListService,
+    ChapterService,
+    QuestionsService,
+    AnswersService,
+    UserListService,
+    CategoryListService
+    ],
   bootstrap: [AppComponent]
 })
 

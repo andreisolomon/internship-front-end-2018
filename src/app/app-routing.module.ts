@@ -12,6 +12,7 @@ import { ChapterListComponent } from './components/shared/chapter-list/chapter-l
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
 import {ChapterContentComponent} from './components/shared/chapter-content/chapter-content.component';
+import {CourseComponent} from './components/admin/course/course.component';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 
 const routers: Routes = [
@@ -52,6 +53,7 @@ const routers: Routes = [
     path: 'finished',
     component: FinishedCourseComponent
   },
+  { path: 'admin/course', component: CourseComponent },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
   { path: ':categoryId', redirectTo: 'courses/:categoryId'},
