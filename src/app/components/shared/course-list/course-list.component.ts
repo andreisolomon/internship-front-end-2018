@@ -16,13 +16,14 @@ export class CourseListComponent implements OnInit {
   public title: string = 'Browse through all Finance courses for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
   public id: number;
-  public categoryTitle: any;
-  public categoryBackground: any;
+  public categoryTitle: string;
+  public categoryBackground: string;
   public text: string = 'Discover more';
   public size: number;
   public error: boolean;
   public course_id: number;
   public link: string;
+
 
   constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 

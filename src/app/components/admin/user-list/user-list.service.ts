@@ -6,7 +6,6 @@ export class UserListService {
   }
 
   private data: User[] = [
-    // /home/anca/projects/internship-front-end-2018/src/assets
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018'),
     new User(0, 2, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018'),
     new User(0, 3, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018')

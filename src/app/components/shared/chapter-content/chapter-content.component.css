@@ -1,0 +1,48 @@
+.container {
+  margin-top: 5em;
+}
+
+.content{
+  margin-top: 2em;
+  text-align: justify;
+  margin-bottom: 2em;
+}
+
+.divinline2>button{
+  float: right;
+  clear: none;
+}
+
+.margin{
+  margin-right: 1em;
+}
+
+.btnstart {
+  width: 6em;
+  margin-bottom: 2em;
+  color: grey;
+  border-color: grey;
+}
+
+.btnstart:hover{
+  color: white;
+  border-color: darkblue;
+}
+
+.btnright {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.btnleft {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.pdd {
+  padding-right: 3em;
+}
+
+.btndiscover{
+  margin-right: 1em;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryListService } from './category-list.service';
-import { Category } from './category-list.model';
-import {ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Category } from './category';
 
 @Component({
   selector: 'app-course-list',
@@ -10,7 +10,7 @@ import {ActivatedRoute, Params } from '@angular/router';
 })
 export class CategoryListComponent implements OnInit {
 
-  public datas: Category[];
+  public data: Category[];
   public text: string = 'Discover more';
   public title: string = 'Browse through best learning course for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
@@ -22,7 +22,9 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.datas = this.categoryListService.getData().slice(0, 6);
+    this.categoryListService.getCategories().subscribe(data => this.data = data.slice(0, 6));
+
+    this.data = this.categoryListService.getData();
 
     this.route.params.subscribe(
       (params: Params) => {
@@ -47,12 +49,12 @@ export class CategoryListComponent implements OnInit {
   load() {
     if (this.text === 'Discover more'){
 
-      this.datas = this.categoryListService.getData();
+      this.data = this.categoryListService.getData();
       this.text = 'Looks less';
 
     } else {
 
-      this.datas = this.categoryListService.getData().slice(0, 6);
+      this.data = this.categoryListService.getData().slice(0, 6);
       this.text = 'Discover more';
 
     }
