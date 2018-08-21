@@ -1,2 +1,51 @@
+<!--<app-page-header></app-page-header>-->
+<!--<app-userlist-table></app-userlist-table>-->
 <app-page-header></app-page-header>
-<app-userlist-table></app-userlist-table>
+
+
+
+
+
+<div class="container_allusers">
+  <div class="descList">
+    <span style="margin-left: 95px;">basic info</span>
+    <span style="margin-left: 236px;">total score</span>
+    <span style="margin-left:29px;">tags</span>
+    <span style="margin-left:111px;">date created</span>
+  </div>
+
+  <ul class="users-list" *ngFor="let user of users">
+
+    <li id="user.user_id">
+      <div  id="checkActive">  <span class="details">Active : </span><input type="checkbox" [ngModel]="user.active==1"></div>
+      <img [src]="user.image" class="profilePic">
+      <p class="name"> {{user.firstName}} {{user.lastName}} <span class="useremail"><span class="details">E-mail : </span>{{user.email}}</span></p>
+      <span class="score"><span class="details">Total score : </span> 12,2500</span>
+      <div id="tags">
+        <p class="tags">{{user.tags}}</p>
+      </div>
+      <span class="datecreated"><span class="details">Date created : </span>25-oct-2018</span>
+
+      <ul class="minCtrl">
+        <li><i class="far fa-edit"></i>Edit</li>
+        <li><i class="far fa-trash-alt"></i>Delete</li>
+        <span [hidden]="user.roles==1"><li><i class="fas fa-key"></i>Make Admin</li></span>
+        <span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Admin</li></span>
+      </ul>
+
+      <span class="opt"><a style="cursor: pointer;"><i class="fas fa-ellipsis-h"></i></a>
+        <div [hidden]="false" class="editUser">
+          <ul>
+            <li><i class="far fa-edit"></i>Edit</li>
+            <li><i class="far fa-trash-alt"></i>Delete</li>
+           <span [hidden]="user.roles==1"><li><i class="fas fa-key"></i>Make An Administrator</li></span>
+           <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Administrator</li></span>-->
+          </ul>
+        </div>
+      </span>
+    </li>
+
+  </ul>
+
+</div>
+
