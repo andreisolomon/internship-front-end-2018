@@ -87,4 +87,16 @@ private isAdmin: number;
   }
 
 
+
+  // id?: Number;
+  // email: String;
+  // firstName: String;
+  // lastName: String;
+  // password: String;
+  // active?: Number;
+  // image: string;
+  // tags:string;
+  // // tags: string[];
+  // constructor() { }
+
 }

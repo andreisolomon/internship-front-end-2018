@@ -2,7 +2,6 @@ table
 {
   margin-top: 100px;
   width: 100%;
-
 }
 #image{
   /*padding: 200px;*/
@@ -20,7 +19,6 @@ table
 height: 59px;
 width: 89px;}
 .btn-primary:hover{
-
 }
 .btn-primary{
   border-color:transparent;
@@ -28,7 +26,6 @@ width: 89px;}
   color: darkblue;
 }
 td.mat-cell{
-
 }
 .mat-header-cell{
   background-color: #F6FAFC;
@@ -48,7 +45,6 @@ vertical-align: bottom !important;}
 .mat-row:hover{
   border: 1px solid #006FFF !important;
   border-radius: 5px !important;
-
 }
 .drop:not(.nohover):hover{
   background-color: #006FFF !important;

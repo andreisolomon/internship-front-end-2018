@@ -54,7 +54,6 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
     PageSectionComponent,
     ChapterListComponent,
     PageSectionSmallComponent,
-    UserlistTableComponent,
     FinishedCourseComponent,
     ChapterContentComponent,
     ShortenPipe,

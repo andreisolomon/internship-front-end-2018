@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <app-page-header></app-page-header>
 <div class="container">
 
@@ -11,34 +11,51 @@
 
       <div class="form-group">
         <label for="summary"> Summary </label>
-        <input type="text" id="summary" formControlName="summary" class="form-control">
+        <input type="text" maxlength="70" id="summary" formControlName="summary" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="description"> Description </label>
-        <input type="text" id="description" formControlName="description" class="form-control">
+        <label > Description </label><br>
+        <textarea rows="2"  maxlength="150"> </textarea>
       </div>
 
 
       <div formArrayName="chapters">
         <h4> Chapters </h4>
-        <button class="btn btn-primary" type="button" (click)="onAddChapter()"> Add chapter </button>
+       <label> <button class="btn btn-primary" type="button" (click)="onAddChapter()"> Add chapter </button></label>
         <div class="form-group" *ngFor="let chapterControl of courseForm.get('chapters').controls; let i = index">
-          <input type="text" class="form-control" [formControlName]="i">
+          <label >Chapter title</label>
+          <input type="text"  class="form-control" [formControlName]="i">
+        </div>
+        <div class="form-group" *ngFor="let chapterControl of courseForm.get('chapters').controls; let i = index">
+            <label >Content</label><br>
+            <textarea rows="3" cols="140" maxlength="500"> </textarea>
+          
         </div>
       </div>
 
+      <div formArrayName="questions">
+          <h4> Questions </h4>
+         <label > <button class="btn btn-primary" type="button" (click)="onAddQuestions()"> Add questions </button></label>
+          <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
+            <label >Question title</label><br>
+            <input type="radio"><input type="text" maxlength="70" class="form-control" [formControlName]="i"> 
+            
+          </div>
+          <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
+              <label >Content</label><br>
+              <textarea rows="3" cols="140" maxlength="500"> </textarea>
+  
+          </div>
+        </div>
+
       <div class="form-group">
-        <button class="btn btn-primary" type="submit"> Submit </button>
+        <button class="btn btn-primary" type="submit"> Create </button>
       </div>
 
 
   </form>
-
+  <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
 </div>
-=======
-
-<p>
-  course works!
-</p>
->>>>>>> refs/remotes/origin/master
