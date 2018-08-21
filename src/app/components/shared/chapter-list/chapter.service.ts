@@ -1,77 +1,42 @@
-import { Chapter } from './chapter.model';
-import index from '../../../../../node_modules/@angular/cli/lib/cli';
+import {HttpClient} from '../../../../../node_modules/@angular/common/http';
+import {Observable} from '../../../../../node_modules/rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Chapter} from './chapter';
 
+@Injectable()
 export class ChapterService {
 
-  constructor() {}
+  constructor(private http: HttpClient) {  }
 
-  private content = 'It s hard to say when in our lives each of us become aware of this thing called "astronomy". But it is safe to say that at some point on our lives, each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe that we see in the night sky.';
-
-  private data: Chapter[] = [
-    new Chapter(1, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(2, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(3, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(4, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(5, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(6, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(7, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(8, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(9, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(10, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content),
-    new Chapter(11, 1, 'Welcome to Desiclassifields Free Classifields Free Ads', this.content)
-  ];
-
-  getData() {
-    return this.data;
+  getChapters(): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>('http://localhost:3000/chapters');
   }
 
   getChaptersFromCourseById(id: number) {
-    const chapters: Chapter[] = [];
-    for (const chapter of this.data) {
-      if (chapter.getCourseId() === id) {
-        chapters.push(chapter);
-      }
-    }
-    return chapters;
-  }
-
-  getSize(id = 0) {
-    return this.data.length;
-  }
-
-  getSizeById(id: number) {
-    return this.getChaptersFromCourseById(id).length;
+    return this.getChapters().map(data => data.filter(item => item.course_id === id));
   }
 
   getChapterCourseById(id: number) {
-    for (const chapter of this.data) {
-      if (chapter.getId() === id) {
-        return chapter.getCourseId();
-      }
-    }
+    return this.getChapters().map(data => data.find(item => item.id === id).course_id);
   }
 
   getChapterTitleById(id: number) {
-    for (let chapter of this.data) {
-      if (chapter.getId() === id) {
-        return chapter.getTitle();
-      }
-    }
+    return this.getChapters().map(data => data.find(item => item.id === id).title);
   }
 
-  noOfChapterInCourse(course_id: number, chapter_id: number) {
-
-    const chapters: Chapter[] = this.getChaptersFromCourseById(course_id);
-
-    for (let i = 0; i < chapters.length; i++) {
-      if(chapters[i].getId() === chapter_id) {
-        return i + 1;
-      }
-    }
-
+  getChapterContentById(id: number) {
+    return this.getChapters().map(data => data.find(item => item.id === id).content);
   }
 
-  getPrevNext(course_id: number, chapter_id: number, type: number) {
+  noOfChapterInCourse(chapter_id: number) {
+    return this.getChapters().map(data => data.findIndex(item => item.id === chapter_id));
+  }
+
+  getNext(course_id: number, chapter_id: number) {
+    return this.getChapters().map(data => data.find(item => item.id > chapter_id && item.course_id === course_id).id);
+  }
+
+  /*getPrevNext(course_id: number, chapter_id: number, type: number) {
 
     const chapters: Chapter[] = this.getChaptersFromCourseById(course_id);
 
@@ -90,5 +55,6 @@ export class ChapterService {
     }
 
   }
+  */
 
 }

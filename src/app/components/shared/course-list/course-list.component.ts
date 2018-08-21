@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from './course-list.service';
-import { Course } from './course-list.model';
+import { Course } from './course';
+import {from, Observable} from 'rxjs';
+import 'rxjs/add/observable/of';
 
 
 @Component({
@@ -12,27 +14,28 @@ import { Course } from './course-list.model';
 })
 export class CourseListComponent implements OnInit {
 
-  public courses: Course[];
+  public courses: Observable<Course[]>;
   public title: string = 'Browse through all Finance courses for Alexa';
   public subtitle: string = 'Pick the one you like and start learning';
   public id: number;
-  public categoryTitle: any;
-  public categoryBackground: any;
+  public categoryTitle: Observable<string>;
+  public categoryBackground: Observable<string>;
   public text: string = 'Discover more';
-  public size: number;
+  public size: Observable<number>;
   public error: boolean;
   public course_id: number;
   public link: string;
 
+
+
   constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 
   ngOnInit() {
-
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];
         this.link = '';
-        if (this.courseListService.getCourseById(this.id) === false) {
+        if (this.categoryListService.categoryExist(this.id) === Observable.of(false)) {
           this.router.navigate(['/courses/', this.id, 'notfound']);
         }
         if (params['courseId'] != null) {
@@ -42,9 +45,9 @@ export class CourseListComponent implements OnInit {
       }
     );
 
-    this.courses = this.courseListService.getCoursesFromCategory(this.id).slice(0, 6);
+    this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
 
-    this.size = this.courseListService.getSizeById(this.id);
+    this.size = this.courses.map(data => data.length);
 
     this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
 
@@ -61,17 +64,26 @@ export class CourseListComponent implements OnInit {
   }
 
   load() {
-    if (this.text === 'Discover more'){
+    if (this.text === 'Discover more') {
 
       this.courses = this.courseListService.getCoursesFromCategory(this.id);
       this.text = 'Looks less';
 
     } else {
 
-      this.courses = this.courseListService.getCoursesFromCategory(this.id).slice(0, 6);
+      this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
       this.text = 'Discover more';
 
     }
+  }
+
+  compare(value: number) {
+    if (value === 0 && this.size.subscribe(number => number === value)) {
+      return true;
+    } else if (value !== 0 && this.size.subscribe(number => number > value)) {
+      return true;
+    }
+    return false;
   }
 
 }

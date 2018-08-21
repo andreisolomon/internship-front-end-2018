@@ -1,87 +1,36 @@
-import { Course } from './course-list.model';
+import { Course } from './course';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
+@Injectable()
 export class CourseListService {
 
-  constructor() {}
+  constructor(private http: HttpClient) {  }
 
-  private data: Course[] = [
-
-    new Course(1, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(2, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(3, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(4, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(5, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(6, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.', 'In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(7, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(8, 4, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(9, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(10, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(11, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(12, 3, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(13, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(14, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(15, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(16, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(17, 5, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(18, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(19, 2, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(20, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg'),
-    new Course(21, 1, 'Internet banner Advertisting Most Reliable Forms of Web Advertisting', 'There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.','In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.', '/../../../../../assets/images/tree.jpeg')
-
-  ];
-
-  getData() {
-    return this.data;
+  getCourses(): Observable<any> {
+    return this.http.get('http://localhost:3000/courses');
   }
 
   getCoursesFromCategory(id: number) {
-    let courses: Course[] = [];
-
-    for (let course of this.data) {
-      if (course.getCategoryId() === id) {
-        courses.push(course);
-      }
-    }
-
-    return courses;
+    return this.getCourses().map(data => data.filter(item => item.category_id === id));
   }
 
   getCourseById(id: number) {
-    for (let course of this.data) {
-      if (course.getId() === id) {
-        return course;
-      }
-    }
-    return false;
+    return this.getCourses().map(data => !!data.find(item => item.id === id));
   }
 
-  getSizeById(id: number) {
-    return this.getCoursesFromCategory(id).length;
+  getCourseTitleById(id: number) {
+    return this.getCourses().map(data => data.find(item => item.id === id).title);
   }
 
-  getCourseTitleById(id: number){
-    for (let course of this.data) {
-      if (course.getId() === id) {
-        return course.getTitle();
-      }
-    }
-  }
-
-  getCourseMinDescriptionById(id: number){
-    for (let course of this.data) {
-      if (course.getId() === id) {
-        return course.getMinDescription();
-      }
-    }
+  getCourseSummaryById(id: number) {
+    return this.getCourses().map(data => data.find(item => item.id === id).summary);
   }
 
   courseInCategoryById(id: number, category_id: number) {
-    for (let course of this.data) {
-      if (course.getId() === id && course.getCategoryId() === category_id){
-        return true;
-      }
-    }
-    return false;
+    return this.getCourses().map(data => data.find(item => item.id === id && item.category_id === category_id));
   }
 
 }

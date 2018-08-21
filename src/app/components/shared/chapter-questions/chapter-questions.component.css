@@ -4,7 +4,7 @@
 
 .panel {
   width: 100%;
-
+  margin-bottom: 3em;
 }
 
 .question {
@@ -99,6 +99,7 @@
 .panel-heading {
     background-color: darkblue;
     border-color: darkblue;
+
 }
 
 
@@ -115,4 +116,8 @@
 
 hr {
   margin-top: 2em;
+}
+
+.list-group-item {
+  margin-top: -1.5em;
 }
