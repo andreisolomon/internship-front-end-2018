@@ -6,8 +6,9 @@ export class Course {
   private minDescription: string;
   private description: string;
   private img: string;
+  private score: number;
 
-  constructor(id: number, category_id: number, title: string, minDescription: string, description: string, img: string) {
+  constructor(id: number, category_id: number, title: string, minDescription: string, description: string, img: string, score: number) {
 
     this.setId(id);
     this.setCategoryId(category_id);
@@ -15,13 +16,11 @@ export class Course {
     this.setMinDescription(minDescription);
     this.setDescription(description);
     this.setImg(img);
-
+    this.setScore(score);
   }
-
   setId(id: number) {
     this.id = id;
   }
-
   setCategoryId(category_id: number) {
     this.category_id = category_id;
   }
@@ -29,7 +28,6 @@ export class Course {
   setTitle(title: string) {
     this.title = title;
   }
-
   setMinDescription(minDescription: string) {
     this.minDescription = minDescription;
   }
@@ -37,9 +35,14 @@ export class Course {
   setDescription(description: string) {
     this.description = description;
   }
-
+  setScore(score: number) {
+    this.score = score;
+  }
   setImg(img: string) {
     this.img = img;
+  }
+  getScore() {
+    return this.score;
   }
 
   getId() {
