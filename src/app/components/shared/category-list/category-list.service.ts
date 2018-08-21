@@ -4,48 +4,32 @@ import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable()
 export class CategoryListService {
 
   private data: Category[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-    this.getCategories().subscribe(data => this.data = data);
-
-  }
-
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>('./assets/categories.json');
-  }
-
-  getData() {
-    return this.data;
+  getCategories(): Observable<any> {
+    return this.http.get('http://localhost:3000/categories');
   }
 
   getCategoryById(id: number) {
-    for (let category of this.data) {
-      if (category.id === id) {
-        return category;
-      }
-    }
-    return false;
+    return this.getCategories().map(data => data.find(item => item.id === id));
   }
 
   getCategoryTitleById(id: number) {
-    for (let category of this.data) {
-      if (category.id === id) {
-        return category.title;
-      }
-    }
+    return this.getCategories().map(data => data.find(item => item.id === id).title);
   }
 
   getCategoryBackgroundById(id: number) {
-    for (let category of this.data) {
-      if (category.id === id) {
-        return category.background;
-      }
-    }
+    return this.getCategories().map(data => data.find(item => item.id === id).background);
+  }
+
+  categoryExist(id: number) {
+    return this.getCategories().map(data => !!data.find(item => item.id === id));
   }
 
 }

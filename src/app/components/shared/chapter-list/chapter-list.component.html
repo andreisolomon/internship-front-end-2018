@@ -1,32 +1,32 @@
 <app-page-header> </app-page-header>
 
-<app-page-section-small [title]="title" [subtitle]="subtitle" [categoryTitle]="categoryTitle" [categoryBackground]="categoryBackground" [showCourse]="true"></app-page-section-small>
+<app-page-section-small [title]="title|async" [subtitle]="subtitle|async" [categoryTitle]="categoryTitle|async" [categoryBackground]="categoryBackground|async" [showCourse]="true"></app-page-section-small>
 
 <div class="container">
 
-  <div class="alert alert-warning" *ngIf="!size; else found">
+<!--  <div class="alert alert-warning" *ngIf="!size; else found">
     <strong>Warning!</strong> There are no chapters in this course.
   </div>
-  <ng-template #found>
+  <ng-template #found>-->
 
-    <div class="row" *ngFor="let chapter of chapters; let i = index">
+    <div class="row" *ngFor="let chapter of chapters | async; let i = index">
 
       <div class="col-xs-1 col-md-2"></div>
       <div class="col-xs-10 col-md-7">
         <div class="row">
             <p class="chapter"> CHAPTER {{ i+1 }} </p>
-            <p class="title"> {{ chapter.getTitle() }} </p>
-            <p class="content"> {{ chapter.getContent() | short }}  </p>
+            <p class="title"> {{ chapter.title }} </p>
+            <p class="content"> {{ chapter.content | short }}  </p>
           <hr>
         </div>
       </div>
-      <div class="col-xs-1 col-md-3 pdd"> <button class="btnstart" (click)="loadPage(chapter.getId())"> Start </button> </div>
+      <div class="col-xs-1 col-md-3 pdd"> <button class="btnstart" (click)="loadPage(chapter.id)"> Start </button> </div>
     </div>
 
-    <div class="row" *ngIf="size > 4">
+    <div class="row">
       <div class="col col-md-4"></div>
       <div class="col-col-md-3 pdd2"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
       <div class="col col-md-5"></div>
     </div>
-  </ng-template>
+<!--  </ng-template>-->
 </div>
