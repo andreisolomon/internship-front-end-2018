@@ -64,9 +64,14 @@ tr{
 .reset-td{
   vertical-align: baseline;
 }
+input[type="checkbox"][readonly]{
+  pointer-events: none;
+}
 
-
-
+.btn{
+  background-color: transparent;
+  border-color: transparent;
+}
 /* ------------------------------------------------------------------------ */
 .container_allusers{
 
@@ -548,3 +553,4 @@ input[type=checkbox]:checked:after {
   width: 85px;
   display: block
 }
+

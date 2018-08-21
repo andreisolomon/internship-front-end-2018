@@ -1,75 +1,85 @@
 <app-page-header></app-page-header>
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-4" id="my-account">My account</div>
-
-  </div>
-  <div class="row">
-
-
-    <div class="col-md-3" id="info">Here you can edit your account’s informations, courses you started and the progress
-      for each one.
-      Contact us at contact@alexateachme.com, if you need any help.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3" id="btn_log">
-      <button type="button" class="btn btn-primary" id="log" (click)="toLogout()">LOG OUT</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" id="account_info">Account Informations</div>
-  </div>
-  <div class="container2">
+<div class="col col-md-2"></div>
+<div class=" col col-md-8">
+  <div class="container">
     <div class="row">
-
-      <div class="col-md-2" id="img"><input type="image" id="image" alt="user image"
-                                            src='../../../../../assets/images/img3.jpeg'></div>
-      <div class="col-md-2" id="information">To quickly change your profile picture, just drag&drop an image or upload
-        a file.
-        Image selected, should have maximum 15 MB size.
-      </div>
-      <div class="col-md-2" id="form">
-        <form>
-          <div class="form-group">
-            <input type="text" class="form-control" id="username" placeholder="username"></div>
-          <div class="form-group"><input type="email" class="form-control" id="exampleInputEmail1"
-                                         aria-describedby="emailHelp"
-                                         placeholder="Enter email">
-          </div>
-          <div class="form-group">
-
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-
-        </form>
+      <div class="col-md-4" id="my-account">My account</div>
+    </div>
+    <div class="row">
+      <div class="col-md-3" id="info">Here you can edit your account’s informations, courses you started and the
+        progress
+        for each one.
+        Contact us at contact@alexateachme.com, if you need any help.
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2" id="upload">
-      <button type="button" class="btn btn-default">Upload file</button>
+    <div class="row">
+      <div class="col-md-3" id="btn_log">
+        <button type="button" class="btn btn-primary" id="log" (click)="toLogout()">LOG OUT</button>
+      </div>
     </div>
+    <div class="container2">
+      <div class="row">
+        <div class="col-md-12" id="account_info">Account Informations</div>
+      </div>
+      <div class="row">
+        <div class="col-md-2" id="img"><input type="image" id="image" alt="user image"
+                                              src='../../../../../assets/images/img3.jpeg'></div>
+        <div class="col-md-2" id="information">To quickly change your profile picture, just drag&drop an image or upload
+          a file.
+          Image selected, should have maximum 15 MB size.
+        </div>
+        <div class="col-md-2" id="form">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="username" placeholder="username"></div>
+            <div class="form-group"><input type="email" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp"
+                                           placeholder="Enter email">
+            </div>
+            <div class="form-group">
 
-    <div class="col-md-4"></div>
-    <div class="col-md-2" id="save">
-      <button type="button" class="btn btn-primary">Save</button>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="upload">Upload file</button>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-2" id="save">
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+        <div class="col-md-2" id="cancel">
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </div>
+      <div id="courses">
+        <hr id="hr">
+        <br>
+        <h1>Started Courses</h1>
+        <ng-container class="row" *ngFor="let course of courses" id="all">
+          <div *ngIf="course.getScore()>0">
+            <div id="cours">
+              <div class="col-md-2">
+                <input type="image" id="image1" alt="user image" src={{course.getImg()}}></div>
+              <div class="col-md-7"><p id="write"> {{course.getTitle()}}</p>
+                <small>{{course.getMinDescription()}}</small>
+              </div>
+              <div class="col col-md-2" id="score"> {{course.getScore()}}<br> points</div>
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="col col-md-12">
+              <div class="progress md-progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%"  aria-valuemin="0" aria-valuemax="100"></div>
+              </div></div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <div class="col-md-2" id="cancel">
-      <button type="button" class="btn btn-default">Cancel</button>
-    </div>
-
-  </div>
-  <h1>Started Courses</h1>
-
-  <div class="row" *ngFor="let course of courses" id="all">
-    <div class="col-md-2">
-      <input type="image" id="image1" alt="user image" src={{course.getImg()}}></div>
-    <div class="col-md-4" id="write"><p> {{course.getTitle()}}</p>
-      <small>{{course.getMinDescription()}}</small>
-    </div>
-    <div class="col col-md-2"> {{course.getScore()}}</div>
   </div>
 </div>
 

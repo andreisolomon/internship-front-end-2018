@@ -1,16 +1,20 @@
-#my-account
-{	height: 38px;
+#my-account {
+  height: 38px;
   width: 774px;
   color: #06102B;
   /*font-family: Roboto;*/
   font-size: 24px;
   font-weight: bold;
-  line-height: 38px;}
-.container{
-  margin-top:50px;
-  width: 80%;
+  line-height: 38px;
 }
-#info{
+
+.container {
+  margin-top: 150px;
+  width: 80%;
+  margin-bottom: 200px;
+}
+
+#info {
   height: 46px;
   width: 699px;
   color: #AEB5BB;
@@ -18,15 +22,34 @@
   font-size: 14px;
   line-height: 23px;
 }
-#log{
+
+#log {
+  margin-top: 40px !important;
+  padding: 0;
   height: 31px;
-  width:75px;
+  width: 80px;
   border-radius: 5px;
   background-color: #006FFF;
   font-size: 16px;
   line-height: 19px;
-  text-align: center;}
-#account_info{
+  text-align: center;
+}
+
+#hr {
+  margin-left: 0;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  height: 2px;
+  width: 780px;
+  border: 1px solid #EBECED;
+}
+
+#courses {
+  margin-top: 50px;
+}
+
+#account_info {
+  margin-bottom: 50px;
   height: 38px;
   width: 774px;
   color: #4A4A4A;
@@ -35,12 +58,16 @@
   font-weight: bold;
   line-height: 38px;
 }
-#image{
+
+#image {
   height: 140px;
   width: 140px;
   border-radius: 5px;
 }
+
 #information {
+  margin-bottom: 40px;
+  margin-top: 20px;
   height: 92px;
   width: 256px;
   color: #AEB5BB;
@@ -48,33 +75,85 @@
   font-size: 14px;
   line-height: 23px;
 }
-form{
-	height: 45px;
+
+form {
+  height: 45px;
   width: 300px;
   /*border: 1px solid #AEB5BB;*/
   border-radius: 5px;
   background-color: #FFFFFF;
-}#upload
- {
-height: 31px;
-   width: 56px;
-   border: 1px solid #006FFF;
-   /*border-radius: 5px;*/
- }
-#save
-{
-	height: 31px;
-  width: 56px;
-  /*border-radius: 5px;*/
-  background-color: #006FFF;
 }
-#cancel
-{
-	/*height: 1440px;*/
-  /*width: 1440px;*/
-  background-color: #F6FAFC;
-}
-#write{
-  box-sizing: content-box !important;
 
+#upload {
+  margin-top: 10px;
+  height: 31px;
+  width: 76px;
+  border: 1px solid #006FFF;
+  text-align: center;
+  padding: initial;
+  margin-left: 20px;
+  color: #006FFF;
+  /*border-radius: 5px;*/
+}
+
+#save {
+  height: 19px;
+  width: 56px;
+  color: #006FFF;
+  padding: 0;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+#cancel {
+  /*height: 1440px;*/
+  /*width: 1440px;*/
+  /*background-color: #F6FAFC;*/
+}
+
+#write {
+  height: 16px;
+  width: 460px;
+  color: #06102B;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+
+}
+
+.container2 {
+  margin-top: 200px;
+}
+
+#image1 {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+.progress{
+  margin-top:10px;
+ height: 3px;
+}
+#cours {
+
+  margin-right: 20px;
+  padding: 20px;
+  height: 174px;
+  width: 780px;
+  border: 1px solid #EFF1F4;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
+
+#score {
+  margin-left: 20px;
+  height: 72px;
+  /*width: 51px;*/
+  color: #006FFF;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center !important;
 }

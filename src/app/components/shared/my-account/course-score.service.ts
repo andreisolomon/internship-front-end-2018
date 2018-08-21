@@ -1,53 +1,11 @@
-
-export class Score {
-  private id: number;
-  private user_id: number;
-  private course_id: number;
-  private score: number;
-
-  constructor(id: number, user_id: number, course_id: number, score: number) {
-    this.setId(id);
-    this.setScore(score);
-    this.setUser_id(user_id);
-    this.setCourse_id(course_id);
-  }
-
-  setScore(score: number) {
-    this.score = score;
-  }
-
-  setId(id: number) {
-    this.id = id;
-  }
-
-  setCourse_id(course_id: number) {
-    this.course_id = course_id;
-  }
-
-  setUser_id(user_id: number) {
-    this.user_id = user_id;
-  }
-
-  getId() {
-    return this.id;
-  }
-
-  getCourse_id() {
-    return this.course_id;
-  }
-
-  getUser_id() {
-    return this.user_id;
-  }
-
-  getScore() {
-    return this.score;
-  }
-}
+import {Score} from './score-model';
 
 export class CourseScoreService {
+  constructor() {}
   private data: Score[] = [
-    new Score(1, 1, 1, 10)
+    new Score(1, 1, 1, 10, 100),
+    new Score(2, 2, 1, 10, 100),
+    new Score(3, 3, 1, 10, 100),
   ];
 
 
@@ -64,34 +22,32 @@ export class CourseScoreService {
     return false;
   }
 
-  getScoreId(id: number) {
-    for (let score of this.data) {
-      if (score.getId() === id) {
-        return score.getScore();
-      }
-    }
-  }
 
-  getCourse_idIdById(id: number) {
-    for (let score of this.data) {
-      if (score.getId() === id) {
-        return score.getCourse_id();
-      }
-    }
-  }
-
-  getUser_idIdById(id: number) {
+  getScoreUser_idById(id: number) {
     for (let score of this.data) {
       if (score.getId() === id) {
         return score.getUser_id();
       }
     }
   }
-
-  getScoreIdById(id: number) {
+  getScoreCourse_idById(id: number) {
     for (let score of this.data) {
       if (score.getId() === id) {
-        return score.getId();
+        return score.getCourse_id();
+      }
+    }
+  }
+  getScoreScoreById(id: number) {
+    for (let score of this.data) {
+      if (score.getId() === id) {
+        return score.getScore();
+      }
+    }
+  }
+  getScoreScore_maxxById(id: number) {
+    for (let score of this.data) {
+      if (score.getId() === id) {
+        return score.getScore_max();
       }
     }
   }
