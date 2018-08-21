@@ -8,18 +8,10 @@ export class UserListService {
 
   private data: User[] = [
     // /home/anca/projects/internship-front-end-2018/src/assets
-<<<<<<< HEAD
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,'')
-=======
 
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
     new User(0, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
-
-
->>>>>>> 6451cd2680e6eabe4098d9e2985563fd5e56ad78
   ];
 
   getData() {

@@ -25,8 +25,7 @@ import { PageSectionSmallComponent } from './components/shared/page-section-smal
 import { ChapterService } from './components/shared/chapter-list/chapter.service';
 import { UserListService } from './components/admin/user-list/user-list.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserlistTableComponent } from './components/admin/userlist-table/userlist-table.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule} from '@angular/material';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';

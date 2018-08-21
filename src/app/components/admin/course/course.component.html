@@ -1,5 +1,5 @@
+ <app-page-header></app-page-header>
 
-<app-page-header></app-page-header>
 <div class="container">
 
   <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
@@ -40,7 +40,6 @@
           <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
             <label >Question title</label><br>
             <input type="radio"><input type="text" maxlength="70" class="form-control" [formControlName]="i"> 
-            
           </div>
           <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
               <label >Content</label><br>
@@ -59,3 +58,4 @@
       <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
