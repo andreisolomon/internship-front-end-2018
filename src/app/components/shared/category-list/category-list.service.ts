@@ -1,6 +1,6 @@
 import { Category } from './category';
-import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, filter, switchMap } from 'rxjs/operators';
