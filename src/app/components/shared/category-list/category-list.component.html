@@ -22,11 +22,11 @@
   <div class="row margin">
 
     <div class="col-md-3"></div>
-    <div class="col-md-9">
+   <div class="col-md-9">
       <div class="alert alert-danger" *ngIf="error">
         <strong>Error!</strong> Category with id {{ id }} does not exist. Please choose another category.
       </div>
-      <div class="col-md-3 rectangle" *ngFor="let data of datas" [ngStyle]="setBackground(data.getBackground())" > <p> <a [routerLink]=" link + data.getId() "> {{ data.getTitle() }}</a> </p> </div>
+      <div class="col-md-3 rectangle" *ngFor="let categ of data" [ngStyle]="setBackground(categ.background)" > <p> <a [routerLink]=" link + categ.id "> {{ categ.title }}</a> </p> </div>
     </div>
   </div>
 

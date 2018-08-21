@@ -1,8 +1,8 @@
 export class Category {
 
-  private id: number;
-  private title: string;
-  private background: string;
+  public id: number;
+  public title: string;
+  public background: string;
 
   constructor(id: number, title: string, background: string) {
     this.setId(id);

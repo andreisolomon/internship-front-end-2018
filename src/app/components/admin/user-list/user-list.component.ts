@@ -3,8 +3,6 @@ import {UserListService} from './user-list.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -31,6 +29,7 @@ export class UserListComponent implements OnInit {
     this.users = this.userListService.getData();
   // getAllUsers() {
     // return this.users;
+
   }
 
   // ngOnInit() {
