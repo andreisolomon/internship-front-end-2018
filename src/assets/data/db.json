@@ -1,0 +1,503 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Astrology",
+      "background": "linear-gradient(to right, #0f2027, #203a43, #2c5364)"
+    },
+    {
+      "id": 2,
+      "title": "Finance",
+      "background": "linear-gradient(to right, #bc4e9c, #f80759)"
+    },
+    {
+      "id": 3,
+      "title": "Grammar",
+      "background": "linear-gradient(to right, #59c173, #a17fe0, #5d26c1)"
+    },
+    {
+      "id": 4,
+      "title": "Fun facts",
+      "background": "linear-gradient(to right, #c31432, #240b36)"
+    },
+    {
+      "id": 5,
+      "title": "Jokes",
+      "background": "linear-gradient(to right, #1f4037, #99f2c8)"
+    },
+    {
+      "id": 6,
+      "title": "Life hacks",
+      "background": "linear-gradient(to right, #fc4a1a, #f7b733)"
+    },
+    {
+      "id": 7,
+      "title": "Football",
+      "background": "linear-gradient(to right, #0f0c29, #302b63, #24243e)"
+    },
+    {
+      "id": 8,
+      "title": "IT",
+      "background": "linear-gradient(to right, #000000, #0f9b0f)"
+    },
+    {
+      "id": 9,
+      "title": "Mathematic",
+      "background": "linear-gradient(to right, #200122, #6f0000)"
+    },
+    {
+      "id": 10,
+      "title": "General",
+      "background": "linear-gradient(to right, #000428, #004e92)"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "category_id": 2,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 2,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 3,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 4,
+      "category_id": 2,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 5,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 6,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 7,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 8,
+      "category_id": 4,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 9,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 10,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 11,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 12,
+      "category_id": 3,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 13,
+      "category_id": 2,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 14,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 15,
+      "category_id": 2,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 16,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 17,
+      "category_id": 5,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 18,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 19,
+      "category_id": 2,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 20,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    },
+    {
+      "id": 21,
+      "category_id": 1,
+      "title": "Internet banner Advertisting Most Reliable Forms of Web Advertisting",
+      "summary": "There is a lot of exciting stuff going in the stars above us that make astronomy so much fun.",
+      "description": "In order to discuss the general function of the logo, we must fistrly identify and define the environment where this will have to fulfill its function.",
+      "img": "/../../../../../assets/images/tree.jpeg"
+    }
+  ],
+  "chapters": [
+      {
+        "id": 1,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 2,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 3,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 4,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 5,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 6,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 7,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 8,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 9,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 10,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      },
+      {
+        "id": 11,
+        "course_id": 1,
+        "title": "Welcome to Desiclassifields Free Classifields Free Ads",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed efficitur neque. Praesent porttitor ac nisl quis dignissim. Nullam arcu orci, rutrum sit amet enim rhoncus, auctor bibendum arcu. Mauris faucibus dictum risus. Cras sollicitudin elementum enim at elementum. Sed non accumsan risus. Aenean vel lacus id est pulvinar tincidunt eu et tellus. Mauris neque metus, viverra eu turpis sed, convallis pretium libero."
+      }
+  ],
+  "questions": [
+      {
+        "id": 1,
+        "chapter_id": 1,
+        "text": "Are Ana are mere?"
+      },
+      {
+        "id": 2,
+        "chapter_id": 2,
+        "text": "Are Ana  mere?"
+      },
+      {
+        "id": 3,
+        "chapter_id": 3,
+        "text": "Ana are mere?"
+      },
+      {
+        "id": 4,
+        "chapter_id": 3,
+        "text": "Ana are pere?"
+      },
+      {
+        "id": 5,
+        "chapter_id": 1,
+        "text": "Ana are bube?"
+      },
+      {
+        "id": 6,
+        "chapter_id": 2,
+        "text": "Ana are gutui?"
+      },
+      {
+        "id": 7,
+        "chapter_id": 2,
+        "text": "Gigel are mere?"
+      },
+      {
+        "id": 8,
+        "chapter_id": 1,
+        "text": "Care este adresa gugle?"
+      },
+      {
+        "id": 9,
+        "chapter_id": 3,
+        "text": "Gigel e pe net?"
+      }
+  ],
+  "answers": [
+      {
+        "id": 1,
+        "question_id": 1,
+        "text": "Da",
+        "correct": true
+      },
+      {
+        "id": 2,
+        "question_id": 1,
+        "text": "Nu",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "question_id": 1,
+        "text": "Nu stiu",
+        "correct": false
+      },
+      {
+        "id": 4,
+        "question_id": 2,
+        "text": "Da",
+        "correct": false
+      },
+      {
+        "id": 5,
+        "question_id": 2,
+        "text": "Teoria relativitatii nu a putut demonstra acest fapt",
+        "correct": false
+      },
+      {
+        "id": 6,
+        "question_id": 2,
+        "text": "Doar pe vremea bunica-mii",
+        "correct": false
+      },
+      {
+        "id": 7,
+        "question_id": 3,
+        "text": "Acesta este un raspuns care nu este necorect",
+        "correct": false
+      },
+      {
+        "id": 8,
+        "question_id": 3,
+        "text": "Virgil e pe garla",
+        "correct": false
+      },
+      {
+        "id": 9,
+        "question_id": 4,
+        "text": "Nu se poate aduce in discutie",
+        "correct": false
+      },
+      {
+        "id": 10,
+        "question_id": 4,
+        "text": "Da",
+        "correct": false
+      },
+      {
+        "id": 11,
+        "question_id": 4,
+        "text": "Exact asa",
+        "correct": false
+      },
+      {
+        "id": 12,
+        "question_id": 5,
+        "text": "Poate ca da",
+        "correct": false
+      },
+      {
+        "id": 13,
+        "question_id": 5,
+        "text": "Poate ca nu",
+        "correct": false
+      },
+      {
+        "id": 14,
+        "question_id": 5,
+        "text": "Poate ca da daca nu",
+        "correct": false
+      },
+      {
+        "id": 15,
+        "question_id": 6,
+        "text": "Cu siguranta da",
+        "correct": false
+      },
+      {
+        "id": 16,
+        "question_id": 6,
+        "text": "False",
+        "correct": false
+      },
+      {
+        "id": 17,
+        "question_id": 3,
+        "text": "!!!True",
+        "correct": false
+      },
+      {
+        "id": 18,
+        "question_id": 7,
+        "text": "e fals acest raspuns",
+        "correct": false
+      },
+      {
+        "id": 19,
+        "question_id": 6,
+        "text": "truuuu (fara e)",
+        "correct": false
+      },
+      {
+        "id": 20,
+        "question_id": 7,
+        "text": "acest raspuns e adevarat",
+        "correct": false
+      },
+      {
+        "id": 21,
+        "question_id": 7,
+        "text": "www.gugal.ro",
+        "correct": false
+      },
+      {
+        "id": 22,
+        "question_id": 8,
+        "text": "w.w.w.g.u.g.a.l.r.o",
+        "correct": false
+      },
+      {
+        "id": 23,
+        "question_id": 8,
+        "text": "Raspunsurile de mai sus sunt capcane",
+        "correct": false
+      },
+      {
+        "id": 24,
+        "question_id": 8,
+        "text": "google.romania",
+        "correct": false
+      },
+      {
+        "id": 25,
+        "question_id": 9,
+        "text": "depinde",
+        "correct": false
+      },
+      {
+        "id": 26,
+        "question_id": 9,
+        "text": "depinde de nimic",
+        "correct": false
+      },
+      {
+        "id": 27,
+        "question_id": 9,
+        "text": "independent de dependenta",
+        "correct": false
+      }
+  ]
+}

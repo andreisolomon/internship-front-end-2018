@@ -1,33 +1,39 @@
 <app-page-header></app-page-header>
-<app-page-section-small [title]="title" [noChapter]="noChapter" [chapter]="true"></app-page-section-small>
+<app-page-section-small [title]="title | async" [noChapter]="noChapter + 1" [chapter]="true"></app-page-section-small>
 <div class="container">
+  <div class="">
+  </div>
   <div class="row" *ngFor="let question of questions; let i = index">
     <div class="col col-md-2"></div>
     <div class="col col-md-8">
       <div class="panel panel-primary">
-        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.getText() }} </div>
+        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.text }} </div>
       </div>
-      <div class="card costum">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let answer of questions[i]['answer']; let j = index">
-            <div class="">
-              <div class="space divinline">
-                <label class="checkbox">
-                  <input type="radio" [name]="question.getId()">
-                  <span class="checkmark"></span>
-                </label>
+      <div class="" *ngFor="let answer of answers">
+        <div class="card costum" *ngIf="answer.question_id === question.id">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" >
+              <div class="" >
+                <div class="space divinline">
+                  <label class="checkbox">
+                    <input type="radio" [name]="question.id">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="answer"> {{ answer.text }} </div>
               </div>
-              <div class="answer"> {{ answer.getText() }} </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </div>
   <div class="row">
+
     <div class="col col-md-6"></div>
     <div class="col col-md-4 divinline2">
-      <button class="btnstart" *ngIf="next != -1; else finish" (click)="load(2)"> Next chapter </button>
+      <button class="btnstart" *ngIf="next !== undefined; else finish" (click)="load(2)"> Next chapter </button>
       <ng-template #finish>
         <button class="btnstart" (click)="load(3)"> Finish </button>
       </ng-template>

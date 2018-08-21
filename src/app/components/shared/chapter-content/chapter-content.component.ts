@@ -3,6 +3,8 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuestionsService} from '../chapter-questions/questions.service';
 import {AnswersService} from '../chapter-questions/answers.service';
 import {ChapterService} from '../chapter-list/chapter.service';
+import {Observable} from 'rxjs';
+import {Chapter} from '../chapter-list/chapter';
 
 @Component({
   selector: 'app-chapter-content',
@@ -15,11 +17,12 @@ export class ChapterContentComponent implements OnInit {
   public course_id: number;
   public chapter_id: number;
   public noChapter: number;
-  public title: string;
+  public title: Observable<string>;
   public chapter: true;
   public prev: number;
   public next: number;
-  public content: string;
+  public content: Observable<string>;
+  public list;
 
   constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) { }
 
@@ -32,22 +35,21 @@ export class ChapterContentComponent implements OnInit {
       }
     );
 
-    this.prev = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 1);
-    this.next = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 2);
-    this.noChapter = this.chapterService.noOfChapterInCourse(this.course_id, this.chapter_id);
+   /* this.prev = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 1);
+    this.next = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 2);*/
     this.title = this.chapterService.getChapterTitleById(this.chapter_id);
     this.content = this.chapterService.getChapterContentById(this.chapter_id);
 
-
+    this.loadPageInfo();
 
   }
 
   load(type: number) {
     if (type === 1){
       window.location.replace(`/courses/${this.id}/${this.course_id}/${this.prev}`);
-    } else if (type === 2){
+    } else if (type === 2) {
       window.location.replace(`/courses/${this.id}/${this.course_id}/${this.next}`);
-    } else if (type === 3){
+    } else if (type === 3) {
       window.location.replace(`/courses/${this.id}/${this.course_id}/1/quiz`);
     } else {
       window.location.replace(`/courses/${this.id}/${this.course_id}/${this.chapter_id}/quiz`);
@@ -60,9 +62,16 @@ export class ChapterContentComponent implements OnInit {
     } else if (type === 2) {
       window.location.reload();
     } else if (type === 3) {
-      this.chapterService.deleteChapter(this.chapter_id);
       window.location.replace(`/courses/${this.id}/${this.course_id}/${this.next}`);
     }
   }
+
+  loadPageInfo() {
+    this.chapterService.noOfChapterInCourse(this.chapter_id).subscribe(number => this.noChapter = number);
+    this.chapterService.getChaptersFromCourseById(this.course_id).subscribe(data => this.list = data);
+    this.chapterService.getNext(this.course_id, this.chapter_id).subscribe(next => this.next = next);
+  }
+
+
 
 }
