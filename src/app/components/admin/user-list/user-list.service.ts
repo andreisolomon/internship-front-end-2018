@@ -6,16 +6,17 @@ export class UserListService {
   }
 
   private data: User[] = [
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018'),
-    new User(0, 2, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018'),
-    new User(0, 3, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', 3, '15 OCT 2018')
+    // /home/anca/projects/internship-front-end-2018/src/assets
+    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
+    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,''),
+    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ',  '15 OCT 2018',' ' ,'', 3,'')
   ];
 
   getData() {
     return this.data;
   }
 
-  getUseryById(id: number) {
+  getUserById(id: number) {
     for (let user of this.data) {
       if (user.getId() === id) {
         return user;
@@ -64,12 +65,45 @@ export class UserListService {
     }
   }
 
-  getUserNameById(id: number) {
+  getUserFirstNameById(id: number) {
     for (let user of this.data) {
       if (user.getId() === id) {
-        return user.getName();
+        return user.getFirstName();
+      }
+    }
+  }
+  getUserLastNameById(id: number) {
+    for (let user of this.data) {
+      if (user.getId() === id) {
+        return user.getLastName();
+      }
+    }
+  }
+  getUserEmailById(id: number) {
+    for (let user of this.data) {
+      if (user.getId() === id) {
+        return user.getEmail();
+      }
+    }
+  }
+  getUserPasswordById(id: number) {
+    for (let user of this.data) {
+      if (user.getId() === id) {
+        return user.getPassword();
       }
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+
+  
 }

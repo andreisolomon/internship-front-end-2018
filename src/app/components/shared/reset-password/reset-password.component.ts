@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit {
 
     if(this.resetpass != this.resetpassconfirm){
       this.confirm = false;
+      
     } else{
       this.confirm=true;
     }

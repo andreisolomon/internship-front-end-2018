@@ -33,7 +33,7 @@ import { FinishedCourseComponent } from './components/shared/finished-course/fin
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { ShortenPipe } from './shorten.pipe';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserlistTableComponent,
     FinishedCourseComponent,
     ChapterContentComponent,
-    ShortenPipe
+    ShortenPipe,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
