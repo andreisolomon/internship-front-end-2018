@@ -13,6 +13,7 @@ import { CourseListComponent } from './components/shared/course-list/course-list
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
 import {ChapterContentComponent} from './components/shared/chapter-content/chapter-content.component';
 import {CourseComponent} from './components/admin/course/course.component';
+import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 
 const routers: Routes = [
   { path: '', component: CategoryListComponent},
@@ -22,6 +23,7 @@ const routers: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserComponent },
   { path: 'courses', component: CategoryListComponent },
+  { path: 'forgot', component: ForgotPasswordComponent },
   {
     path: 'courses/:categoryId',
     component: CourseListComponent
@@ -30,6 +32,7 @@ const routers: Routes = [
     path: 'courses/:categoryId/notfound',
     component: CategoryListComponent
   },
+  
   {
     path: 'courses/:categoryId/:courseId',
     component: ChapterListComponent

@@ -8,6 +8,11 @@ import { NgForm } from '@angular/forms';
 })
 export class UserRegisterComponent implements OnInit {
 
+    public firstname: string;
+    public lastname: string;
+    public email: string;
+    public password: string;
+    
   constructor() { }
 
   ngOnInit() {
