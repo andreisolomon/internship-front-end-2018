@@ -18,12 +18,18 @@ export class MyAccountComponent implements OnInit {
               ) { }
 // public
   ngOnInit() {
-    this.courses = this.courseListService.getData();
+    // this.courses = this.courseListService.getData();
     // this.scores = this.courseScoreService.getData();
   }
 
   toLogout() {
-    this.route.navigate(['login']);
+      if (confirm('Are you sure you want to log out?'))
+      {
+        this.route.navigate(['login']);
+      }
+    else{
+      
+    }
   }
 
 }
