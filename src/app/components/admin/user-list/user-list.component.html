@@ -1,10 +1,4 @@
-<!--<app-page-header></app-page-header>-->
-<!--<app-userlist-table></app-userlist-table>-->
 <app-page-header></app-page-header>
-
-
-
-
 
 <div class="container_allusers">
   <div class="descList">
@@ -36,19 +30,18 @@
       </ul>
 
       <span class="opt"><a style="cursor: pointer;"><i class="fas fa-ellipsis-h"></i></a>
-        <div [hidden]="false" class="editUser">
-          <ul>
-            <li> <i class="far fa-edit"></i><button type="button" class="btn">Edit </button></li>
-            <li><i class="far fa-trash-alt"></i><button type="button" class="btn">Delete</button></li>
-            <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.getAdmin()==0">Make An Administrator</div>
-              <div *ngIf="user.getAdmin()==1">Remove Administrator</div></button></li>
+       <div [hidden]="false" class="editUser">
+         <ul>
+           <li> <i class="far fa-edit"></i><button type="button" class="btn">Edit </button></li>
+           <li><i class="far fa-trash-alt"></i><button type="button" class="btn">Delete</button></li>
+           <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.getAdmin()==0">Make An Administrator</div>
+             <div *ngIf="user.getAdmin()==1">Remove Administrator</div></button></li>
            <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Administrator</li></span>-->
-          </ul>
-        </div>
-      </span>
+         </ul>
+       </div>
+     </span>
     </li>
 
   </ul>
 
 </div>
-
