@@ -20,6 +20,6 @@ export class ForgotPasswordComponent implements OnInit {
 
 validateHorizontalPosition(form: NgForm) {
   if(form.valid) {
-    const email=form.value.email;
+    const email = form.value.email;
   }
 }}

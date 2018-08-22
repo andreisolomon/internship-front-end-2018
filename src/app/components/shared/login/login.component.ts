@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { Router } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public firstname: string;
-    public lastname: string;
-    public email: string;
-    public password: string;
+  public lastname: string;
+  public email: string;
+  public password: string;
 
   constructor() { }
 

@@ -12,8 +12,6 @@ export class UserListService {
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
     new User(0, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
     new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
-
-
   ];
 
   getData() {

@@ -1,5 +1,5 @@
 <app-page-header></app-page-header>
-<app-page-section-small [title]="title" [noChapter]="noChapter" [chapter]="true"></app-page-section-small>
+<app-page-section-small [title]="title | async" [noChapter]="noChapter + 1" [chapter]="true"></app-page-section-small>
 <div class="container">
   <div class="row">
     <div class="col col-md-6"></div>
@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 content">
-      {{ content }}
+      {{ content | async }}
     </div>
   </div>
 
@@ -21,7 +21,7 @@
       <button class="btndiscover" (click)="load(4)"> Chapter Quiz </button>
     </div>
     <div class="col col-md-4 divinline2">
-      <button class="btndiscover" *ngIf="next != -1; else finish" (click)="load(2)"> Next chapter </button>
+      <button class="btndiscover" *ngIf="next !== undefined; else finish" (click)="load(2)"> Next chapter </button>
       <ng-template #finish>
         <button class="btndiscover" (click)="load(3)"> Quiz </button>
       </ng-template>
