@@ -1,4 +1,5 @@
 import {User} from '../user/user.model';
+import {Observable} from 'rxjs';
 
 export class UserListService {
 

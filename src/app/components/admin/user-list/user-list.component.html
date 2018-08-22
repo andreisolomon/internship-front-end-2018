@@ -4,19 +4,20 @@
   <div class="descList">
     <span style="margin-left: 95px;">basic info</span>
     <span style="margin-left: 236px;">total score</span>
-    <span style="margin-left:29px;">tags</span>
+    <span style="margin-left:29px;">role</span>
     <span style="margin-left:111px;">date created</span>
   </div>
 
   <ul class="users-list" *ngFor="let user of users">
 
     <li id="user.user_id">
-      <div  id="checkActive">  <span class="details">Active : </span><label><input type="checkbox" readonly  [ngModel]="user.getAdmin()==1"></label></div>
+      <div  id="checkActive">  <span class="details">Active : </span><label><input type="checkbox"  [ngModel]="user.getAdmin()==1"></label></div>
       <img [src]="user.getImage()" class="profilePic">
       <p class="name"> {{user.getFirstName()}} {{user.getLastName()}} <span class="useremail"><span class="details">E-mail : </span>{{user.email}}</span></p>
       <span class="score"><span class="details">Total score : </span> 12,2500</span>
       <div id="tags">
-        <p class="tags">{{user.getTags()}}</p>
+        <div *ngIf="user.getAdmin()==1">Admin</div>
+        <div *ngIf="user.getAdmin()==0"> User</div>
       </div>
       <span class="datecreated"><span class="details">Date created : </span>{{user.getDate()}}</span>
 

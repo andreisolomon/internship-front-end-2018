@@ -18,7 +18,7 @@ export class MyAccountComponent implements OnInit {
               ) { }
 // public
   ngOnInit() {
-    this.courses = this.courseListService.getData();
+    // this.courses = this.courseListService.getData();
     // this.scores = this.courseScoreService.getData();
   }
 

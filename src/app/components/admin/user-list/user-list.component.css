@@ -64,9 +64,7 @@ tr{
 .reset-td{
   vertical-align: baseline;
 }
-input[type="checkbox"][readonly]{
-  pointer-events: none;
-}
+
 
 .btn{
   background-color: transparent;
