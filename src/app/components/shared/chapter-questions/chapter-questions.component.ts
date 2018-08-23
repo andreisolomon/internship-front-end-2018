@@ -24,6 +24,7 @@ export class ChapterQuestionsComponent implements OnInit {
   public next: number;
   public questions: Question[];
   public answers: Answer[];
+  private found;
 
   constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) {}
 
@@ -34,11 +35,14 @@ export class ChapterQuestionsComponent implements OnInit {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
         this.chapter_id = +params['chapterId'];
+        this.chapterService.chapterInCourse(this.course_id, this.chapter_id).subscribe(data => {
+          this.found = data;
+          if (this.found === undefined) {
+            this.router.navigate(['/category/', this.id, 'course', this.course_id , 'chapter', this.chapter_id, 'notfound']);
+          }
+        });
       }
     );
-
-    /*this.prev = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 1);
-    this.next = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 2);*/
     this.title = this.chapterService.getChapterTitleById(this.chapter_id);
     this.loadPageInfo();
 
@@ -46,9 +50,9 @@ export class ChapterQuestionsComponent implements OnInit {
 
   load(type: number) {
     if (type === 1) {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.prev}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.prev}/quiz`);
     } else if (type === 2) {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.next}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}/quiz`);
     } else {
       window.location.replace('/finished');
     }
@@ -59,8 +63,8 @@ export class ChapterQuestionsComponent implements OnInit {
     this.questionsService.getQuestions().subscribe(data => this.questions = data.filter( item => item.chapter_id === this.chapter_id));
     this.answersService.getAnswers().subscribe(data => this.answers = data);
     this.chapterService.getNext(this.course_id, this.chapter_id).subscribe(next => this.next = next);
+    this.chapterService.getPrev(this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
 
-  isNumber(val) { return typeof val === 'undefined'; }
 
 }

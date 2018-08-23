@@ -21,17 +21,15 @@ export class CategoryListComponent implements OnInit {
   public link: string;
   public moke: Category[];
 
-  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute) { }
+  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-
     this.data = this.categoryListService.getCategories().map(data => data.slice(0, 6));
 
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];
         this.link = '';
-
         if (this.categoryListService.getCategoryById(this.id)) {
           this.error = params['categoryId'] != null;
         }

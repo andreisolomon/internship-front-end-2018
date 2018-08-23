@@ -25,7 +25,7 @@
       <ng-template #finish>
         <button class="btndiscover" (click)="load(3)"> Quiz </button>
       </ng-template>
-      <button class="btndiscover" *ngIf="prev != -1" (click)="load(1)"> Previous chapter </button>
+      <button class="btndiscover" *ngIf="prev !== undefined" (click)="load(1)"> Previous chapter </button>
     </div>
   </div>
 

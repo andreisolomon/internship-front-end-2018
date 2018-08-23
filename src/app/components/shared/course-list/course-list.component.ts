@@ -21,12 +21,11 @@ export class CourseListComponent implements OnInit {
   public categoryTitle: Observable<string>;
   public categoryBackground: Observable<string>;
   public text: string = 'Discover more';
-  public size: Observable<number>;
   public error: boolean;
   public course_id: number;
   public link: string;
-
-
+  private found: any;
+  public len;
 
   constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 
@@ -35,9 +34,12 @@ export class CourseListComponent implements OnInit {
       (params: Params) => {
         this.id = +params['categoryId'];
         this.link = '';
-        if (this.categoryListService.categoryExist(this.id) === Observable.of(false)) {
-          this.router.navigate(['/courses/', this.id, 'notfound']);
-        }
+        this.categoryListService.getCategoryById(this.id).subscribe(data => {
+          this.found = data;
+          if (this.found === undefined) {
+            this.router.navigate(['/category/', this.id, 'notfound']);
+          }
+        });
         if (params['courseId'] != null) {
           this.course_id = +params['courseId'];
           this.error = true;
@@ -45,16 +47,16 @@ export class CourseListComponent implements OnInit {
       }
     );
 
-    this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
+    this.courseListService.getSize(this.id).subscribe(data => this.len = data);
 
-    this.size = this.courses.map(data => data.length);
+    this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
 
     this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
 
     this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
 
     if (this.error === true) {
-      this.link = '../../';
+      this.link = '../../../';
       setTimeout(() => {
         this.id = 0;
         this.error = false;
@@ -75,15 +77,6 @@ export class CourseListComponent implements OnInit {
       this.text = 'Discover more';
 
     }
-  }
-
-  compare(value: number) {
-    if (value === 0 && this.size.subscribe(number => number === value)) {
-      return true;
-    } else if (value !== 0 && this.size.subscribe(number => number > value)) {
-      return true;
-    }
-    return false;
   }
 
 }

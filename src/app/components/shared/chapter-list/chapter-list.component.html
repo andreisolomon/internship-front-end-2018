@@ -4,13 +4,20 @@
 
 <div class="container">
 
-<!--  <div class="alert alert-warning" *ngIf="!size; else found">
+  <div class="alert alert-warning" *ngIf="!len; else found">
     <strong>Warning!</strong> There are no chapters in this course.
   </div>
-  <ng-template #found>-->
+  <ng-template #found>
+    <div class="row">
+      <div class="col-xs-1 col-md-2"></div>
+      <div class="col-xs-10 col-md-7">
+        <div class="alert alert-danger" *ngIf="error">
+          <strong>Error!</strong> Chapter with id {{ chapter_id }} does not exist in course with id {{ course_id }}. Please choose another category.
+        </div>
+      </div>
+    </div>
 
     <div class="row" *ngFor="let chapter of chapters | async; let i = index">
-
       <div class="col-xs-1 col-md-2"></div>
       <div class="col-xs-10 col-md-7">
         <div class="row">
@@ -23,10 +30,10 @@
       <div class="col-xs-1 col-md-3 pdd"> <button class="btnstart" (click)="loadPage(chapter.id)"> Start </button> </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="len > 6">
       <div class="col col-md-4"></div>
       <div class="col-col-md-3 pdd2"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
       <div class="col col-md-5"></div>
     </div>
-<!--  </ng-template>-->
+  </ng-template>
 </div>
