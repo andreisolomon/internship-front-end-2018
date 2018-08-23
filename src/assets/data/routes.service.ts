@@ -9,7 +9,7 @@ export const api = {
   // un curs
   course : 'category/:categoryId/course/:courseId',
   // toate capitolele
-  chapter : 'category/:categoryId/course/:courseId/chapter',
+  chapter : 'category/:categoryId/course/:courseId',
   chapterId : 'category/:categoryId/course/:courseId/chapter/:chapterId',
   // intrebarile
   quiz : 'category/:categoryId/course/:courseId/chapter/:chapterId/quiz',

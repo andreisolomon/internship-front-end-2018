@@ -23,7 +23,7 @@ export class UserRegisterComponent implements OnInit {
     public email: string;
     public password: string;
     
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,17 +32,12 @@ export class UserRegisterComponent implements OnInit {
     if (form.valid) {
       this.register(form.value).subscribe((data) => {
         console.log(data.token);
-        window.localStorage.token = null;
-        window.localStorage.token = data.token;
+        localStorage.clear;
+        localStorage.token = data.token;
+        this.router.navigate(['/login']);
 
-        // 
       });
-      // const fistname = form.value.firstname;
-      // const lastname = form.value.lastname;
-      // const email = form.value.email;
-      // const password = form.value.password;
 
-      // back-end
 
     }
   }
