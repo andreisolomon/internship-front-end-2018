@@ -22,7 +22,6 @@ export class ChapterContentComponent implements OnInit {
   public prev: number;
   public next: number;
   public content: Observable<string>;
-  public list;
   private found;
 
   constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) { }
@@ -33,7 +32,7 @@ export class ChapterContentComponent implements OnInit {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
         this.chapter_id = +params['chapterId'];
-        this.chapterService.chapterInCourse(this.course_id, this.chapter_id).subscribe(data => {
+        this.chapterService.chapterInCourse(this.id, this.course_id, this.chapter_id).subscribe(data => {
           this.found = data;
           if (this.found === undefined) {
             this.router.navigate(['/category/', this.id, 'course', this.course_id , 'chapter', this.chapter_id, 'notfound']);
@@ -42,8 +41,8 @@ export class ChapterContentComponent implements OnInit {
       }
     );
 
-    this.title = this.chapterService.getChapterTitleById(this.chapter_id);
-    this.content = this.chapterService.getChapterContentById(this.chapter_id);
+    this.title = this.chapterService.getChapterTitleById(this.id, this.course_id, this.chapter_id);
+    this.content = this.chapterService.getChapterContentById(this.id, this.course_id, this.chapter_id);
 
     this.loadPageInfo();
 
@@ -72,10 +71,9 @@ export class ChapterContentComponent implements OnInit {
   }
 
   loadPageInfo() {
-    this.chapterService.noOfChapterInCourse(this.chapter_id).subscribe(number => this.noChapter = number);
-    this.chapterService.getChaptersFromCourseById(this.course_id).subscribe(data => this.list = data);
-    this.chapterService.getNext(this.course_id, this.chapter_id).subscribe(next => this.next = next);
-    this.chapterService.getPrev(this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
+    this.chapterService.noOfChapterInCourse(this.id, this.course_id, this.chapter_id).subscribe(number => this.noChapter = number);
+    this.chapterService.getNext(this.id, this.course_id, this.chapter_id).subscribe(next => this.next = next);
+    this.chapterService.getPrev(this.id, this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
 
 

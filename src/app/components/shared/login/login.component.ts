@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
           localStorage.token = data.token;
           this.correct = true;
           this.router.navigate(['/dashboard']);
-        } else {   
         }
       });
     }

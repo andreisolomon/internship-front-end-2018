@@ -31,8 +31,10 @@ import { AnswersService } from './components/shared/chapter-questions/answers.se
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { ShortenPipe } from './shorten.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
+import { TokenInterceptor } from './token-interceptor';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,13 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
     QuestionsService,
     AnswersService,
     UserListService,
-    CategoryListService
+    CategoryListService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
     ],
   bootstrap: [AppComponent]
 })

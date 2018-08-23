@@ -26,7 +26,7 @@
       <div class="alert alert-danger" *ngIf="error">
         <strong>Error!</strong> Category with id {{ id }} does not exist. Please choose another category.
       </div>
-      <div class="col-md-3 rectangle" *ngFor="let categ of data | async" [ngStyle]="setBackground(categ.background)" > <p> <a [routerLink]=" link + categ.id "> {{ categ.title }}</a> </p> </div>
+      <div class="col-md-3 rectangle" *ngFor="let categ of data | async" [ngStyle]="setBackground(categ.Background)" > <p> <a [routerLink]=" link + categ.id "> {{ categ.CategoryName }}</a> </p> </div>
     </div>
   </div>
 

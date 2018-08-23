@@ -1,5 +1,6 @@
 export const api = {
   base: 'http://192.168.151.36:8000/api',
+  base_front: 'http://192.168.151.36:4200',
   user: '/user',
   registerer : '/register',
   changeRole : '/user/change/:userId',
