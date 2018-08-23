@@ -49,7 +49,7 @@ export class CourseListComponent implements OnInit {
 
     this.courseListService.getSize(this.id).subscribe(data => this.len = data);
 
-    this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
+    this.courses = this.courseListService.getCourses(this.id).map(data => data.slice(0, 6));
 
     this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
 
@@ -68,12 +68,12 @@ export class CourseListComponent implements OnInit {
   load() {
     if (this.text === 'Discover more') {
 
-      this.courses = this.courseListService.getCoursesFromCategory(this.id);
+      this.courses = this.courseListService.getCourses(this.id);
       this.text = 'Looks less';
 
     } else {
 
-      this.courses = this.courseListService.getCoursesFromCategory(this.id).map(data => data.slice(0, 6));
+      this.courses = this.courseListService.getCourses(this.id).map(data => data.slice(0, 6));
       this.text = 'Discover more';
 
     }

@@ -3,38 +3,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {api} from '../../../../assets/data/routes.service';
 
 @Injectable()
 export class CourseListService {
 
   constructor(private http: HttpClient) {  }
 
-  getCourses(): Observable<any> {
-    return this.http.get('http://localhost:3000/courses');
+  getCourses(id: number): Observable<any> {
+    return this.http.get(api.base + '/category/' + id + '/course');
   }
 
-  getCoursesFromCategory(id: number) {
-    return this.getCourses().map(data => data.filter(item => item.category_id === id));
+  getCourseTitleById(category_id: number, id: number) {
+    return this.getCourses(category_id).map(data => data.find(item => item.id === id).Title);
   }
 
-  getCourseById(id: number) {
-    return this.getCourses().map(data => !!data.find(item => item.id === id));
-  }
-
-  getCourseTitleById(id: number) {
-    return this.getCourses().map(data => data.find(item => item.id === id).title);
-  }
-
-  getCourseSummaryById(id: number) {
-    return this.getCourses().map(data => data.find(item => item.id === id).summary);
+  getCourseSummaryById(category_id: number, id: number) {
+    return this.getCourses(category_id).map(data => data.find(item => item.id === id).Summary);
   }
 
   courseInCategory(category_id: number, course_id: number) {
-    return this.getCourses().map(data => data.find(item => item.id === course_id && item.category_id === category_id));
+    return this.getCourses(category_id).map(data => data.find(item => item.id === course_id && item.categoryId === category_id));
   }
 
   getSize(id: number) {
-    return this.getCourses().map(data => data.filter(item => item.category_id === id).length);
+    return this.getCourses(id).map(data => data.length);
   }
 
 }

@@ -26,6 +26,7 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     this.data = this.categoryListService.getCategories().map(data => data.slice(0, 6));
 
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];

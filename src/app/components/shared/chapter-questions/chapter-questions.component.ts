@@ -35,7 +35,7 @@ export class ChapterQuestionsComponent implements OnInit {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
         this.chapter_id = +params['chapterId'];
-        this.chapterService.chapterInCourse(this.course_id, this.chapter_id).subscribe(data => {
+        this.chapterService.chapterInCourse(this.id, this.course_id, this.chapter_id).subscribe(data => {
           this.found = data;
           if (this.found === undefined) {
             this.router.navigate(['/category/', this.id, 'course', this.course_id , 'chapter', this.chapter_id, 'notfound']);
@@ -43,7 +43,7 @@ export class ChapterQuestionsComponent implements OnInit {
         });
       }
     );
-    this.title = this.chapterService.getChapterTitleById(this.chapter_id);
+    this.title = this.chapterService.getChapterTitleById(this.id, this.course_id, this.chapter_id);
     this.loadPageInfo();
 
   }
@@ -59,11 +59,11 @@ export class ChapterQuestionsComponent implements OnInit {
   }
 
   loadPageInfo() {
-    this.chapterService.noOfChapterInCourse(this.chapter_id).subscribe(number => this.noChapter = number);
+    this.chapterService.noOfChapterInCourse(this.id, this.course_id, this.chapter_id).subscribe(number => this.noChapter = number);
     this.questionsService.getQuestions().subscribe(data => this.questions = data.filter( item => item.chapter_id === this.chapter_id));
     this.answersService.getAnswers().subscribe(data => this.answers = data);
-    this.chapterService.getNext(this.course_id, this.chapter_id).subscribe(next => this.next = next);
-    this.chapterService.getPrev(this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
+    this.chapterService.getNext(this.id, this.course_id, this.chapter_id).subscribe(next => this.next = next);
+    this.chapterService.getPrev(this.id, this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
 
 

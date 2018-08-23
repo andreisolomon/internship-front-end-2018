@@ -19,13 +19,13 @@
       </div>
       <div class="col col-md-3 rectangle" *ngFor="let course of courses | async" [routerLink]="link + 'course/' + course.id">
 
-        <img src="{{ course.img }}">
+        <!--<img src="{{ course.img }}">-->
 
         <div>
 
-          <p class="title"> {{ course.title }} </p>
+          <p class="title"> {{ course.Title }} </p>
 
-          <p class="describe"> {{ course.description }} </p>
+          <p class="describe"> {{ course.Description }} </p>
 
           <div class="divinline">
 

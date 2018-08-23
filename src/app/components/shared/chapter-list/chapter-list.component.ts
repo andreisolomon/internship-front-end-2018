@@ -50,12 +50,12 @@ export class ChapterListComponent implements OnInit {
       }
     );
 
-    this.chapterListService.getSize(this.course_id).subscribe(data => this.len = data);
+    this.chapterListService.getSize(this.id, this.course_id).subscribe(data => this.len = data);
 
-    this.title = this.courseListService.getCourseTitleById(this.course_id);
-    this.subtitle = this.courseListService.getCourseSummaryById(this.course_id);
+    this.title = this.courseListService.getCourseTitleById(this.id, this.course_id);
+    this.subtitle = this.courseListService.getCourseSummaryById(this.id, this.course_id);
 
-    this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id).map(data => data.slice(0, 4));
+    this.chapters = this.chapterListService.getChapters(this.id, this.course_id).map(data => data.slice(0, 4));
 
     if (this.error === true) {
       this.link = '../../../../';
@@ -70,12 +70,12 @@ export class ChapterListComponent implements OnInit {
   load() {
     if (this.text === 'See the full curriculum') {
 
-      this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id);
+      this.chapters = this.chapterListService.getChapters(this.id, this.course_id);
       this.text = 'Looks less';
 
     } else {
 
-      this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id).map(data => data.slice(0, 4));
+      this.chapters = this.chapterListService.getChapters(this.id, this.course_id).map(data => data.slice(0, 4));
       this.text = 'See the full curriculum';
 
     }

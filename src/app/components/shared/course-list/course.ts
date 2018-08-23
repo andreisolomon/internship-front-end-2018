@@ -1,8 +1,7 @@
 export interface Course {
   id: number,
-  category_id: number,
-  title: string,
-  summary: string,
-  description: string,
-  img: string
+  Title: string,
+  Tags: string,
+  Description: string,
+  Summary: string
 }

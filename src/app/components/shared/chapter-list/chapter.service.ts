@@ -3,51 +3,44 @@ import {Observable} from '../../../../../node_modules/rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {Chapter} from './chapter';
 import {from} from 'rxjs';
+import {api} from '../../../../assets/data/routes.service';
 
 @Injectable()
 export class ChapterService {
 
   constructor(private http: HttpClient) {  }
 
-  getChapters(): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>('http://localhost:3000/chapters');
+  getChapters(category_id: number, course_id: number): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(api.base + '/category/' + category_id + '/course_id/' + course_id + '/chapter');
   }
 
-  getChaptersFromCourseById(id: number) {
-    return this.getChapters().map(data => data.filter(item => item.course_id === id));
+  getChapterTitleById(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.find(item => item.id === chapter_id).Title);
   }
 
-  getChapterCourseById(id: number) {
-    return this.getChapters().map(data => data.find(item => item.id === id).course_id);
+  getChapterContentById(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.find(item => item.id === chapter_id).Content);
   }
 
-  getChapterTitleById(id: number) {
-    return this.getChapters().map(data => data.find(item => item.id === id).title);
+  noOfChapterInCourse(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.findIndex(item => item.id === chapter_id));
   }
 
-  getChapterContentById(id: number) {
-    return this.getChapters().map(data => data.find(item => item.id === id).content);
+  getNext(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.find(item => item.id > chapter_id && item.courseId === course_id).id);
   }
 
-  noOfChapterInCourse(chapter_id: number) {
-    return this.getChapters().map(data => data.findIndex(item => item.id === chapter_id));
+  getPrev(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id)
+      .map(data => data.filter(item => item.courseId === course_id).reverse().find(item => item.id < chapter_id).id);
   }
 
-  getNext(course_id: number, chapter_id: number) {
-    return this.getChapters().map(data => data.find(item => item.id > chapter_id && item.course_id === course_id).id);
+  chapterInCourse(category_id: number, course_id: number, chapter_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.find(item => item.courseId === course_id && item.id === chapter_id));
   }
 
-  getPrev(course_id: number, chapter_id: number) {
-    return this.getChapters()
-      .map(data => data.filter(item => item.course_id === course_id).reverse().find(item => item.id < chapter_id).id);
-  }
-
-  chapterInCourse(course_id: number, chapter_id: number) {
-    return this.getChapters().map(data => data.find(item => item.course_id === course_id && item.id === chapter_id));
-  }
-
-  getSize(id: number) {
-    return this.getChapters().map(data => data.filter(item => item.course_id === id).length);
+  getSize(category_id: number, course_id: number) {
+    return this.getChapters(category_id, course_id).map(data => data.length);
   }
 
 }
