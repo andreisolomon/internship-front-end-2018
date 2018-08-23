@@ -1,5 +1,5 @@
 export class User {
-private isAdmin: number;
+private isAdmin: boolean;
   private id: number;
   private image: string;
   private firstname: string;
@@ -10,7 +10,7 @@ private isAdmin: number;
   private email: string;
   private password: string;
 
-  constructor(isAdmin: number, id: number, image: string, firstname: string, lastname: string, email: string, password: string, tags: string, score: number, date: string) {
+  constructor(isAdmin: boolean, id: number, image: string, firstname: string, lastname: string, email: string, password: string, tags: string, score: number, date: string) {
     this.setAdmin(isAdmin);
     this.setId(id);
     this.setScore(score);
@@ -23,7 +23,7 @@ private isAdmin: number;
     this.setDate(date);
 
   }
-  setAdmin(isAdmin: number) {
+  setAdmin(isAdmin: boolean) {
     this.isAdmin = isAdmin;
   }
   setScore(score: number) {
