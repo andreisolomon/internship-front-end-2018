@@ -20,9 +20,12 @@ export class ChapterListComponent implements OnInit {
   public categoryBackground: Observable<string>;
   public course_id: number;
   public chapters: Observable<Chapter[]>;
-  public size: number;
+  public len: number;
   public text: string = 'See the full curriculum';
-  public random;
+  private found: any;
+  public error: boolean = false;
+  public chapter_id: number;
+  public link: string;
 
   constructor(private router: Router, private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService, private chapterListService: ChapterService) { }
 
@@ -32,18 +35,35 @@ export class ChapterListComponent implements OnInit {
       (params: Params) => {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
-        /*if (!this.courseListService.courseInCategoryById(this.course_id, this.id)) {
-          this.router.navigate(['/courses/', this.id, this.course_id, 'notfound']);
-        }*/
+        this.courseListService.courseInCategory(this.id, this.course_id).subscribe(data => {
+          this.found = data;
+          if (this.found === undefined) {
+            this.router.navigate(['/category/', this.id, 'course', this.course_id , 'notfound']);
+          }
+        });
+        if (params['chapterId'] != null) {
+          this.chapter_id = +params['chapterId'];
+          this.error = true;
+        }
         this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
         this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
       }
     );
 
+    this.chapterListService.getSize(this.course_id).subscribe(data => this.len = data);
+
     this.title = this.courseListService.getCourseTitleById(this.course_id);
     this.subtitle = this.courseListService.getCourseSummaryById(this.course_id);
 
     this.chapters = this.chapterListService.getChaptersFromCourseById(this.course_id).map(data => data.slice(0, 4));
+
+    if (this.error === true) {
+      this.link = '../../../../';
+      setTimeout(() => {
+        this.id = 0;
+        this.error = false;
+      }, 10000);
+    }
 
   }
 
@@ -62,7 +82,7 @@ export class ChapterListComponent implements OnInit {
   }
 
   loadPage(id: number){
-    this.router.navigate(['courses', this.id, this.course_id, id]);
+    this.router.navigate(['category', this.id, 'course', this.course_id, 'chapter', id]);
   }
 
 }

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         window.localStorage.token = null;
         window.localStorage.token = data.token;
         
-        this.correct=true;
+        this.correct = true;
 
         // debugger
       });
@@ -46,12 +46,13 @@ export class LoginComponent implements OnInit {
 
   }
   redirect() {
-    if (this.correct == true) {
+    if (this.correct === true) {
       window.location.href = '/dashboard';
+    } else {
+      //alert('Login incorrect');
+      document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
     }
-    else
-      alert('Login incorrect');
-      document.getElementById("true").innerHTML="LOGIN INCORRECT";
+
   }
 }
 
