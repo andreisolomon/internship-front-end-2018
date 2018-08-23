@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {api} from '../../../../assets/data/routes.service';
+import {api} from '../../../../assets/data/apiUrl';
 
 @Injectable()
 export class CourseListService {

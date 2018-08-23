@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { map, filter, switchMap } from 'rxjs/operators';
-import {api} from '../../../../assets/data/routes.service';
+import {api} from '../../../../assets/data/apiUrl';
 
 
 @Injectable()

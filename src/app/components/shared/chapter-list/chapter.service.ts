@@ -3,7 +3,7 @@ import {Observable} from '../../../../../node_modules/rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {Chapter} from './chapter';
 import {from} from 'rxjs';
-import {api} from '../../../../assets/data/routes.service';
+import {api} from '../../../../assets/data/apiUrl';
 
 @Injectable()
 export class ChapterService {
