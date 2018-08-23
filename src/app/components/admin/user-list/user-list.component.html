@@ -11,13 +11,22 @@
   <ul class="users-list" *ngFor="let user of users">
 
     <li id="user.user_id">
-      <div  id="checkActive">  <span class="details">Active : </span><label><input type="checkbox"  [ngModel]="user.getAdmin()==1"></label></div>
+      <div id="checkActive"><span class="details">Active : </span><label><input type="checkbox"></label></div>
       <img [src]="user.getImage()" class="profilePic">
-      <p class="name"> {{user.getFirstName()}} {{user.getLastName()}} <span class="useremail"><span class="details">E-mail : </span>{{user.email}}</span></p>
+      <div *ngIf="edit==false"><p class="name"><span (click)="user.isEditable=!user.isEditable"> {{user.getFirstName()}} {{user.getLastName()}}</span><span
+        class="useremail"><span class="details">E-mail : </span>{{user.getEmail()}}</span></p></div>
+      <div *ngIf="edit==true"><label><input type="text" class="name" ngModel="{{user.getFirstName()}}"><input
+        type="text" class="name" ngModel="{{user.getLastName()}}"> </label></div>
       <span class="score"><span class="details">Total score : </span> 12,2500</span>
-      <div id="tags">
-        <div *ngIf="user.getAdmin()==1">Admin</div>
-        <div *ngIf="user.getAdmin()==0"> User</div>
+      <div *ngIf="edit==false">
+        <div id="tags">
+          <div *ngIf="user.getAdmin()==true">Admin</div>
+          <div *ngIf="user.getAdmin()==false"> User</div>
+        </div>
+      </div>
+      <div *ngIf="edit==true">
+        <div *ngIf="user.getAdmin()==true"><label (click)="makeAdmin(user)">Admin</label></div>
+        <div *ngIf="user.getAdmin()==false"><label (click)="makeAdmin(user)">User</label></div>
       </div>
       <span class="datecreated"><span class="details">Date created : </span>{{user.getDate()}}</span>
 
@@ -29,20 +38,43 @@
         <!--</li></span>-->
         <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Admin</li></span>-->
       </ul>
-
+      <div *ngIf="edit==true">
+        <button type="button" class="btn btn-primary" (click)="edity()">Save</button>
+      </div>
+      <div *ngIf="edit==false">
       <span class="opt"><a style="cursor: pointer;"><i class="fas fa-ellipsis-h"></i></a>
        <div [hidden]="false" class="editUser">
-         <ul>
-           <li> <i class="far fa-edit"></i><button type="button" class="btn">Edit </button></li>
-           <li><i class="far fa-trash-alt"></i><button type="button" class="btn">Delete</button></li>
-           <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.getAdmin()==0">Make An Administrator</div>
-             <div *ngIf="user.getAdmin()==1">Remove Administrator</div></button></li>
-           <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Administrator</li></span>-->
+            <ul>
+          <li> <i class="far fa-edit"></i><button type="button" class="btn" (click)="edity()">Edit </button></li>
+           <li><i class="far fa-trash-alt"></i><button type="button" class="btn" (click)="delete(user)">Delete</button></li>
+           <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.getAdmin()==false"
+                                                                                (click)="makeAdmin(user)">Make An Administrator</div>
+             <div *ngIf="user.getAdmin()==true" (click)="makeAdmin(user)">Remove Administrator</div></button></li>
+              <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Administrator</li></span>-->
          </ul>
        </div>
      </span>
+      </div>
     </li>
-
   </ul>
-
 </div>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>
+      <input type="text" [(ngModel)]="employee.name" [disabled]="!employee.isEditable"/>
+    </td>
+    <td>
+      <button (click)="employee.isEditable=!employee.isEditable" *ngIf="!employee.isEditable">Edit</button>
+      <button *ngIf="employee.isEditable" (click)="employee.isEditable=!employee.isEditable">Save</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button type="button" (click)="showData()">save</button>

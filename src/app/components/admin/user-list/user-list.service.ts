@@ -1,18 +1,31 @@
 import {User} from '../user/user.model';
 import {Observable} from 'rxjs';
+import {api} from '../../../../assets/data/apiUrl';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+
+export interface Config {
+  FirstName: string;
+  LastName: string;
+  Mail: string;
+  Admin: boolean;
+  Points: number;
+  createdAt: string;
+}
+@Injectable()
 
 export class UserListService {
+  constructor(private http: HttpClient) { }
 
-  constructor() {
-  }
-
-
+// getConfig(){
+//
+// }
   private data: User[] = [
     // /home/anca/projects/internship-front-end-2018/src/assets
 
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
-    new User(0, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
-    new User(1, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
+    new User(false, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
+    new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
+    new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
   ];
 
   getData() {
@@ -99,4 +112,9 @@ export class UserListService {
       }
     }
   }
+  getInfo() {
+    return this.http.get(api.base + api.user );
+  }
+  // <Config>
 }
+
