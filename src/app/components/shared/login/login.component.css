@@ -93,4 +93,8 @@ p{
         position: relative;
         z-index: 2;
       }
+      #true{
+          color: red;
+          border: 1px chartreuse;
+      }
 

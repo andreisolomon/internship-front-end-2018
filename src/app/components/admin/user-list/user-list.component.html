@@ -1,5 +1,4 @@
 <app-page-header></app-page-header>
-
 <div class="container_allusers">
   <div class="descList">
     <span style="margin-left: 95px;">basic info</span>
@@ -13,19 +12,27 @@
     <li id="user.user_id">
       <div  id="checkActive">  <span class="details">Active : </span><label><input type="checkbox"  [ngModel]="user.getAdmin()==1"></label></div>
       <img [src]="user.getImage()" class="profilePic">
-      <p class="name"> {{user.getFirstName()}} {{user.getLastName()}} <span class="useremail"><span class="details">E-mail : </span>{{user.email}}</span></p>
-      <span class="score"><span class="details">Total score : </span> 12,2500</span>
+      <p class="name"> {{user.getFirstName()}} {{user.getLastName()}}
+        <span class="useremail">
+          <span class="details">E-mail : </span>{{user.email}}</span>
+      </p>
+      <span class="score">
+        <span class="details">Total score : </span> 12,2500</span>
       <div id="tags">
         <div *ngIf="user.getAdmin()==1">Admin</div>
         <div *ngIf="user.getAdmin()==0"> User</div>
       </div>
-      <span class="datecreated"><span class="details">Date created : </span>{{user.getDate()}}</span>
+      <span class="datecreated">
+        <span class="details">Date created : </span>{{user.getDate()}}</span>
 
       <ul class="minCtrl">
-        <li><i class="far fa-edit"></i>Edit</li>
-        <li><i class="far fa-trash-alt"></i>Delete</li>
+        <li>
+          <i class="far fa-edit"></i>Edit</li>
+        <li>
+          <i class="far fa-trash-alt"></i>Delete</li>
         <!--<span [hidden]="user.roles==1"><li>-->
-        <span>   <i class="fas fa-key"></i>Make Admin</span>
+        <span>
+          <i class="fas fa-key"></i>Make Admin</span>
         <!--</li></span>-->
         <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Admin</li></span>-->
       </ul>
@@ -44,5 +51,4 @@
     </li>
 
   </ul>
-
-</div>
+</div/>

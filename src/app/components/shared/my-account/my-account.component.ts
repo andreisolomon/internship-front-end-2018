@@ -23,7 +23,13 @@ export class MyAccountComponent implements OnInit {
   }
 
   toLogout() {
-    this.route.navigate(['login']);
+      if (confirm('Are you sure you want to log out?'))
+      {
+        this.route.navigate(['login']);
+      }
+    else{
+      
+    }
   }
 
 }
