@@ -2,6 +2,7 @@ import {User} from '../user/user.model';
 import {UserListService} from './user-list.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {api} from '../../../../assets/data/routes.service';
 
 @Component({
   selector: 'app-user-list',
@@ -35,5 +36,5 @@ export class UserListComponent implements OnInit {
   // ngOnInit() {
   //   this.getAllUsers();
   // }
-
+// private userList
 }
