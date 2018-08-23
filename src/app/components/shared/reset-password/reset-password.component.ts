@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {api} from '../../../../assets/data/apiUrl';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
