@@ -4,7 +4,11 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { tap, catchError } from 'rxjs/operators';
 
 // @Injectable()
 // export class ConfigService {
@@ -21,37 +25,39 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
+    
+  }
 
-  correct: boolean;
+  correct: boolean = false;
 
   ngOnInit() {
   }
   validation(form: NgForm) {
-    // debugger
+
     if (form.valid) {
       this.login(form.value).subscribe((data) => {
-        console.log(data.token);
-        window.localStorage.token = null;
-        window.localStorage.token = data.token;
-        
-        this.correct=true;
-
-        // debugger
+        console.log(data);
+        if (data.success) {
+          localStorage.clear;
+          localStorage.token = data.token;
+          this.correct = true;
+          this.router.navigate(['/dashboard']);
+        } else {   
+        }
       });
     }
-  }
-  private login(obj): Observable<any> {
-    return this.http.post('http://192.168.151.36:8000/api/login', obj);
-
-  }
-  redirect() {
-    if (this.correct == true) {
-      window.location.href = '/dashboard';
+    if (!this.correct) {
+      document.getElementById("true").innerHTML = "LOGIN INCORRECT";
+      localStorage.clear;
     }
-    else
-      alert('Login incorrect');
-      document.getElementById("true").innerHTML="LOGIN INCORRECT";
   }
-}
 
+  private login(obj): Observable<any> {
+    return this.http.post('http://192.168.151.36:8000/api/login', obj)
+
+
+  }
+ 
+
+}

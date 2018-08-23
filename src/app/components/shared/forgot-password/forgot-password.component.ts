@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { RouterModule, Routes } from '@angular/router';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -12,14 +15,25 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 export class ForgotPasswordComponent implements OnInit {
   public email: string;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
 
-validateHorizontalPosition(form: NgForm) {
+validation(form: NgForm) {
   if(form.valid) {
-    const email = form.value.email;
+    this.forgot(form.value).subscribe((data) => {
+      console.log("All good");
+    });
   }
-}}
+
+}
+
+
+
+
+  private forgot(fgt): Observable<any> {
+    return this.http.post('http://192.168.151.36:8000/api/reset', fgt);
+  }
+}
