@@ -2,7 +2,7 @@ import {User} from '../user/user.model';
 import {UserListService} from './user-list.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {api} from '../../../../assets/data/routes.service';
+import {api} from '../../../../assets/data/apiUrl';
 
 @Component({
   selector: 'app-user-list',
