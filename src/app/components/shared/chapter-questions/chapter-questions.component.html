@@ -37,7 +37,7 @@
       <ng-template #finish>
         <button class="btnstart" (click)="load(3)"> Finish </button>
       </ng-template>
-      <button class="btnstart" *ngIf="prev != -1" (click)="load(1)"> Previous chapter </button>
+      <button class="btnstart" *ngIf="prev !== undefined" (click)="load(1)"> Previous chapter </button>
     </div>
   </div>
 </div>

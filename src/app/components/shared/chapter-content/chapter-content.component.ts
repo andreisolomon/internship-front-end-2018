@@ -23,6 +23,7 @@ export class ChapterContentComponent implements OnInit {
   public next: number;
   public content: Observable<string>;
   public list;
+  private found;
 
   constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) { }
 
@@ -32,11 +33,15 @@ export class ChapterContentComponent implements OnInit {
         this.id = +params['categoryId'];
         this.course_id = +params['courseId'];
         this.chapter_id = +params['chapterId'];
+        this.chapterService.chapterInCourse(this.course_id, this.chapter_id).subscribe(data => {
+          this.found = data;
+          if (this.found === undefined) {
+            this.router.navigate(['/category/', this.id, 'course', this.course_id , 'chapter', this.chapter_id, 'notfound']);
+          }
+        });
       }
     );
 
-   /* this.prev = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 1);
-    this.next = this.chapterService.getPrevNext(this.course_id, this.chapter_id, 2);*/
     this.title = this.chapterService.getChapterTitleById(this.chapter_id);
     this.content = this.chapterService.getChapterContentById(this.chapter_id);
 
@@ -46,13 +51,13 @@ export class ChapterContentComponent implements OnInit {
 
   load(type: number) {
     if (type === 1){
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.prev}`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.prev}`);
     } else if (type === 2) {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.next}`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}`);
     } else if (type === 3) {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/1/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/1/quiz`);
     } else {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.chapter_id}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.chapter_id}/quiz`);
     }
   }
 
@@ -62,7 +67,7 @@ export class ChapterContentComponent implements OnInit {
     } else if (type === 2) {
       window.location.reload();
     } else if (type === 3) {
-      window.location.replace(`/courses/${this.id}/${this.course_id}/${this.next}`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}`);
     }
   }
 
@@ -70,6 +75,7 @@ export class ChapterContentComponent implements OnInit {
     this.chapterService.noOfChapterInCourse(this.chapter_id).subscribe(number => this.noChapter = number);
     this.chapterService.getChaptersFromCourseById(this.course_id).subscribe(data => this.list = data);
     this.chapterService.getNext(this.course_id, this.chapter_id).subscribe(next => this.next = next);
+    this.chapterService.getPrev(this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
 
 

@@ -22,31 +22,35 @@ const routers: Routes = [
   { path: 'account', component: MyAccountComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserComponent },
-  { path: 'courses', component: CategoryListComponent },
+  { path: 'category', component: CategoryListComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
   {
-    path: 'courses/:categoryId',
+    path: 'category/:categoryId',
     component: CourseListComponent
   },
   {
-    path: 'courses/:categoryId/notfound',
+    path: 'category/:categoryId/notfound',
     component: CategoryListComponent
   },
   
   {
-    path: 'courses/:categoryId/:courseId',
+    path: 'category/:categoryId/course/:courseId',
     component: ChapterListComponent
   },
   {
-    path: 'courses/:categoryId/:courseId/notfound',
+    path: 'category/:categoryId/course/:courseId/notfound',
     component: CourseListComponent
   },
   {
-    path: 'courses/:categoryId/:courseId/:chapterId',
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId',
     component: ChapterContentComponent
   },
   {
-    path: 'courses/:categoryId/:courseId/:chapterId/quiz',
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/notfound',
+    component: ChapterListComponent
+  },
+  {
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/quiz',
     component: ChapterQuestionsComponent
   },
   {
@@ -56,8 +60,9 @@ const routers: Routes = [
   { path: 'admin/course', component: CourseComponent },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
-  { path: ':categoryId', redirectTo: 'courses/:categoryId'},
-  { path: '**', redirectTo: 'courses' },
+  { path: 'dashboard/:categoryId', redirectTo: 'category/:categoryId' },
+  { path: ':categoryId', redirectTo: 'category/:categoryId'},
+  { path: '**', redirectTo: 'category' },
 
 ];
 

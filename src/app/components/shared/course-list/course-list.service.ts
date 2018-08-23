@@ -29,8 +29,12 @@ export class CourseListService {
     return this.getCourses().map(data => data.find(item => item.id === id).summary);
   }
 
-  courseInCategoryById(id: number, category_id: number) {
-    return this.getCourses().map(data => data.find(item => item.id === id && item.category_id === category_id));
+  courseInCategory(category_id: number, course_id: number) {
+    return this.getCourses().map(data => data.find(item => item.id === course_id && item.category_id === category_id));
+  }
+
+  getSize(id: number) {
+    return this.getCourses().map(data => data.filter(item => item.category_id === id).length);
   }
 
 }

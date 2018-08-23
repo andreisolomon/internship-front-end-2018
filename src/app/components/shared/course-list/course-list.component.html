@@ -4,11 +4,11 @@
 
 <div class="container">
 
-<!--  <div class="alert alert-warning" *ngIf="compare(0); else found">
+<div class="alert alert-warning" *ngIf="!len; else found">
     <strong>Warning!</strong> There are no courses in this category.
   </div>
 
-<ng-template #found>-->
+<ng-template #found>
 
   <div class="row">
 
@@ -17,7 +17,7 @@
      <div class="alert alert-danger" *ngIf="error">
         <strong>Error!</strong> Course with id {{ course_id }} does not exist in category with id {{ id }}. Please choose another category.
       </div>
-      <div class="col col-md-3 rectangle" *ngFor="let course of courses | async" [routerLink]="link + course.id">
+      <div class="col col-md-3 rectangle" *ngFor="let course of courses | async" [routerLink]="link + 'course/' + course.id">
 
         <img src="{{ course.img }}">
 
@@ -44,9 +44,8 @@
     </div>
 
   </div>
-<!--</ng-template>-->
-
-  <div class="row">
+</ng-template>
+  <div class="row" *ngIf="len > 6">
     <div class="col col-md-6"></div>
     <div class="col-col-md-1"><button class="btndiscover" (click)="load()"> {{ text }} </button></div>
     <div class="col col-md-5"></div>

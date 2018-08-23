@@ -9,8 +9,6 @@ import { map, filter, switchMap } from 'rxjs/operators';
 @Injectable()
 export class CategoryListService {
 
-  private data: Category[] = [];
-
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<any> {
