@@ -25,22 +25,25 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
 
+  correct: string = '';
+
   validation(form: NgForm) {
-    console.log('validation');
+
+    this.correct = 'LOGIN INCORRECT';
+
     if (form.valid) {
-      console.log('form valid');
+
       this.login(form.value).subscribe((data) => {
-        console.log('subscribe');
-        debugger;
+        
         if (data.success) {
           console.log('data success');
           localStorage.clear();
           localStorage.token = data.token;
           this.router.navigate(['/dashboard']);
-        } else {
-          document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
+        } 
+          console.log(enter);
+          this.correct = 'LOGIN INCORRECT';
           localStorage.clear();
-        }
       });
     }
   }
