@@ -83,7 +83,6 @@
 .checkbox input:checked ~ .checkmark:after {
   display: block;
 }
-
 .checkbox .checkmark:after {
   left: 9px;
   top: 5px;
@@ -95,29 +94,64 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 .panel-heading {
     background-color: darkblue;
     border-color: darkblue;
 
 }
-
-
-.divinline2>button{
-  float: right;
-  clear: none;
-  margin-left: 1em;
-}
-
-.btnstart {
-  width: 10em;
-  margin-bottom: 2em;
-}
-
 hr {
   margin-top: 2em;
 }
 
 .list-group-item {
   margin-top: -1.5em;
+}
+.divinline2>button{
+  float: right;
+  clear: none;
+}
+.margin{
+  margin-right: 1em;
+}
+.btnstart {
+  width: 8em;
+  margin-bottom: 2em;
+  color: grey;
+  border-color: grey;
+}
+.btnstart:hover {
+  color: white;
+  border-color: darkblue;
+}
+.btnright {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.btnleft {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+.pdd {
+  padding-right: 3em;
+}
+.btndiscover{
+  margin-right: 1em;
+}
+#editq{
+  color:white;
+  border: none;
+  background-color: darkblue;
+  width: 600px;
+}
+.prel {
+  width: 10em;
+
+}
+.glyphicon{
+    size: 10px;
+    background-color: transparent;
+    border: transparent;
+}
+.qname{
+  width: 100%;
 }

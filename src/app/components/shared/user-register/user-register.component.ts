@@ -39,7 +39,7 @@ export class UserRegisterComponent implements OnInit {
       this.register(form.value).subscribe((data) => {
         console.log(data.token);
         localStorage.clear;
-        localStorage.token = data.token;
+        // localStorage.token = data.token;
         this.router.navigate(['/login']);
 
       });
