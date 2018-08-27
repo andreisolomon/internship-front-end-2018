@@ -29,7 +29,7 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      location.replace('category');
+      this.router.navigate(['category']);
     }
   }
  
