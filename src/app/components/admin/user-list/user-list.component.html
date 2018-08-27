@@ -53,13 +53,13 @@
           <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Admin</li></span>-->
         </ul>
         <div *ngIf="edit==true">
-          <button type="button" class="btn btn-danger " id="danger" (click)="edity(i)">Save</button>
+          <button type="button" class="btn btn-danger " id="danger" (click)="edity(user.id)">Save</button>
         </div>
         <div *ngIf="edit==false">
       <span class="opt"><a style="cursor: pointer;"><i class="fas fa-ellipsis-h" (click)="openMenu()"></i></a>
        <div [hidden]="false" class="editUser" *ngIf="open==true">
             <ul>
-          <li> <i class="far fa-edit"></i><button type="button" class="btn btn-primary" (click)="edity(i)">Edit </button></li>
+          <li> <i class="far fa-edit"></i><button type="button" class="btn btn-primary" (click)="edity(user.id)">Edit </button></li>
            <li><i class="far fa-trash-alt"></i><button type="button" class="btn" (click)="delete(user.id, i)">Delete</button></li>
            <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.Admin==false"
                                                                                 (click)="makeAdmin(user)">Make An Administrator</div>

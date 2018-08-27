@@ -4,7 +4,17 @@
 
   <div class="row">
 
-    hello
+    <div class="form-group">
+      <label for="FirstName"> First name </label>
+      <input type="text" name="FirstName" id="FirstName" class="form-control" [ngModel]="user.FirstName" required FirstName #FirstName="ngModel">
+      <span class="help-block" *ngIf="!FirstName.valid && FirstName.touched"> Please enter name! </span>
+    </div>
+
+    <div class="form-group">
+      <label for="LastName"> Last name </label>
+      <input type="text" name="LastName" id="LastName" class="form-control" [ngModel]="user.LastName" required LastName #LastName="ngModel">
+      <span class="help-block" *ngIf="!LastName.valid && LastName.touched"> Please enter surname! </span>
+    </div>
 
   </div>
 
