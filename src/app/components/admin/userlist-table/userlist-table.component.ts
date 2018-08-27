@@ -8,7 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 export interface PeriodicElement {
   isAdmin: boolean;
-  image : string,
+  image: string,
   name: string;
   date: string;
   score: number;
@@ -18,7 +18,7 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {isAdmin: false, image: '../../../../../assets/images/img3.jpeg', name: 'Mr. Nice', tags : 'bla', score: 3, date: '15 oct 2018'},
   {isAdmin: false, image: '../../../../../assets/images/img3.jpeg', name: 'Mr. Nice', tags : 'bla', score: 3, date: '15 oct 2018'},
-  {isAdmin: false, image: '../../../../../assets/images/img3.jpeg', name: 'Mr. Nice', tags : 'bla', score: 3, date: '15 oct 2018'},
+  {isAdmin: false, image: '../../../../../assets/images/img3.jpeg', name: 'Mr. Nice', tags : 'bla', score: 3, date: '15 oct 2018'}
 ];
 @Component({
   selector: 'app-userlist-table',

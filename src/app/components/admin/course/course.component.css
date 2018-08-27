@@ -5,3 +5,30 @@ textarea{
   width: 100%;
 }
 
+.image {
+  width: 290px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+#upload1 {
+  margin-bottom: 10px;
+  margin-top: 12px;
+  height: 31px;
+  width: 76px;
+  border: 1px solid #006FFF;
+  text-align: center;
+  padding-top: 0.3em;
+  margin-left: 20px;
+  color: #006FFF;
+  border-radius: 5px;
+}
+
+#upload {
+  display: none;
+}
+
+.btn {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}

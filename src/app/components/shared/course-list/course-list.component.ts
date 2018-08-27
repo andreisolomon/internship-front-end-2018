@@ -26,6 +26,8 @@ export class CourseListComponent implements OnInit {
   public link: string;
   private found: any;
   public len;
+  public delete: boolean;
+  public add: boolean;
 
   constructor(private route: ActivatedRoute, private courseListService: CourseListService, private router: Router, private categoryListService: CategoryListService) { }
 
@@ -42,7 +44,15 @@ export class CourseListComponent implements OnInit {
         });
         if (params['courseId'] != null) {
           this.course_id = +params['courseId'];
-          this.error = true;
+          if (params['message'] != null) {
+            if (params['message'] === 'notfound') {
+              this.error = true;
+            } else if (params['message'] === 'delete'){
+              this.delete = true;
+            } else {
+              this.add = true;
+            }
+          }
         }
       }
     );
@@ -60,6 +70,22 @@ export class CourseListComponent implements OnInit {
       setTimeout(() => {
         this.id = 0;
         this.error = false;
+      }, 10000);
+    }
+
+    if (this.delete === true) {
+      this.link = '../../../';
+      setTimeout(() => {
+        this.id = 0;
+        this.delete = false;
+      }, 10000);
+    }
+
+    if (this.add === true) {
+      this.link = '../../../';
+      setTimeout(() => {
+        this.id = 0;
+        this.add = false;
       }, 10000);
     }
 

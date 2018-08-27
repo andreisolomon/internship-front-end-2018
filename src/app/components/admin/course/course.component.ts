@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import {$} from 'protractor';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '../../../../../node_modules/@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -9,35 +10,37 @@ import {$} from 'protractor';
 })
 export class CourseComponent implements OnInit {
 
-  courseForm: FormGroup;
+  public url;
 
-  constructor() {
+  constructor(private http: HttpClient, private router: Router) {}
+
+  ngOnInit() { }
+
+  onSubmit(form: NgForm) {
+    const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + form.value.categoryId;
+    const id = form.value.categoryId;
+    this.http.post(url, form.value).subscribe();
+    this.router.navigate(['category/' + id + '/courses/' + 0 + '/add']);
   }
 
-  ngOnInit() {
-
-    this.courseForm = new FormGroup({
-      'title': new FormControl(null, Validators.required),
-      'summary': new FormControl(null, Validators.required),
-      'description': new FormControl(null, Validators.required),
-      'chapters': new FormArray([]),
-      'questions': new FormArray([])
-    });
-
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = ( fre: any ) => {
+        this.url = fre.currentTarget.result ? fre.currentTarget.result : '';
+      };
+    }
   }
 
-  onSubmit() {
-    console.log(this.courseForm);
-  }
-
-  onAddChapter() {
+  /*addChapter() {
     const chapter = new FormControl(null, Validators.required);
     (<FormArray>this.courseForm.get('chapters')).push(chapter);
   }
-  onAddQuestions() {
+  addQuestion() {
     const questions = new FormControl(null, Validators.required);
     (<FormArray>this.courseForm.get('questions')).push(questions);
-  }
+  }*/
 
 }
 
