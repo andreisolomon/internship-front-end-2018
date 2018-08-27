@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RouterModule, Routes, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { tap, catchError } from 'rxjs/operators';
-
-// @Injectable()
-// export class ConfigService {
-//   constructor(private http: HttpClient) { }
-// }
 
 @Component({
   selector: 'app-login',
@@ -25,20 +17,20 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
 
-  constructor(private http: HttpClient, private router: Router) {
-    
-  }
+  constructor(private http: HttpClient, private router: Router) { }
 
   correct: boolean = false;
 
-  ngOnInit() {
-  }
-  validation(form: NgForm) {
+  ngOnInit() { }
 
+  validation(form: NgForm) {
+    console.log('validation');
     if (form.valid) {
+      console.log('form valid');
       this.login(form.value).subscribe((data) => {
-        console.log(data);
+        console.log('subscribe');
         if (data.success === true) {
+          console.log('data success');
           localStorage.clear;
           localStorage.token = data.token;
           this.correct = true;
@@ -53,8 +45,6 @@ export class LoginComponent implements OnInit {
   }
 
   private login(obj): Observable<any> {
-    return this.http.post('http://192.168.151.36:8000/api/login', obj)
-
-
+    return this.http.post('http://192.168.151.36:8000/api/login', obj);
   }
 }

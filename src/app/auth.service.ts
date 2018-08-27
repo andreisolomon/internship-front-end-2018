@@ -8,7 +8,7 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    return this.getToken() !== '';
+    return this.getToken() !== undefined;
   }
 
 }

@@ -11,7 +11,7 @@ export class AnswersService {
 
   getAnswers(category_id: number, course_id: number, chapter_id: number, question_id: number): Observable<Answer[]> {
     return this.http.get<Answer[]>(
-      api.base + '/category/' + category_id + '/course/' + course_id + '/chapter/' + chapter_id + '/quiz/' + question_id);
+      api.base + '/category/' + category_id + '/course/' + course_id + '/chapter/' + chapter_id + '/quiz/' + question_id + '/quizOptions/');
   }
 
 }
