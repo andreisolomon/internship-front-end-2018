@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {  NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -25,7 +25,7 @@ import { PageSectionSmallComponent } from './components/shared/page-section-smal
 import { ChapterService } from './components/shared/chapter-list/chapter.service';
 import { UserListService } from './components/admin/user-list/user-list.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule} from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule,  MatCheckboxModule } from '@angular/material';
 import { QuestionsService } from './components/shared/chapter-questions/questions.service';
 import { AnswersService } from './components/shared/chapter-questions/answers.service';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
@@ -34,7 +34,8 @@ import { ShortenPipe } from './shorten.pipe';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 import { TokenInterceptor } from './token-interceptor';
-import {AuthService} from './auth.service';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import {AuthService} from './auth.service';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthGuardService
     ],
   bootstrap: [AppComponent]
 })

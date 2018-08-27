@@ -60,8 +60,8 @@ export class ChapterQuestionsComponent implements OnInit {
 
   loadPageInfo() {
     this.chapterService.noOfChapterInCourse(this.id, this.course_id, this.chapter_id).subscribe(number => this.noChapter = number);
-    this.questionsService.getQuestions().subscribe(data => this.questions = data.filter( item => item.chapter_id === this.chapter_id));
-    this.answersService.getAnswers().subscribe(data => this.answers = data);
+    this.questionsService.getQuestions(this.id, this.course_id, this.chapter_id).subscribe(data => this.questions = data);
+    this.answersService.getAnswers(this.id, this.course_id, this.chapter_id, 1).subscribe(data => this.answers = data);
     this.chapterService.getNext(this.id, this.course_id, this.chapter_id).subscribe(next => this.next = next);
     this.chapterService.getPrev(this.id, this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
