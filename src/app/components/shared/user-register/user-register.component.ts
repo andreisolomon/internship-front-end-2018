@@ -22,11 +22,13 @@ export class UserRegisterComponent implements OnInit {
     public lastname: string;
     public email: string;
     public password: string;
+    public tip: string;
     
-  constructor(private http: HttpClient, private router: Router) { }
-
+  constructor(private http: HttpClient, private router: Router) {   this.tip='password';}
+   
   ngOnInit() {
   }
+ 
   validation(form: NgForm) {
 
     if (form.valid) {
@@ -45,5 +47,13 @@ export class UserRegisterComponent implements OnInit {
   private register(up): Observable<any> {
     return this.http.post('http://192.168.151.36:8000/api/register', up);
   }
-
+  show(){
+    if (this.tip==='password'){
+        this.tip='text';
+    }
+    else{
+      this.tip='password';
+    }
+  
+  }
 }

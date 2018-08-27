@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
 
   public email: string;
   public password: string;
+  public tip: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    
+     this.tip='password'; 
   }
 
   correct: boolean = false;
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
   validation(form: NgForm) {
 
-    if (form.valid) {
+    if (form.valid) { 
       this.login(form.value).subscribe((data) => {
         console.log(data);
         if (data.success) {
@@ -54,7 +55,14 @@ export class LoginComponent implements OnInit {
 
   private login(obj): Observable<any> {
     return this.http.post('http://192.168.151.36:8000/api/login', obj)
-
-
+  }
+  show(){
+    if (this.tip==='password'){
+        this.tip='text';
+    }
+    else{
+      this.tip='password';
+    }
+  
   }
 }
