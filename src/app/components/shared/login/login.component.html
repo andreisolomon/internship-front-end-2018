@@ -13,10 +13,10 @@
           </div>
           <div class="form-group">
             <input type="{{tip}}" class="form-control input-lg" name="Password" ngModel required password #password="ngModel" placeholder="• • • • • • • •">
-<button type="button" class=" glyphicon glyphicon-eye-open" (click)="show()"></button>
+            <button type="button" class=" glyphicon glyphicon-eye-open" (click)="show()"></button>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary form-control input-lg" [disabled]="!f.valid" >
+            <button type="submit" class="btn btn-primary form-control input-lg" [disabled]="!f.valid">
               <b>SIGN IN</b>
             </button>
           </div>
@@ -26,7 +26,7 @@
               <u>Reset it</u>
             </a>
           </p>
-          <span id="true"> </span>
+          <span id="true"> {{ correct }} </span>
           <div>
             <span class="help-block" *ngIf="!email.valid && email.touched"> Please enter your valid email! </span>
             <br>
