@@ -76,22 +76,18 @@ p{
     align-items: center;
     justify-content: center;
 }
-.field-icon {
-    float: right;
-    margin-left: -25px;
-    margin-top: -25px;
-    position: relative;
-    z-index: 2;
-  }
+
   a {
     color: #ffffff;
     }
-    .field-icon {
-        float: right;
-        margin-left: -25px;
-        margin-top: -25px;
-        position: relative;
-        z-index: 2;
+.glyphicon {
+    float: right;
+    margin-top: -33px;
+    border: transparent;
+    background-color: white;
+    margin-right: 10px;
+    color: gray;
+    
       }
 #true{
           color: red;
