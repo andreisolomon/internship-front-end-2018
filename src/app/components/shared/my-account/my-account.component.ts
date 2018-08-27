@@ -26,6 +26,7 @@ url = '';
 
   toLogout() {
       if (confirm('Are you sure you want to log out?')) {
+        localStorage.clear();
         this.route.navigate(['login']);
       } else {
     }
