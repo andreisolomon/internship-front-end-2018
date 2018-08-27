@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import {AuthService} from '../../../auth.service';
 
 // @Injectable()
 // export class ConfigService {
@@ -24,9 +25,12 @@ export class UserRegisterComponent implements OnInit {
     public password: string;
     public tip: string;
     
-  constructor(private http: HttpClient, private router: Router) {   this.tip='password';}
-   
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {   this.tip='password';}
+
   ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      location.replace('category');
+    }
   }
  
   validation(form: NgForm) {

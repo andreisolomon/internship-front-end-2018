@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {AuthService} from '../../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +18,14 @@ export class LoginComponent implements OnInit {
   public password: string;
   public tip: string;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
      this.tip = 'password';
   }
 
   ngOnInit() {
-    localStorage.clear();
+    if (this.authService.isAuthenticated()) {
+      location.replace('category');
+    }
   }
 
   correct: string = '';
@@ -36,7 +39,6 @@ export class LoginComponent implements OnInit {
       this.login(form.value).subscribe((data) => {
         
         if (data.success) {
-          console.log('data success');
           localStorage.clear();
           localStorage.token = data.token;
           this.router.navigate(['/dashboard']);
