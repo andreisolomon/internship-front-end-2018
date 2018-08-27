@@ -58,3 +58,12 @@ p.you-re-one-step-closer{
 .help-block{
     color: red;
 }
+.glyphicon {
+    float: right;
+    margin-top: -33px;
+    border: transparent;
+    background-color: white;
+    margin-right: 10px;
+    color: gray;
+    
+      }
