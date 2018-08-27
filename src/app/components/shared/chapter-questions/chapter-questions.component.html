@@ -1,19 +1,54 @@
 <app-page-header></app-page-header>
 <app-page-section-small [title]="title | async" [noChapter]="noChapter + 1" [chapter]="true"></app-page-section-small>
 <div class="container">
-  <div class="">
+  <div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col col-md-4 divinline2">
+      <button class="btnstart btnleft" (click)="deleteq()"> <i class="fa fa-trash-alt"></i> {{delq}} </button>
+      <button class="btnstart btnright" (click)="editor()"> <i class="fa fa-edit"></i> {{editbtn}} </button>
+      <button class="btnstart margin" (click)="admin(1)"> <i class="fa fa-plus-square"></i> Create </button>
+
+                
+    </div>
+    
   </div>
+  <!-- <div class="row">
+    <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+       <form class="createq">
+         <div class="form-group">
+          <input type="text" class="qname">
+          <input type="text" class="qname">
+          <input type="text" class="qname">
+          <input type="text" class="qname">
+  </div>
+        </form>
+    </div>
+  </div> -->
+
+  <!-- de facut maine -->
+ 
   <div class="row" *ngFor="let question of questions; let i = index">
     <div class="col col-md-2"></div>
     <div class="col col-md-8">
       <div class="panel panel-primary">
-        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.Question }} </div>
+        <div class="panel-heading question" >
+          <div *ngIf="edit==false">
+            <div class="space divinline">Q:</div>{{ question.Question }} 
+            <div class="pull-right"><button type="button" class="glyphicon glyphicon-remove " [ngStyle]="{'display': dispq}" (click)="delete(question.id)"></button></div>
+          </div>
+          <div *ngIf="edit==true"><input type="text" maxlength="500" [(ngModel)]="question.Question" placeholder="Type your question.." name="editq"
+              id="editq">
+              
+          </div>
+        </div>
       </div>
+
       <div class="" *ngFor="let answer of answers">
         <div class="card costum" *ngIf="answer.quizId === question.id">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" >
-              <div class="" >
+            <li class="list-group-item">
+              <div class="">
                 <div class="space divinline">
                   <label class="checkbox">
                     <input type="radio" [name]="question.id">
@@ -37,11 +72,7 @@
       <ng-template #finish>
         <button class="btnstart" (click)="load(3)"> Finish </button>
       </ng-template>
-      <button class="btnstart" *ngIf="prev !== undefined" (click)="load(1)"> Previous chapter </button>
+      <button class="btnstart prel" *ngIf="prev !== undefined" (click)="load(1)">Previous chapter</button>
     </div>
   </div>
 </div>
-
-
-
-
