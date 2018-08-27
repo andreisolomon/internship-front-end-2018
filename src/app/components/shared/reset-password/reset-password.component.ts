@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {RouterModule, Routes, Router} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from '../../../auth.service';
 
 @Injectable()
 export class ConfigService {
@@ -24,10 +25,13 @@ export class ResetPasswordComponent implements OnInit {
   public confirm = true;
   corect: boolean;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
   }
 
   ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      location.replace('category');
+    }
   }
 
   validation(form: NgForm) {
