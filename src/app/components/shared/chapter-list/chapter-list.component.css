@@ -32,6 +32,27 @@
   padding-left: 17em;
 }
 
-.pdd3 {
+.divinline2>button{
+  float: right;
+  clear: none;
+}
 
+.margin{
+  margin-right: 1em;
+}
+
+.btnstart {
+  width: 6em;
+  margin-bottom: 2em;
+  color: grey;
+  border-color: grey;
+}
+
+.btnstart:hover{
+  color: white;
+  border-color: darkblue;
+}
+
+.btndiscover{
+  margin-right: 1em;
 }

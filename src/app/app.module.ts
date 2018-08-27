@@ -36,6 +36,7 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
 import { TokenInterceptor } from './token-interceptor';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './components/admin/user/user.service';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { AuthGuardService } from './auth-guard.service';
     AnswersService,
     UserListService,
     CategoryListService,
+    UserService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

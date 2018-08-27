@@ -5,6 +5,10 @@ import { CourseListService } from '../course-list/course-list.service';
 import { Chapter} from './chapter';
 import { ChapterService } from './chapter.service';
 import {Observable} from 'rxjs';
+import {UserListService} from '../../admin/user-list/user-list.service';
+import {HttpModule} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
+import {UserService} from '../../admin/user/user.service';
 
 @Component({
   selector: 'app-single-course',
@@ -26,10 +30,20 @@ export class ChapterListComponent implements OnInit {
   public error: boolean = false;
   public chapter_id: number;
   public link: string;
+  public admin: boolean;
 
-  constructor(private router: Router, private categoryListService: CategoryListService, private route: ActivatedRoute, private courseListService: CourseListService, private chapterListService: ChapterService) { }
+  constructor(private router: Router,
+              private categoryListService: CategoryListService,
+              private route: ActivatedRoute,
+              private courseListService: CourseListService,
+              private chapterListService: ChapterService,
+              private userService: UserService,
+              private http: HttpClient
+              ) { }
 
   ngOnInit() {
+
+    this.userService.getInfo().subscribe(data => this.admin = data);
 
     this.route.params.subscribe(
       (params: Params) => {
@@ -83,6 +97,14 @@ export class ChapterListComponent implements OnInit {
 
   loadPage(id: number){
     this.router.navigate(['category', this.id, 'course', this.course_id, 'chapter', id]);
+  }
+
+  adminOp(command) {
+    if (command === 1) {
+      const url = 'http://192.168.151.36:8000/api/courses?courseId=' + this.course_id;
+      this.http.delete(url).subscribe();
+      this.router.navigate(['category/' + this.id + '/course/' + this.course_id + '/delete']);
+    }
   }
 
 }
