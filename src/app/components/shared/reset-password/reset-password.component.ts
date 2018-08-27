@@ -25,12 +25,12 @@ export class ResetPasswordComponent implements OnInit {
   public confirm = true;
   corect: boolean;
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      location.replace('category');
+      this.router.navigate(['category']);
     }
   }
 

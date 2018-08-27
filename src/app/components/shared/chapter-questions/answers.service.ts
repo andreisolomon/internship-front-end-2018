@@ -10,7 +10,7 @@ export class AnswersService {
   constructor(private http: HttpClient) { }
 
   getAnswers(category_id: number, course_id: number, chapter_id: number, question_id: number): Observable<Answer[]> {
-    return this.http.get<Answer[]>(api.base + 'quizzes/quizOptions');
+    return this.http.get<Answer[]>(api.base + '/quizzes/quizOptions');
   }
 
 }

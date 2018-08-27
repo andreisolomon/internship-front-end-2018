@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      location.replace('category');
+      this.router.navigate(['category']);
     }
   }
 
