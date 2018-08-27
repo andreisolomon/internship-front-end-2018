@@ -17,8 +17,14 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
 import {AuthGuardService} from './auth-guard.service';
 
 const routers: Routes = [
-  { path: '', component: CategoryListComponent},
-  { path: 'dashboard', component: CategoryListComponent},
+  { path: '',
+    component: CategoryListComponent,
+    canActivate: [AuthGuardService]
+  },
+  { path: 'dashboard',
+    component: CategoryListComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: 'login', component: LoginComponent },
   { path: 'account', component: MyAccountComponent },
   { path: 'users', component: UserListComponent },
@@ -39,7 +45,6 @@ const routers: Routes = [
     component: CategoryListComponent,
     canActivate: [AuthGuardService]
   },
-  
   {
     path: 'category/:categoryId/course/:courseId',
     component: ChapterListComponent,
@@ -77,8 +82,16 @@ const routers: Routes = [
   },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
-  { path: 'dashboard/:categoryId', redirectTo: 'category/:categoryId' },
-  { path: ':categoryId', redirectTo: 'category/:categoryId'},
+  {
+    path: 'dashboard/:categoryId',
+    redirectTo: 'category/:categoryId',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: ':categoryId',
+    redirectTo: 'category/:categoryId',
+    canActivate: [AuthGuardService]
+  },
   { path: '**', redirectTo: 'category' }
 
 ];
