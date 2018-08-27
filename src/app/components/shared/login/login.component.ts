@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      location.replace('category');
+      this.router.navigate(['category']);
     }
   }
 
@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
         } else {
           this.correct = 'LOGIN INCORRECT';
           localStorage.clear();
-        } });
+        }
+      });
     }
   }
 
