@@ -15,6 +15,7 @@ import { ChapterContentComponent } from './components/shared/chapter-content/cha
 import { CourseComponent } from './components/admin/course/course.component';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
 import {AuthGuardService} from './auth-guard.service';
+import {UserElementComponent} from './components/admin/user-list/user-element/user-element.component';
 
 const routers: Routes = [
   {
@@ -81,6 +82,11 @@ const routers: Routes = [
     component: CourseComponent,
     canActivate: [AuthGuardService]
   },
+  {
+    path: 'users/edit/:id',
+    component: UserElementComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
   {
@@ -92,6 +98,10 @@ const routers: Routes = [
     path: ':categoryId',
     redirectTo: 'category/:categoryId',
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'users/edit/:id',
+    component: UserElementComponent
   },
   { path: '**', redirectTo: 'category' }
 

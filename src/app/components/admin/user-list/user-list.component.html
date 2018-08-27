@@ -16,14 +16,14 @@
     <span style="margin-left:111px;">date created</span>
   </div>
   <div class="row">
-    <ul class="users-list" *ngFor="let user of data| async; let i=index">
+    <ul class="users-list" *ngFor="let user of data| async; let i = index">
       <li id="user.user_id">
         <div id="checkActive"><span class="details">Active :
       </span><label><input type="checkbox" id="check" [checked]="false"></label>
         </div>
         <!--#delete [checked]="delete" (change)="delete=!delete" (click)="showButton()" -->
 
-        <img [src]="user.path" class="profilePic" alt="no image">
+        <img [src]="user.Path" class="profilePic" alt="no image">
         <div *ngIf="edit==false "><p class="name"><span (click)="user.isEditable=!user.isEditable"> {{user.FirstName}} {{user.LastName}}</span><span
           class="useremail"><span class="details">E-mail : </span>{{user.Mail}}</span></p>
         </div>

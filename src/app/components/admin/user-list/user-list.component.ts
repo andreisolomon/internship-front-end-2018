@@ -26,7 +26,7 @@ export class UserListComponent implements OnInit {
   public id: number;
   public link: string;
 
-  constructor(private route: ActivatedRoute, private userListService: UserListService) {
+  constructor(private route: ActivatedRoute, private userListService: UserListService, private router: Router) {
   }
 
   // private CourseScoreService
@@ -47,7 +47,6 @@ export class UserListComponent implements OnInit {
     //
     this.data = this.userListService.getUsers().map(data => data.slice(0));
 
-
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['userId'];
@@ -65,7 +64,6 @@ export class UserListComponent implements OnInit {
         this.error = false;
       }, 10000);
     }
-
   }
 
   openMenu() {
@@ -73,32 +71,19 @@ export class UserListComponent implements OnInit {
   }
 
   delete(id: number, ind: number) {
+    console.log(this.data);
+    // this.data.splice(ind, 1);
     this.userListService.deleteUser(id).subscribe(response => {
-      console.log(this.data);
-      this.data.splice(ind, 1);
+      console.log(response);
     });
   }
 
-  edity( index) {
-    console.log (index);
-    if (this.edit === false) {
-      this.edit = true;
-    } else {
-      this.edit = false;
-    }
+  edity(id) {
+    this.router.navigate(['users/edit/' + id]);
   }
 
   makeAdmin(admin) {
-    admin.Admin = admin.Admin !== true;
-    // admin.isAdmin = admin.isAdmin !== true;
-    // deleteUser(user);
-    //     // {
-    //     //   (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
-    //     // }
-    //     //
-    //     // if (Admin === false) {
-    //     //
-    //     // }
+    admin.Admin = !admin.Admin;
   }
 
   //
