@@ -36,6 +36,7 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
 import { TokenInterceptor } from './token-interceptor';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import {UserElementComponent} from './components/admin/user-list/user-element/user-element.component';
 import { UserService } from './components/admin/user/user.service';
 
 @NgModule({
@@ -60,7 +61,8 @@ import { UserService } from './components/admin/user/user.service';
     FinishedCourseComponent,
     ChapterContentComponent,
     ShortenPipe,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    UserElementComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {api} from '../../../../assets/data/apiUrl';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {logging} from 'selenium-webdriver';
 
 // export interface Config {
 //   FirstName: string;
@@ -33,7 +34,7 @@ export class UserListService {
   // }
 
   getUsers(): Observable<any> {
-    return this.http.get(api.base + '/user');
+    return this.http.get(api.user);
   }
 
   getUserById(id: number) {
@@ -66,7 +67,7 @@ export class UserListService {
   // }
   // <Config>
   deleteUser(id: number ) {
-    return this.http.delete(api.base + '/user');
+    return this.http.delete(api.user + `?userId=${id}`);
   }
 }
 
