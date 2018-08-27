@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     if (form.valid) {
       this.login(form.value).subscribe((data) => {
         console.log(data);
-        if (data.success) {
+        if (data.success === true) {
           localStorage.clear;
           localStorage.token = data.token;
           this.correct = true;
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       });
     }
     if (!this.correct) {
-      document.getElementById("true").innerHTML = "LOGIN INCORRECT";
+      document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
       localStorage.clear;
     }
   }
