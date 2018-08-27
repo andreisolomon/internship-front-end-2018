@@ -1,22 +1,41 @@
-#bt{
-  border:none;
+#bt {
+  border: none;
   color: #6b39ff;
   background-color: transparent;
 }
+
 .container {
   background-color: #F6FAFC;
 }
-tbody{
+
+#danger {
+  background-color: blue !important;
+  color: white !important;
+}
+
+/*#firstName {*/
+  /*margin-top: -5px;.*/
+  /*margin-bottom: 5px;*/
+/*}*/
+
+/*#lastname {*/
+  /*margin-top: 20px;*/
+/*}*/
+
+tbody {
   height: 70px;
   width: 940px;
   border: 1px solid #EFF1F4;
   border-radius: 5px;
-  background-color: #FFFFFF;}
-#image{
+  background-color: #FFFFFF;
+}
+
+#image {
   height: 59px;
   width: 89px;
 }
-thead{
+
+thead {
   height: 14px;
   color: #AEB5BB;
   /*font-family: Roboto;*/
@@ -25,12 +44,14 @@ thead{
   line-height: 14px;
   background-color: #F6FAFC;
 }
-table{
-  margin-top:100px;
+
+table {
+  margin-top: 100px;
 
 }
-.drop{
-  color:white;
+
+.drop {
+  color: white;
   font-size: 14px;
   line-height: 16px;
   height: 30px;
@@ -40,8 +61,8 @@ table{
   border-color: #006FFF;
 }
 
-.drop:hover{
-  color:white;
+.drop:hover {
+  color: white;
   font-size: 14px;
   line-height: 16px;
   height: 30px;
@@ -51,27 +72,34 @@ table{
   border-color: #006FFF;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   background: #006FFF;
 }
-tr{
+
+tr {
   border-bottom: 20px;
   /*vertical-align: initial;*/
 }
+
 /*td{*/
 /*vertical-align: center;*/
 /*}*/
-.reset-td{
+.reset-td {
   vertical-align: baseline;
 }
 
-
-.btn{
+.btn {
   background-color: transparent;
   border-color: transparent;
 }
+.btn-danger{
+  margin-top: 50px;
+  background-color: red!important;
+  color: white!important;
+  /*margin-bottom: -20px;*/
+}
 /* ------------------------------------------------------------------------ */
-.container_allusers{
+.container_allusers {
 
   margin: 0 auto;
 }
@@ -85,30 +113,30 @@ tr{
   margin: 0 auto;
 }
 
-.users-list{
+.users-list {
   display: center;
   padding: 0;
   margin: 0 auto;
 }
 
 .users-list li {
-  width:95%;
+  width: 95%;
   border: 1px solid #EFF1F4;
   border-radius: 5px;
   background-color: #FFFFFF;
   list-style-type: none;
-  margin:0 auto;
+  margin: 0 auto;
   margin-bottom: 10px;
   max-width: 465px;
   align-items: center;
   padding: 20px;
 }
 
-.descList{
+.descList {
   visibility: hidden;
 }
 
-#tags{
+#tags {
   margin-left: 140px;
   text-align: center;
   border-radius: 5px;
@@ -119,7 +147,7 @@ tr{
 }
 
 @media only screen and (min-width: 1000px) {
-  .users-list{
+  .users-list {
     width: 940px;
   }
 
@@ -130,13 +158,14 @@ tr{
     border-radius: 5px;
     background-color: #FFFFFF;
     list-style-type: none;
-    margin:0 auto;
+    margin: 0 auto;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     max-width: 100%;
   }
-  .descList{
+
+  .descList {
     text-align: center;
     margin-top: 80px !important;
     visibility: visible;
@@ -146,7 +175,7 @@ tr{
     width: 100%;
   }
 
-  .profilePic{
+  .profilePic {
     width: 45px !Important;
     height: 45px !Important;
     border-radius: 50%;
@@ -155,60 +184,63 @@ tr{
     margin-left: 71px;
   }
 
-  .users-list .name{
-    height: 19px ;
-    width: 200px ;
+  .users-list .name {
+    height: 19px;
+    width: 200px;
     color: #4A4A4A;
     font-size: 16px;
     font-weight: bold;
-    text-align: left ;
-    line-height: 16px ;
-    margin-left: 12px ;
+    text-align: left;
+    line-height: 16px;
+    margin-left: 12px;
 
   }
 
-  .users-list .useremail{
+  .users-list .useremail {
     height: 14px;
     width: 121px;
     color: #AEB5BB;
     font-size: 13px;
     line-height: 14px;
-    font-weight: 100;display: flex;
+    font-weight: 100;
+    display: flex;
   }
 
-  #tags{
+  #tags {
     margin-left: 61px;
 
   }
 
-  .score{
+  .score {
     color: #AEB5BB;
-    margin-left:100px;
+    margin-left: 100px;
   }
 
-  .datecreated{
+  .datecreated {
     text-transform: uppercase;
     height: 14px;
     width: 80px;
     color: #AEB5BB;
     font-size: 12px;
     line-height: 14px;
-    margin-left:147px;
+    margin-left: 147px;
   }
-  .details{
+
+  .details {
     display: none;
   }
-  .minCtrl{
+
+  .minCtrl {
     display: none;
   }
 }
 
 @media only screen and (max-width: 999px) {
-  .users-list{
+  .users-list {
     width: 100%;
   }
 
-  .profilePic{
+  .profilePic {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -218,7 +250,7 @@ tr{
     display: block;
   }
 
-  .users-list .name{
+  .users-list .name {
     text-align: center;
     color: #4A4A4A;
     font-size: 16px;
@@ -227,7 +259,7 @@ tr{
     margin-top: 14px;
   }
 
-  .users-list .useremail{
+  .users-list .useremail {
     height: 14px;
     margin: 0 auto;
     color: #AEB5BB;
@@ -238,43 +270,44 @@ tr{
     display: block;
   }
 
-  #tags{
-    margin:0 auto;
+  #tags {
+    margin: 0 auto;
     width: 67px;
   }
 
-  .score{
+  .score {
     color: #AEB5BB;
-    margin:0 auto;
+    margin: 0 auto;
     display: block;
     text-align: center;
   }
 
-  .datecreated{
+  .datecreated {
     height: 14px;
     color: #AEB5BB;
     font-size: 14px;
     line-height: 14px;
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
     text-align: center;
   }
 
-  .details{color: #707d8a;}
+  .details {
+    color: #707d8a;
+  }
 
-  .users-list li{
+  .users-list li {
     display: flex;
     flex-direction: column;
   }
 
-
-  .users-list li #tags{
+  .users-list li #tags {
     order: -1;
     margin-left: -5px;
     margin-top: -5px;
   }
 
-  #checkActive{
+  #checkActive {
     margin-top: 13px;
     width: 100px;
     display: block;
@@ -283,17 +316,16 @@ tr{
     margin-top: 5px;
   }
 
-
-  input[type=checkbox]  {
+  input[type=checkbox] {
     margin: -2px 1px 4px 6px !important;
   }
 
-  .opt{
+  .opt {
     order: -1;
     position: absolute;
   }
 
-  .minCtrl{
+  .minCtrl {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -314,22 +346,23 @@ tr{
     padding: 4px 2px 0px 5px;
   }
 
-  .minCtrl li:hover{
+  .minCtrl li:hover {
     background: #5fa5ff;
-    border:0;
-    border:none;
+    border: 0;
+    border: none;
     outline: none;
     text-decoration: none;
     cursor: pointer;
     border: none !important;
   }
-  .opt{display: none;}
+
+  .opt {
+    display: none;
+  }
 
 }
 
-
-
-.users-list li:hover{
+.users-list li:hover {
   border: 1px solid #006FFF;
 }
 
@@ -361,9 +394,9 @@ input[type=checkbox] {
   width: 20px;
   border: 1px solid #AEB5BB;
   border-radius: 5px;
-  -webkit-appearance:button;
+  -webkit-appearance: button;
   white-space: nowrap;
-  overflow:hidden;
+  overflow: hidden;
   margin-top: -8px;
   outline: none;
 }
@@ -393,15 +426,14 @@ input[type=checkbox]:checked:after {
   left: 6px;
 }
 
-.tag{
+.tag {
   font-size: 12px;
   text-align: center;
 }
 
 .tag i {
-  margin-right:3px;
+  margin-right: 3px;
 }
-
 
 .dropdown {
   position: relative;
@@ -413,61 +445,62 @@ input[type=checkbox]:checked:after {
   position: absolute;
   border-radius: 5px;
   background-color: #006FFF;
-  color:#FFF;
-  font-size:10px;
+  color: #FFF;
+  font-size: 10px;
   z-index: 1;
-  margin-left:-136px;
+  margin-left: -136px;
 }
 
-.fa-ellipsis-h{
+.fa-ellipsis-h {
   font-size: 20px;
   margin-left: 40px;
   color: #AEB5BB;
-  margin-top:5px;
+  margin-top: 5px;
 }
 
-.editUser ul{
+.editUser ul {
   padding: 10px;
 }
 
-.editUser i{
-  font-size:11px;
+.editUser i {
+  font-size: 11px;
   padding-right: 5px;
   margin-top: -5px;
-  width:15px;
+  width: 15px;
 }
 
 .editUser li {
   list-style-type: none;
-  margin-bottom:3px;
+  margin-bottom: 3px;
   margin-top: 3px;
   background-color: #006FFF;
-  color:#FFF;
+  color: #FFF;
   height: 10px;
-  max-width:180px;
-  border:0;
+  max-width: 180px;
+  border: 0;
   padding: 8px;
   cursor: pointer;
   font-size: 14px;
 }
 
-.editUser li:hover{
+.editUser li:hover {
   border: 0;
   color: #113463;
 }
 
-.fa-ellipsis-h:hover{
+.fa-ellipsis-h:hover {
   color: #006FFF;
 }
 
-.opt:hover .editUser{
+.opt:hover .editUser {
   display: block;
 }
 
 .dialogdemoThemeInheritance .container {
-  text-align: center; }
+  text-align: center;
+}
 
-#popUp{
+#popUp {
   width: 100%;
   min-height: 400px;
   height: 100%;
@@ -478,7 +511,7 @@ input[type=checkbox]:checked:after {
   align-items: center;
 }
 
-#popUp #content{
+#popUp #content {
   border: 1px solid #b9a5a5;
   border-radius: 5px;
   padding: 20px;
@@ -489,22 +522,26 @@ input[type=checkbox]:checked:after {
   color: #151212;
   background: #fff;
   justify-content: space-between;
-  width: 90%;    min-width: 284px;
+  width: 90%;
+  min-width: 284px;
 }
 
-#content i {float: right;cursor: pointer;}
+#content i {
+  float: right;
+  cursor: pointer;
+}
 
 #popUp #content li {
   text-decoration: none;
   list-style: none;
 }
 
-#popUp .profile{
-  width:100px;
+#popUp .profile {
+  width: 100px;
   margin: 0 auto;
 }
 
-#popUp button{
+#popUp button {
   background: transparent;
   outline: 0;
   border: 1px solid #319eff;
@@ -512,41 +549,41 @@ input[type=checkbox]:checked:after {
   padding: 5px 8px 2px 8px;
 }
 
-#popUp button:hover{
+#popUp button:hover {
   background: #319eff;
-  color:#fff;
+  color: #fff;
   border: 1px solid #319eff;
 }
 
-#popUp input[type="text"]{
-  border:1px solid #b9a5a5;
+#popUp input[type="text"] {
+  border: 1px solid #b9a5a5;
   border-radius: 5px;
   padding: 5px 8px 2px 8px;
   outline: none;
 }
 
-#popUp input[type="text"]:focus{
+#popUp input[type="text"]:focus {
   border: 1px solid #319eff;
   border-radius: 5px;
   padding: 5px 8px 2px 8px;
   outline: none;
 }
 
-#popUp ul{
+#popUp ul {
   margin: 0 auto;
   padding: 0;
   max-width: 500px;
 
 }
 
-#popUp li{
+#popUp li {
   display: grid;
   max-width: 525px;
   margin-bottom: 10px;
   width: 100%
 }
 
-.save{
+.save {
   margin: 0 auto;
   width: 85px;
   display: block

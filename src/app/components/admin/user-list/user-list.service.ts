@@ -4,14 +4,14 @@ import {api} from '../../../../assets/data/apiUrl';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
-export interface Config {
-  FirstName: string;
-  LastName: string;
-  Mail: string;
-  Admin: boolean;
-  Points: number;
-  createdAt: string;
-}
+// export interface Config {
+//   FirstName: string;
+//   LastName: string;
+//   Mail: string;
+//   Admin: boolean;
+//   Points: number;
+//   createdAt: string;
+// }
 @Injectable()
 
 export class UserListService {
@@ -20,101 +20,48 @@ export class UserListService {
 // getConfig(){
 //
 // }
-  private data: User[] = [
-    // /home/anca/projects/internship-front-end-2018/src/assets
+//   private data: User[] = [
+//     // /home/anca/projects/internship-front-end-2018/src/assets
+//
+//     new User(false, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice1', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
+//     new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice2', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
+//     new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice3', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
+//   ];
 
-    new User(false, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'bla ', 3, '15 OCT 2018'),
-    new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hgh', 3, '15 OCT 2018'),
-    new User(true, 1, '../../../../../assets/images/img3.jpeg', 'Mr. Nice', ' bla ', '15 OCT 2018', ' ', 'hghg', 3, '15 OCT 2018'),
-  ];
+  // getData() {
+  //   return this.data;
+  // }
 
-  getData() {
-    return this.data;
+  getUsers(): Observable<any> {
+    return this.http.get(api.base + '/user');
   }
 
   getUserById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user;
-      }
-    }
-    return false;
+    return this.getUsers().map(data => data.find(item => item.id === id));
   }
 
-  getUserAdminById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getAdmin();
-      }
-    }
+  getFirstNameById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).FirstName);
   }
 
-  getUserImageById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getImage();
-      }
-    }
+  getLastNameById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).LastName);
   }
-
-  getUserScoreById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getScore();
-      }
-    }
+  getDateById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).createdAt);
   }
-
-  getUserDateById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getImage();
-      }
-    }
+  getAdminById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).Admin);
   }
-
-  getUserTagsById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getTags();
-      }
-    }
+  getMailById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).Mail);
   }
-
-  getUserFirstNameById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getFirstName();
-      }
-    }
+  getPointsById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).Points);
   }
-
-  getUserLastNameById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getLastName();
-      }
-    }
-  }
-
-  getUserEmailById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getEmail();
-      }
-    }
-  }
-
-  getUserPasswordById(id: number) {
-    for (let user of this.data) {
-      if (user.getId() === id) {
-        return user.getPassword();
-      }
-    }
-  }
-  getInfo() {
-    return this.http.get(api.base + api.user );
-  }
+  // getInfo() {
+  //   return this.http.get( api.user );
+  // }
   // <Config>
 }
 

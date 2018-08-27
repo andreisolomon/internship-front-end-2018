@@ -22,14 +22,15 @@
         <div class="col-md-12" id="account_info">Account Informations</div>
       </div>
       <div class="row">
-        <div class="col-md-2" id="img"><input type="image" id="image" alt="user image"
+        <div class="col-md-2" id="img"><img *ngIf="url" [src]="url" alt="no image" class="image">
+          <input *ngIf="!url" type="image" class="image" alt="user image"
                                               src='../../../../../assets/images/img3.jpeg'></div>
         <div class="col-md-2" id="information">To quickly change your profile picture, just drag&drop an image or upload
           a file.
           Image selected, should have maximum 15 MB size.
         </div>
         <div class="col-md-2" id="form">
-          <form>
+          <form #f="ngForm">
             <div class="form-group">
               <input type="text" class="form-control" id="username" placeholder="username"></div>
             <div class="form-group"><input type="email" class="form-control" id="exampleInputEmail1"
@@ -40,21 +41,30 @@
 
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Save</button>
+            <button type="reset" class="btn btn-default" style="margin-left: 30px;">Cancel</button>
+
           </form>
         </div>
       </div>
       <div class="row">
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="upload">Upload file</button>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-2" id="save">
-          <button type="button" class="btn btn-primary">Save</button>
-        </div>
-        <div class="col-md-2" id="cancel">
-          <button type="button" class="btn btn-default">Cancel</button>
+          <!--<label for="upload" class= "btn" > Select Image</label>-->
+          <input type="file" class="custom-file-input" id="upload" name="upload" accept="image/png, image, jpeg" style="display:none"
+                 (change)="onSelectFile($event)"/>
+          <label for="upload" id="upload1">Upload</label>
+
+          <!--<button type="button" class="btn btn-default" id="upload">Upload file</button>-->
+          <!--</div>-->
+          <!--<div class="col-md-3"></div>-->
+          <!--<div class="col-md-2" id="save">-->
+          <!--<button type="submit" class="btn btn-primary">Save</button>-->
+          <!--</div>-->
+          <!--<div class="col-md-2" id="cancel">-->
+          <!--<button type="reset" class="btn btn-default" >Cancel</button>-->
         </div>
       </div>
+
       <div id="courses">
         <hr id="hr">
         <br>
@@ -72,9 +82,11 @@
                 <span aria-hidden="true">&times;</span>
               </button>
               <div class="col col-md-12">
-              <div class="progress md-progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%"  aria-valuemin="0" aria-valuemax="100"></div>
-              </div></div>
+                <div class="progress md-progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                       style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
             </div>
           </div>
         </ng-container>
