@@ -48,13 +48,13 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId',
-    component: ChapterListComponent,
+    path: 'category/:categoryId/course/:courseId/:message',
+    component: CourseListComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId/notfound',
-    component: CourseListComponent,
+    path: 'category/:categoryId/course/:courseId',
+    component: ChapterListComponent,
     canActivate: [AuthGuardService]
   },
   {

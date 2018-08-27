@@ -3,6 +3,12 @@
 <app-page-section-small [title]="title|async" [subtitle]="subtitle|async" [categoryTitle]="categoryTitle|async" [categoryBackground]="categoryBackground|async" [showCourse]="true"></app-page-section-small>
 
 <div class="container">
+  <div class="row" *ngIf="admin">
+    <div class="col col-md-6"></div>
+    <div class="col col-md-4 divinline2">
+      <button class="btnstart" (click)="adminOp(1)"> <i class="fa fa-trash-alt"></i> Delete </button>
+    </div>
+  </div>
 
   <div class="alert alert-warning" *ngIf="!len; else found">
     <strong>Warning!</strong> There are no chapters in this course.

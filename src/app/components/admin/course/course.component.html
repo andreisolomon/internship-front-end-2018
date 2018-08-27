@@ -2,51 +2,52 @@
 
 <div class="container">
 
-  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <div class="form-group">
         <label for="title"> Title </label>
-        <input type="text" id="title" formControlName="title" class="form-control">
+        <input type="text" name="Title" id="title" class="form-control" ngModel required title #title="ngModel">
       </div>
 
       <div class="form-group">
         <label for="summary"> Summary </label>
-        <input type="text" maxlength="70" id="summary" formControlName="summary" class="form-control">
+        <input type="text" maxlength="70" id="summary" name="Summary" class="form-control"  ngModel required summary #summary="ngModel">
       </div>
 
       <div class="form-group">
         <label > Description </label><br>
-        <textarea rows="2"  maxlength="150"> </textarea>
+        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required description #description="ngModel"> </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="tags"> Tags </label>
+        <input type="text" maxlength="70" id="tags" name="Tags" class="form-control"  ngModel required tags #tags="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="categoryId"> Category ID </label>
+        <input type="text" name="categoryId" id="categoryId" class="form-control" ngModel required categoryId #categoryId="ngModel">
+      </div>
+
+      <div class="form-group">
+        <input type="file" id="upload" name="upload" accept="image/png, image, jpeg" (change)="onSelectFile($event)"/>
+        <label for="upload" id="upload1">Upload</label>
       </div>
 
 
-      <div formArrayName="chapters">
+
+      <img *ngIf="url" [src]="url" alt="no image" class="image">
+
+    <!--  <div formArrayName="chapter">
         <h4> Chapters </h4>
-       <label> <button class="btn btn-primary" type="button" (click)="onAddChapter()"> Add chapter </button></label>
-        <div class="form-group" *ngFor="let chapterControl of courseForm.get('chapters').controls; let i = index">
-          <label >Chapter title</label>
-          <input type="text"  class="form-control" [formControlName]="i">
+        <button class="btn btn-primary" type="button" (click)="addChapter()"> Add chapter </button>
+        <div class="form-group" *ngFor="let chapter of courseForm.get('chapters').controls; let i = index">
+          <label> Title </label>
+          <input type="text" class="form-control" formControlName="i" name="Title">
+          <label> Content </label>
+          <textarea name="Content"> </textarea>
         </div>
-        <div class="form-group" *ngFor="let chapterControl of courseForm.get('chapters').controls; let i = index">
-            <label >Content</label><br>
-            <textarea rows="3" cols="140" maxlength="500"> </textarea>
-          
-        </div>
-      </div>
-
-      <div formArrayName="questions">
-          <h4> Questions </h4>
-         <label > <button class="btn btn-primary" type="button" (click)="onAddQuestions()"> Add questions </button></label>
-          <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
-            <label >Question title</label><br>
-            <input type="radio"><input type="text" maxlength="70" class="form-control" [formControlName]="i"> 
-          </div>
-          <div class="form-group" *ngFor="let questionsControl of courseForm.get('questions').controls; let i = index">
-              <label >Content</label><br>
-              <textarea rows="3" cols="140" maxlength="500"> </textarea>
-  
-          </div>
-        </div>
+      </div>-->
 
       <div class="form-group">
         <button class="btn btn-primary" type="submit"> Create </button>
@@ -54,8 +55,5 @@
 
 
   </form>
-  <button type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
 </div>
 

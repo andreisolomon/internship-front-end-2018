@@ -37,6 +37,7 @@ import { TokenInterceptor } from './token-interceptor';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import {UserElementComponent} from './components/admin/user-list/user-element/user-element.component';
+import { UserService } from './components/admin/user/user.service';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import {UserElementComponent} from './components/admin/user-list/user-element/us
     AnswersService,
     UserListService,
     CategoryListService,
+    UserService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,
