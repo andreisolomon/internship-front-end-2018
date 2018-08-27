@@ -17,7 +17,8 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
 import {AuthGuardService} from './auth-guard.service';
 
 const routers: Routes = [
-  { path: '',
+  {
+    path: '',
     component: CategoryListComponent,
     canActivate: [AuthGuardService]
   },

@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RouterModule, Routes, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { tap, catchError } from 'rxjs/operators';
-
-// @Injectable()
-// export class ConfigService {
-//   constructor(private http: HttpClient) { }
-// }
 
 @Component({
   selector: 'app-login',
@@ -29,32 +21,36 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {
      this.tip='password'; 
   }
-
   correct: boolean = false;
 
-  ngOnInit() {
-  }
+  ngOnInit() { localStorage.clear(); }
   validation(form: NgForm) {
-
-    if (form.valid) { 
+    console.log('validation');
+    if (form.valid) {
       this.login(form.value).subscribe((data) => {
-        console.log(data);
-        if (data.success === true) {
+        console.log('subscribe');
+        if (data.success) {
+          console.log('data success');
           localStorage.clear;
           localStorage.token = data.token;
           this.correct = true;
           this.router.navigate(['/dashboard']);
+        }else{
+          this.correct=false;
+          document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
+          localStorage.clear;
         }
       });
     }
-    if (!this.correct) {
-      document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
-      localStorage.clear;
-    }
+    // if (!this.correct) {
+    //   document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
+    //   localStorage.clear;
+    // }
   }
 
   private login(obj): Observable<any> {
-    return this.http.post('http://192.168.151.36:8000/api/login', obj)
+    return this.http.post('http://192.168.151.36:8000/api/login', obj);
+
   }
   show(){
     if (this.tip==='password'){
@@ -63,6 +59,5 @@ export class LoginComponent implements OnInit {
     else{
       this.tip='password';
     }
-  
   }
 }

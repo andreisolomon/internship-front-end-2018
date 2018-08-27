@@ -1,5 +1,5 @@
 export interface Question {
   id: number,
-  Text: string,
+  Question: string,
   chapterId: number
 }

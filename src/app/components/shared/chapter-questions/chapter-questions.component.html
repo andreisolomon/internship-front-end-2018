@@ -7,10 +7,10 @@
     <div class="col col-md-2"></div>
     <div class="col col-md-8">
       <div class="panel panel-primary">
-        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.text }} </div>
+        <div class="panel-heading question"><div class="space divinline">Q:</div> {{ question.Question }} </div>
       </div>
       <div class="" *ngFor="let answer of answers">
-        <div class="card costum" *ngIf="answer.question_id === question.id">
+        <div class="card costum" *ngIf="answer.quizId === question.id">
           <ul class="list-group list-group-flush">
             <li class="list-group-item" >
               <div class="" >
@@ -20,7 +20,7 @@
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="answer"> {{ answer.text }} </div>
+                <div class="answer"> {{ answer.Option }} </div>
               </div>
             </li>
           </ul>

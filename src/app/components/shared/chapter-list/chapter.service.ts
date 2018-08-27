@@ -11,7 +11,7 @@ export class ChapterService {
   constructor(private http: HttpClient) {  }
 
   getChapters(category_id: number, course_id: number): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(api.base + '/category/' + category_id + '/course/' + course_id + '/chapter');
+    return this.http.get<Chapter[]>(api.base + '/chapters?courseId=' + course_id);
 /*    192.168.151.36:8000/api/category/2/course/1/chapter*/
   }
 

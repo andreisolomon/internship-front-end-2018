@@ -11,7 +11,7 @@ export class CourseListService {
   constructor(private http: HttpClient) {  }
 
   getCourses(id: number): Observable<any> {
-    return this.http.get(api.base + '/category/' + id + '/course');
+    return this.http.get(api.base + '/courses?categoryId=' + id);
   }
 
   getCourseTitleById(category_id: number, id: number) {

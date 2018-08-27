@@ -10,8 +10,7 @@ export class QuestionsService {
   constructor(private http: HttpClient) { }
 
   getQuestions(category_id: number, course_id: number, chapter_id: number): Observable<Question[]> {
-    return this.http.get<Question[]>(
-      api.base + '/category/' + category_id + '/course/' + course_id + '/chapter/' + chapter_id + '/quiz');
+    return this.http.get<Question[]>(api.base + 'quiz?chapterId=' + chapter_id);
   }
 
 

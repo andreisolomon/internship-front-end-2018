@@ -1,6 +1,6 @@
 export interface Answer {
   id: number,
-  Text: string,
+  Option: string,
   isCorrect: boolean,
-  questionId: number
+  quizId: number
 }
