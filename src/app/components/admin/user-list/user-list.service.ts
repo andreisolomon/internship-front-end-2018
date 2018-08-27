@@ -43,7 +43,9 @@ export class UserListService {
   getFirstNameById(id: number) {
     return this.getUsers().map(data => data.find(item => item.id === id).FirstName);
   }
-
+  getPatheById(id: number) {
+    return this.getUsers().map(data => data.find(item => item.id === id).path);
+  }
   getLastNameById(id: number) {
     return this.getUsers().map(data => data.find(item => item.id === id).LastName);
   }
@@ -63,5 +65,9 @@ export class UserListService {
   //   return this.http.get( api.user );
   // }
   // <Config>
+  deleteUser(id: number ) {
+    return this.http.delete(api.base + '/user');
+  }
 }
+
 
