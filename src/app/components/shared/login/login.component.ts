@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   correct: boolean = false;
 
-  ngOnInit() { }
+  ngOnInit() { localStorage.clear(); }
 
   validation(form: NgForm) {
     console.log('validation');
@@ -29,19 +29,24 @@ export class LoginComponent implements OnInit {
       console.log('form valid');
       this.login(form.value).subscribe((data) => {
         console.log('subscribe');
-        if (data.success === true) {
+        debugger;
+        if (data.success) {
           console.log('data success');
           localStorage.clear;
           localStorage.token = data.token;
           this.correct = true;
           this.router.navigate(['/dashboard']);
+        }else{
+          this.correct=false;
+          document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
+          localStorage.clear;
         }
       });
     }
-    if (!this.correct) {
-      document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
-      localStorage.clear;
-    }
+    // if (!this.correct) {
+    //   document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
+    //   localStorage.clear;
+    // }
   }
 
   private login(obj): Observable<any> {
