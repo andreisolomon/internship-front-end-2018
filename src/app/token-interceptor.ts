@@ -18,10 +18,10 @@ export class TokenInterceptor implements HttpInterceptor {
     // send the newly created request
     return next.handle(authReq)
       .catch((error, caught) => {
-       // intercept the respons error and displace it to the console
+        // intercept the respons error and displace it to the console
         console.log('Error Occurred');
         console.log(error);
-      // return the error to the method that called it
+        // return the error to the method that called it
         return Observable.throw(error);
       }) as any;
   }
