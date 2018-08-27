@@ -26,14 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   validation(form: NgForm) {
-    console.log('validation');
     if (form.valid) {
-      console.log('form valid');
       this.login(form.value).subscribe((data) => {
-        console.log('subscribe');
         debugger;
         if (data.success) {
-          console.log('data success');
           localStorage.clear();
           localStorage.token = data.token;
           this.router.navigate(['/dashboard']);
