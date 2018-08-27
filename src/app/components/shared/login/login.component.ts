@@ -14,16 +14,17 @@ import 'rxjs/add/operator/catch';
 })
 export class LoginComponent implements OnInit {
 
-  public email: string;
   public password: string;
   public tip: string;
 
   constructor(private http: HttpClient, private router: Router) {
-     this.tip='password'; 
+     this.tip = 'password';
   }
-  correct: boolean = false;
 
-  ngOnInit() { localStorage.clear(); }
+  ngOnInit() {
+    localStorage.clear();
+  }
+
   validation(form: NgForm) {
     console.log('validation');
     if (form.valid) {
@@ -31,33 +32,24 @@ export class LoginComponent implements OnInit {
         console.log('subscribe');
         if (data.success) {
           console.log('data success');
-          localStorage.clear;
           localStorage.token = data.token;
-          this.correct = true;
           this.router.navigate(['/dashboard']);
-        }else{
-          this.correct=false;
+        } else {
           document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
-          localStorage.clear;
         }
       });
     }
-    // if (!this.correct) {
-    //   document.getElementById('true').innerHTML = 'LOGIN INCORRECT';
-    //   localStorage.clear;
-    // }
   }
 
   private login(obj): Observable<any> {
     return this.http.post('http://192.168.151.36:8000/api/login', obj);
-
   }
-  show(){
-    if (this.tip==='password'){
-        this.tip='text';
-    }
-    else{
-      this.tip='password';
+
+  show() {
+    if (this.tip === 'password'){
+      this.tip = 'text';
+    } else {
+      this.tip = 'password';
     }
   }
 }
