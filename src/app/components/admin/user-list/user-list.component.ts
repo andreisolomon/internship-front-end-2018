@@ -15,16 +15,17 @@ import {Category} from '../../shared/category-list/category';
 export class UserListComponent implements OnInit {
   // public users: User[];
   // // employees: Employee[];
-  // open = false;
+  open = false;
   edit = false;
-  // deleteAll = false;
-  // id: number[];
+  deleteAll = false;
+  id1: number[];
   // config: Config;
   // public scores: Score[];
   public error: boolean = false;
   public data: Observable<User[]>;
   public id: number;
   public link: string;
+
   constructor(private route: ActivatedRoute, private userListService: UserListService) {
   }
 
@@ -66,61 +67,69 @@ export class UserListComponent implements OnInit {
     }
 
   }
+
+  openMenu() {
+    this.open = this.open === false;
   }
-// openMenu() {
-//     this.open = this.open === false;
-// }
-//   delete(us: User) {
-//     this.users.splice(this.users.indexOf(us), 1);
-//   }
-//
-//   edity() {
-//     if (this.edit === false) {
-//       this.edit = true;
-//     } else {
-//       this.edit = false;
-//     }
-//   }
-//
-//   makeAdmin(admin) {
-//     admin.isAdmin = admin.isAdmin !== true;
-//     // admin.isAdmin = admin.isAdmin !== true;
-//     // deleteUser(user){
-//     //   (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
-//     // }
-//     //
-//     //   if (isAdmin === false)
-//     //   {
-//     //
-//     //   }
-//   }
-//
-//   //
-//   // showData() {
-//   //   this.userListService.getInfo().subscribe((response: Response) => {
-//   //       const data = response.json();
-//   //       console.log(data);
-//   //     }
-//   //   );
-//   // }
-//   // passId(index: number) {
-//   //   this.id.push(index);
-//   // }
-//   check(e) {
-//     // this.deleteAll = !!e.target.checked;
-//     if (e.target.checked) {
-//       this.deleteAll = true;
-//       // this.passId.push(index);
-//     } else {
-//       this.deleteAll = false;
-//       // this.passId.delete(index);
-//     }
-//   }
-//   showButton() {
-//     if (document.getElementById('checked').valueOf() === true) {
-//       document.getElementById('ok').innerHTML = 'asa';
-//     }
-//     this.deleteAll = true;
-//   }
-// }
+
+  delete(id: number, ind: number) {
+    this.userListService.deleteUser(id).subscribe(response => {
+      console.log(this.data);
+      this.data.splice(ind, 1);
+    });
+  }
+
+  edity( index) {
+    console.log (index);
+    if (this.edit === false) {
+      this.edit = true;
+    } else {
+      this.edit = false;
+    }
+  }
+
+  makeAdmin(admin) {
+    admin.Admin = admin.Admin !== true;
+    // admin.isAdmin = admin.isAdmin !== true;
+    // deleteUser(user);
+    //     // {
+    //     //   (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+    //     // }
+    //     //
+    //     // if (Admin === false) {
+    //     //
+    //     // }
+  }
+
+  //
+  // showData() {
+  //   this.userListService.getInfo().subscribe((response: Response) => {
+  //       const data = response.json();
+  //       console.log(data);
+  //     }
+  //   );
+  // }
+
+  // passId(index: number) {
+  //   this.id1.push(index);
+  // }
+
+  // check(e) {
+  //   this.deleteAll = !!e.target.checked;
+  //   if (e.target.checked) {
+  //     this.deleteAll = true;
+  //     this.passId.push(index);
+  //   } else {
+  //     this.deleteAll = false;
+  //     this.passId.delete(index);
+  //   }
+  // }
+
+  showButton() {
+    if (document.getElementById('checked').valueOf() === true) {
+      document.getElementById('ok').innerHTML = 'asa';
+    }
+    this.deleteAll = true;
+  }
+}
 

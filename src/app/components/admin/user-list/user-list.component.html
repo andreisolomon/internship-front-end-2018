@@ -16,15 +16,15 @@
     <span style="margin-left:111px;">date created</span>
   </div>
   <div class="row">
-    <ul class="users-list" *ngFor="let user of data| async">
+    <ul class="users-list" *ngFor="let user of data| async; let i=index">
       <li id="user.user_id">
         <div id="checkActive"><span class="details">Active :
-      </span><label><input type="checkbox" id="check" (change)="check($event, i)" [checked]="false"></label>
+      </span><label><input type="checkbox" id="check" [checked]="false"></label>
         </div>
         <!--#delete [checked]="delete" (change)="delete=!delete" (click)="showButton()" -->
 
-        <!--<img [src]="user.getImage()" class="profilePic">-->
-        <div *ngIf="edit==false"><p class="name"><span (click)="user.isEditable=!user.isEditable"> {{user.FirstName}} {{user.LastName}}</span><span
+        <img [src]="user.path" class="profilePic" alt="no image">
+        <div *ngIf="edit==false "><p class="name"><span (click)="user.isEditable=!user.isEditable"> {{user.FirstName}} {{user.LastName}}</span><span
           class="useremail"><span class="details">E-mail : </span>{{user.Mail}}</span></p>
         </div>
         <div *ngIf="edit==true"><label><input type="text" name="firstName" id="firstName" [(ngModel)]="user.FirstName"
@@ -48,22 +48,22 @@
           <li><i class="far fa-edit"></i>Edit</li>
           <li><i class="far fa-trash-alt"></i>Delete</li>
           <!--<span [hidden]="user.roles==1"><li>-->
-          <span>   <i class="fas fa-key"></i>Make Admin</span>
+          <li>   <i class="fas fa-key"></i>Make Admin</li>
           <!--</li></span>-->
           <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Admin</li></span>-->
         </ul>
         <div *ngIf="edit==true">
-          <button type="button" class="btn btn-danger " id="danger" (click)="edity()">Save</button>
+          <button type="button" class="btn btn-danger " id="danger" (click)="edity(i)">Save</button>
         </div>
         <div *ngIf="edit==false">
       <span class="opt"><a style="cursor: pointer;"><i class="fas fa-ellipsis-h" (click)="openMenu()"></i></a>
        <div [hidden]="false" class="editUser" *ngIf="open==true">
             <ul>
-          <li> <i class="far fa-edit"></i><button type="button" class="btn btn-primary" (click)="edity()">Edit </button></li>
-           <li><i class="far fa-trash-alt"></i><button type="button" class="btn" (click)="delete(user)">Delete</button></li>
-           <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.Admin()==false"
+          <li> <i class="far fa-edit"></i><button type="button" class="btn btn-primary" (click)="edity(i)">Edit </button></li>
+           <li><i class="far fa-trash-alt"></i><button type="button" class="btn" (click)="delete(user.id, i)">Delete</button></li>
+           <li><i class="fas fa-key"></i><button type="button" class="btn"><div *ngIf="user.Admin==false"
                                                                                 (click)="makeAdmin(user)">Make An Administrator</div>
-             <div *ngIf="user.getAdmin()==true" (click)="makeAdmin(user)">Remove Administrator</div></button></li>
+             <div *ngIf="user.Admin==true" (click)="makeAdmin(user)">Remove Administrator</div></button></li>
               <!--<span [hidden]="user.roles==0"><li><i class="fas fa-key"></i>Remove Administrator</li></span>-->
          </ul>
        </div>

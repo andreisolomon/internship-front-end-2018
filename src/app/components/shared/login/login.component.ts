@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
     if (form.valid) {
 
       this.login(form.value).subscribe((data) => {
-        
         if (data.success) {
           localStorage.clear();
           localStorage.token = data.token;
