@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import decode from 'jwt-decode';
 
 @Injectable()
 export class AuthService {
@@ -8,12 +7,8 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  /*public isAuthenticated(): boolean {
-    // get the token
-    const token = this.getToken();
-    // return a boolean reflecting
-    // whether or not the token is expired
-    return tokenNotExpired(null, token);
-  }*/
+  public isAuthenticated(): boolean {
+    return this.getToken() === null;
+  }
 
 }

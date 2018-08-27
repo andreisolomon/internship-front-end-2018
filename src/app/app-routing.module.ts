@@ -11,9 +11,10 @@ import { ResetPasswordComponent } from './components/shared/reset-password/reset
 import { ChapterListComponent } from './components/shared/chapter-list/chapter-list.component';
 import { CourseListComponent } from './components/shared/course-list/course-list.component';
 import { FinishedCourseComponent } from './components/shared/finished-course/finished-course.component';
-import {ChapterContentComponent} from './components/shared/chapter-content/chapter-content.component';
-import {CourseComponent} from './components/admin/course/course.component';
+import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
+import { CourseComponent } from './components/admin/course/course.component';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
+import {AuthGuardService} from './auth-guard.service';
 
 const routers: Routes = [
   { path: '', component: CategoryListComponent},
@@ -22,47 +23,63 @@ const routers: Routes = [
   { path: 'account', component: MyAccountComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserComponent },
-  { path: 'category', component: CategoryListComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
   {
+    path: 'category',
+    component: CategoryListComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
     path: 'category/:categoryId',
-    component: CourseListComponent
+    component: CourseListComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'category/:categoryId/notfound',
-    component: CategoryListComponent
+    component: CategoryListComponent,
+    canActivate: [AuthGuardService]
   },
   
   {
     path: 'category/:categoryId/course/:courseId',
-    component: ChapterListComponent
+    component: ChapterListComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'category/:categoryId/course/:courseId/notfound',
-    component: CourseListComponent
+    component: CourseListComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'category/:categoryId/course/:courseId/chapter/:chapterId',
-    component: ChapterContentComponent
+    component: ChapterContentComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'category/:categoryId/course/:courseId/chapter/:chapterId/notfound',
-    component: ChapterListComponent
+    component: ChapterListComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'category/:categoryId/course/:courseId/chapter/:chapterId/quiz',
-    component: ChapterQuestionsComponent
+    component: ChapterQuestionsComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'finished',
-    component: FinishedCourseComponent
+    component: FinishedCourseComponent,
+    canActivate: [AuthGuardService]
   },
-  { path: 'admin/course', component: CourseComponent },
+  {
+    path: 'admin/course',
+    component: CourseComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
   { path: 'dashboard/:categoryId', redirectTo: 'category/:categoryId' },
   { path: ':categoryId', redirectTo: 'category/:categoryId'},
-  { path: '**', redirectTo: 'category' },
+  { path: '**', redirectTo: 'category' }
 
 ];
 
