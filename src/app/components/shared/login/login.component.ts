@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   validation(form: NgForm) {
 
-    this.correct = 'LOGIN INCORRECT';
+    // this.correct = 'LOGIN INCORRECT';
 
     if (form.valid) {
 
@@ -45,6 +45,11 @@ export class LoginComponent implements OnInit {
           this.correct = 'LOGIN INCORRECT';
           localStorage.clear();
         }
+      },
+        errors => {
+        console.log(errors.error.success);
+        this.correct = 'LOGIN INCORRECT';
+        localStorage.clear();
       });
     }
   }
