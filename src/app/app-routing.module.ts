@@ -78,7 +78,7 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/quiz',
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/:message/quiz',
     component: ChapterQuestionsComponent,
     canActivate: [AuthGuardService]
   },

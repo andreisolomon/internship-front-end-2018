@@ -4,3 +4,7 @@
 .container {
   margin-top: 5em;
 }
+
+.textarea {
+  max-width: 100%;
+}

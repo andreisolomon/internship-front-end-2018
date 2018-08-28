@@ -6,6 +6,7 @@ import {ChapterService} from '../chapter-list/chapter.service';
 import {Observable} from 'rxjs';
 import {Chapter} from '../chapter-list/chapter';
 import {UserService} from '../../../user.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-chapter-content',
@@ -31,7 +32,8 @@ export class ChapterContentComponent implements OnInit {
               private route: ActivatedRoute,
               private chapterService: ChapterService,
               private router: Router,
-              private userService: UserService
+              private userService: UserService,
+              private http: HttpClient
               ) { }
 
   ngOnInit() {
@@ -65,15 +67,18 @@ export class ChapterContentComponent implements OnInit {
     } else if (type === 2) {
       window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}`);
     } else if (type === 3) {
-      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/1/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.chapter_id}/exam/quiz`);
     } else {
-      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.chapter_id}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.chapter_id}/exam/quiz`);
     }
   }
 
   admin(type: number) {
     if (type === 1) {
-      window.location.reload();
+      const url = 'http://192.168.151.36:8000/api/chapters?chapterId=' + this.chapter_id;
+      this.http.delete(url).subscribe(data => console.log(data));
+      const red = 'category/' + this.id + '/course/' + this.course_id + '/chapter/' + this.chapter_id + '/delete';
+      this.router.navigate([red]);
     } else if (type === 2) {
       window.location.reload();
     } else if (type === 3) {
@@ -86,7 +91,5 @@ export class ChapterContentComponent implements OnInit {
     this.chapterService.getNext(this.id, this.course_id, this.chapter_id).subscribe(next => this.next = next);
     this.chapterService.getPrev(this.id, this.course_id, this.chapter_id).subscribe(prev => this.prev = prev);
   }
-
-
 
 }

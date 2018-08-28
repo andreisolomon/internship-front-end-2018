@@ -29,7 +29,9 @@ export class CourseComponent implements OnInit {
     const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
     form.value.categoryId = this.id;
     this.http.post(url, form.value).subscribe();
-    this.router.navigate(['category/' + this.id + '/course/' + 0 + '/add']);
+    const id = 0;
+    const red = 'category/' + this.id + '/course/' + id + '/add';
+    this.router.navigate([red]);
   }
 
   onSelectFile(event) {
