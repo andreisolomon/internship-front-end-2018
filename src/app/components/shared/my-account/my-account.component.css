@@ -64,7 +64,9 @@
   width: 140px;
   border-radius: 5px;
 }
-
+#lastName{
+  float:right;
+}
 #information {
   margin-bottom: 40px;
   margin-top: 20px;

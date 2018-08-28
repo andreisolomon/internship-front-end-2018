@@ -3,9 +3,12 @@ import {Routes, RouterModule, Router, ActivatedRoute, Params} from '@angular/rou
 import { Course } from '../course-list/course-list.model';
 import { CourseListService } from '../course-list/course-list.service';
 import {NgForm} from '@angular/forms';
-import { UserListService} from '../../admin/user-list/user-list.service' ;
-import {User} from '../../admin/user/user.model';
+// import {User} from '../../admin/user/user.model';
 import {Observable} from 'rxjs';
+import {UserService} from '../../../user.service';
+import { User } from '../../../user';
+import {api} from '../../../../assets/data/apiUrl';
+import {HttpClient} from '@angular/common/http';
 // import { CourseScoreService} from './course-score.service';
 // import {Score} from './score-model';
 
@@ -24,30 +27,23 @@ export class MyAccountComponent implements OnInit {
   // public scores: Score[];
   public title: Observable<string>;
   public error = false;
-  public data: Observable<User[]>;
+  // public data: Observable<User[]>;
   public id: number;
   public link: string;
   public user_id: number;
   public courses: Course[];
-  private found;
 url = '';
   // public scores: Score[];
+  public user: User;
   constructor( private courseListService: CourseListService, private route: ActivatedRoute,
-               private userListService: UserListService, private router: Router
+                private router: Router, private userService: UserService, private http: HttpClient
               // private courseScoreService: CourseScoreService
               ) { }
 // public
   ngOnInit() {
+    // this.userService.getInfo().subscribe(data =>  this.user = data);
+    this.userService.getInfo().subscribe(data => this.user = data);
   }
-
-  // getUser(): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.userListService.getUser(id).subscribe(user => this.user = user);
-  //   console.log(this.user);
-  // }
-buton() {
-    console.log(this.title);
-}
   toLogout() {
       if (confirm('Are you sure you want to log out?')) {
         localStorage.clear();
@@ -62,6 +58,7 @@ buton() {
       reader.onload = ( fre: any ) => {
         // debugger;
         this.url = fre.currentTarget.result ? fre.currentTarget.result : '';
+        return this.http.post(api.user + '/image', this.url).subscribe();
       };
     }
   }

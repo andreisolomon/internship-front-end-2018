@@ -7,5 +7,6 @@ export interface User {
     Admin: boolean,
     Points: number,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string,
+  Path: string,
 }
