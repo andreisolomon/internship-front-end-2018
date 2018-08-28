@@ -25,6 +25,8 @@ export class UserListComponent implements OnInit {
   public data: Observable<User[]>;
   public id: number;
   public link: string;
+  public array: number[];
+  public int: number;
 
   constructor(private route: ActivatedRoute, private userListService: UserListService, private router: Router) {
   }
@@ -109,6 +111,18 @@ export class UserListComponent implements OnInit {
   //     this.passId.delete(index);
   //   }
   // }
+  check(inde: number) {
+    this.deleteAll = !this.deleteAll;
+    if (this.deleteAll === true) {
+      this.array.push(inde);
+    } else {
+      for (this.int = 0; this.int < this.array.length; this.int++) {
+        if (inde === this.array[this.int]) {
+          this.array.splice(this.int, 1);
+        }
+      }
+    } console.log(this.array);
+  }
 
   showButton() {
     if (document.getElementById('checked').valueOf() === true) {
