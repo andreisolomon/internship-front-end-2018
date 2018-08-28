@@ -25,10 +25,13 @@ export class ChapterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const url = 'http://192.168.151.36:8000/api/chapter?courseId=' + this.course_id;
+    const url = 'http://192.168.151.36:8000/api/chapters?courseId=' + this.course_id;
     form.value.courseId = this.course_id;
-    this.http.post(url, form.value).subscribe();
-    this.router.navigate(['category/' + this.id + '/courses/' + this.course_id + '/chapters/' + 0 + '/add']);
+    console.log(form.value);
+    this.http.post(url, form.value).subscribe(data => console.log(data));
+    const id = 0;
+    const red = 'category/' + this.id + '/course/' + this.course_id + '/chapter/' + id + '/add';
+    this.router.navigate([red]);
   }
 
 }

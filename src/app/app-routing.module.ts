@@ -78,7 +78,7 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/quiz',
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/:message/quiz',
     component: ChapterQuestionsComponent,
     canActivate: [AuthGuardService]
   },
@@ -103,7 +103,7 @@ const routers: Routes = [
     canActivate: [AuthGuardService, AdminGuardService]
   },
   { path: 'register', component: UserRegisterComponent},
-  { path: 'resetpassword', component: ResetPasswordComponent},
+  { path: 'resetpassword/:token', component: ResetPasswordComponent},
   {
     path: 'dashboard/:categoryId',
     redirectTo: 'category/:categoryId',

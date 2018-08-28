@@ -98,9 +98,9 @@ export class ChapterQuestionsComponent implements OnInit {
 
   load(type: number) {
     if (type === 1) {
-      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.prev}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.prev}/exam/quiz`);
     } else if (type === 2) {
-      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}/quiz`);
+      window.location.replace(`/category/${this.id}/course/${this.course_id}/chapter/${this.next}/exam/quiz`);
     } else {
       window.location.replace('/finished');
     }
@@ -137,14 +137,14 @@ export class ChapterQuestionsComponent implements OnInit {
   }
 
   deleteq(){
-  if(this.dispq==='none'){
-      this.dispq='';
-      this.delq = 'Cancel';
+    if( this.dispq === 'none'){
+        this.dispq = '';
+        this.delq = 'Cancel';
 
-    }else{
-      this.dispq='none';
-      this.delq = 'Delete';
-    }
+      } else {
+        this.dispq = 'none';
+        this.delq = 'Delete';
+      }
   }
 
   delete(id) {
@@ -155,18 +155,11 @@ export class ChapterQuestionsComponent implements OnInit {
   }
 
   createquiz(){
-    if (this.dispc==='none') {
-      this.dispc='';
+    if (this.dispc === 'none') {
+      this.dispc = '';
     } else {
-      this.dispc='none';
+      this.dispc = 'none';
     }
-  }
-  
-  addQuestion() {
-    console.log(this.addForm);
-    debugger
-    console.log('clicked');
-    
   }
 
 }
