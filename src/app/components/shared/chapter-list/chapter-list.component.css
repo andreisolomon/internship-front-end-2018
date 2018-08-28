@@ -43,7 +43,7 @@
 
 .btnstart {
   width: 6em;
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
   color: grey;
   border-color: grey;
 }
@@ -55,4 +55,14 @@
 
 .btndiscover{
   margin-right: 1em;
+}
+
+.btnright {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.btnleft {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }

@@ -5,6 +5,7 @@ import {AnswersService} from '../chapter-questions/answers.service';
 import {ChapterService} from '../chapter-list/chapter.service';
 import {Observable} from 'rxjs';
 import {Chapter} from '../chapter-list/chapter';
+import {UserService} from '../../../user.service';
 
 @Component({
   selector: 'app-chapter-content',
@@ -23,10 +24,20 @@ export class ChapterContentComponent implements OnInit {
   public next: number;
   public content: Observable<string>;
   private found;
+  public isAdmin: boolean;
 
-  constructor(private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) { }
+  constructor(private questionsService: QuestionsService,
+              private answersService: AnswersService,
+              private route: ActivatedRoute,
+              private chapterService: ChapterService,
+              private router: Router,
+              private userService: UserService
+              ) { }
 
   ngOnInit() {
+
+    this.userService.getAdmin().subscribe(data => this.isAdmin = data);
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];

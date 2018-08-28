@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../admin/user/user.service';
+import { UserService } from '../../../user.service';
+import { User } from '../../../user';
 
 @Component({
   selector: 'app-page-header',
@@ -8,12 +9,14 @@ import { UserService } from '../../admin/user/user.service';
 })
 export class PageHeaderComponent implements OnInit {
 
-  public isLoggedIn: boolean = true;
-  public isAdmin: boolean = true;
+  public user: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+
+    this.userService.getInfo().subscribe(data => this.user = data);
+
   }
 
 }

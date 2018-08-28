@@ -1,12 +1,10 @@
 <app-page-header></app-page-header>
 <app-page-section-small [title]="title | async" [noChapter]="noChapter + 1" [chapter]="true"></app-page-section-small>
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="isAdmin">
     <div class="col col-md-6"></div>
     <div class="col col-md-4 divinline2">
-      <button class="btnstart btnleft" (click)="admin(3)"> <i class="fa fa-trash-alt"></i> Delete </button>
-      <button class="btnstart btnright" (click)="admin(2)"> <i class="fa fa-edit"></i> Edit </button>
-      <button class="btnstart margin" (click)="admin(1)"> <i class="fa fa-plus-square"></i> Create </button>
+      <button class="btnstart btnleft" (click)="admin(1)"> <i class="fa fa-trash-alt"></i> Delete </button>
     </div>
   </div>
   <div class="row">

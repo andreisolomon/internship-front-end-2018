@@ -70,3 +70,10 @@
 .alert{
   margin-right: 3.5em;
 }
+
+.btnstart{
+  float: right;
+  width:6em;
+  margin-bottom: 1.5em;
+  margin-right: -9em;
+}

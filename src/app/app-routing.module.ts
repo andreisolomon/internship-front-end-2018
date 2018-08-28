@@ -14,8 +14,10 @@ import { FinishedCourseComponent } from './components/shared/finished-course/fin
 import { ChapterContentComponent } from './components/shared/chapter-content/chapter-content.component';
 import { CourseComponent } from './components/admin/course/course.component';
 import { ForgotPasswordComponent } from './components/shared/forgot-password/forgot-password.component';
-import {AuthGuardService} from './auth-guard.service';
-import {UserElementComponent} from './components/admin/user-list/user-element/user-element.component';
+import { AuthGuardService } from './auth-guard.service';
+import { UserElementComponent } from './components/admin/user-list/user-element/user-element.component';
+import { AdminGuardService } from './admin-guard.service';
+import { ChapterComponent } from './components/admin/chapter/chapter.component';
 
 const routers: Routes = [
   {
@@ -29,8 +31,16 @@ const routers: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'account', component: MyAccountComponent },
-  { path: 'users', component: UserListComponent },
-  { path: 'users/:id', component: UserComponent },
+  {
+    path: 'users',
+    component: UserListComponent,
+    canActivate: [AuthGuardService, AdminGuardService]
+  },
+  {
+    path: 'users/:id',
+    component: UserComponent,
+    canActivate: [AuthGuardService, AdminGuardService]
+  },
   { path: 'forgot', component: ForgotPasswordComponent },
   {
     path: 'category',
@@ -48,13 +58,13 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId/:message',
-    component: CourseListComponent,
+    path: 'category/:categoryId/course/:courseId',
+    component: ChapterListComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId',
-    component: ChapterListComponent,
+    path: 'category/:categoryId/course/:courseId/:message',
+    component: CourseListComponent,
     canActivate: [AuthGuardService]
   },
   {
@@ -63,7 +73,7 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/notfound',
+    path: 'category/:categoryId/course/:courseId/chapter/:chapterId/:message',
     component: ChapterListComponent,
     canActivate: [AuthGuardService]
   },
@@ -78,14 +88,19 @@ const routers: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'admin/course',
+    path: 'admin/add/course/:categoryId',
     component: CourseComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService, AdminGuardService]
+  },
+  {
+    path: 'admin/add/chapter/:categoryId/:courseId',
+    component: ChapterComponent,
+    canActivate: [AuthGuardService, AdminGuardService]
   },
   {
     path: 'users/edit/:id',
     component: UserElementComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService, AdminGuardService]
   },
   { path: 'register', component: UserRegisterComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
@@ -101,7 +116,8 @@ const routers: Routes = [
   },
   {
     path: 'users/edit/:id',
-    component: UserElementComponent
+    component: UserElementComponent,
+    canActivate: [AuthGuardService]
   },
   { path: '**', redirectTo: 'category' }
 

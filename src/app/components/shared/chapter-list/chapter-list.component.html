@@ -6,23 +6,28 @@
   <div class="row" *ngIf="admin">
     <div class="col col-md-6"></div>
     <div class="col col-md-4 divinline2">
-      <button class="btnstart" (click)="adminOp(1)"> <i class="fa fa-trash-alt"></i> Delete </button>
+      <button class="btnstart btnleft" (click)="adminOp(1)"> <i class="fa fa-trash-alt"></i> Delete </button>
+      <button class="btnstart btnright" (click)="adminOp(2)"> <i class="fa fa-edit"></i> Edit </button>
+      <button class="btnstart margin" (click)="adminOp(3)"> <i class="fa fa-plus-square"></i> Create </button>
     </div>
+  </div>
+
+  <div class="alert alert-success" *ngIf="add">
+    <strong>Success!</strong> Chapter was added.
+  </div>
+
+  <div class="alert alert-info" *ngIf="delete">
+    <strong>Success!</strong> Chapter with id {{ chapter_id }} was deleted.
+  </div>
+
+  <div class="alert alert-danger" *ngIf="error">
+    <strong>Error!</strong> Chapter with id {{ chapter_id }} does not exist in course with id {{ course_id }}. Please choose another category.
   </div>
 
   <div class="alert alert-warning" *ngIf="!len; else found">
     <strong>Warning!</strong> There are no chapters in this course.
   </div>
   <ng-template #found>
-    <div class="row">
-      <div class="col-xs-1 col-md-2"></div>
-      <div class="col-xs-10 col-md-7">
-        <div class="alert alert-danger" *ngIf="error">
-          <strong>Error!</strong> Chapter with id {{ chapter_id }} does not exist in course with id {{ course_id }}. Please choose another category.
-        </div>
-      </div>
-    </div>
-
     <div class="row" *ngFor="let chapter of chapters | async; let i = index">
       <div class="col-xs-1 col-md-2"></div>
       <div class="col-xs-10 col-md-7">

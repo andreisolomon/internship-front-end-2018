@@ -36,8 +36,10 @@ import { ForgotPasswordComponent } from './components/shared/forgot-password/for
 import { TokenInterceptor } from './token-interceptor';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
-import {UserElementComponent} from './components/admin/user-list/user-element/user-element.component';
-import { UserService } from './components/admin/user/user.service';
+import { UserElementComponent } from './components/admin/user-list/user-element/user-element.component';
+import { UserService } from './user.service';
+import { AdminGuardService } from './admin-guard.service';
+import { ChapterComponent } from './components/admin/chapter/chapter.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { UserService } from './components/admin/user/user.service';
     ChapterContentComponent,
     ShortenPipe,
     ForgotPasswordComponent,
-    UserElementComponent
+    UserElementComponent,
+    ChapterComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import { UserService } from './components/admin/user/user.service';
       useClass: TokenInterceptor,
       multi: true
     },
-    AuthGuardService
+    AuthGuardService,
+    AdminGuardService
     ],
   bootstrap: [AppComponent]
 })

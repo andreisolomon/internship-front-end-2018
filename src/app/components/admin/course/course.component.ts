@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '../../../../../node_modules/@angular/common/http';
-import {Router} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -10,17 +10,26 @@ import {Router} from '@angular/router';
 })
 export class CourseComponent implements OnInit {
 
-  public url;
+  public url: string;
+  public id: number;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['categoryId'];
+      }
+    );
+
+  }
 
   onSubmit(form: NgForm) {
-    const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + form.value.categoryId;
-    const id = form.value.categoryId;
+    const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
+    form.value.categoryId = this.id;
     this.http.post(url, form.value).subscribe();
-    this.router.navigate(['category/' + id + '/courses/' + 0 + '/add']);
+    this.router.navigate(['category/' + this.id + '/course/' + 0 + '/add']);
   }
 
   onSelectFile(event) {
@@ -32,15 +41,6 @@ export class CourseComponent implements OnInit {
       };
     }
   }
-
-  /*addChapter() {
-    const chapter = new FormControl(null, Validators.required);
-    (<FormArray>this.courseForm.get('chapters')).push(chapter);
-  }
-  addQuestion() {
-    const questions = new FormControl(null, Validators.required);
-    (<FormArray>this.courseForm.get('questions')).push(questions);
-  }*/
 
 }
 
