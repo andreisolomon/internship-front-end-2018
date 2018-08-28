@@ -4,6 +4,7 @@ import {api} from '../../../../assets/data/apiUrl';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {logging} from 'selenium-webdriver';
+import {tap} from 'rxjs/operators';
 
 // export interface Config {
 //   FirstName: string;
@@ -36,7 +37,11 @@ export class UserListService {
   getUsers(): Observable<any> {
     return this.http.get(api.user);
   }
-
+  getUser(id: number): Observable<User> {
+      return this.http.get<User>(api.user).pipe(
+        tap(_ => console.log ('fetched user id=' + id ))
+      );
+  }
   getUserById(id: number) {
     return this.getUsers().map(data => data.find(item => item.id === id));
   }

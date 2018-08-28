@@ -19,7 +19,7 @@
     <ul class="users-list" *ngFor="let user of data| async; let i = index">
       <li id="user.user_id">
         <div id="checkActive"><span class="details">Active :
-      </span><label><input type="checkbox" id="check" [checked]="false"></label>
+      </span><label><input type="checkbox" id="check" [checked]="false" (click)="check(i)"></label>
         </div>
         <!--#delete [checked]="delete" (change)="delete=!delete" (click)="showButton()" -->
 
