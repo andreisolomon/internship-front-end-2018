@@ -15,18 +15,21 @@ import {Observable} from 'rxjs';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-@Input() user: User;
+// @Input() user: User;
   open = false;
   edit = false;
   deleteAll = false;
   id1: number[];
   // config: Config;
   // public scores: Score[];
+  public title: Observable<string>;
   public error = false;
   public data: Observable<User[]>;
   public id: number;
   public link: string;
+  public user_id: number;
   public courses: Course[];
+  private found;
 url = '';
   // public scores: Score[];
   constructor( private courseListService: CourseListService, private route: ActivatedRoute,
@@ -34,35 +37,17 @@ url = '';
               // private courseScoreService: CourseScoreService
               ) { }
 // public
-  ngOnInit(): void {
-    this.getUser();
-    // this.courses = this.courseListService.getData();
-    // this.scores = this.courseScoreService.getData();
-    // hr
-    // this.data = this.userListService.getUsers().map(data => data.slice(0));
-    //
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     this.id = +params['userId'];
-    //     this.link = '';
-    //     if (this.userListService.getUserById(this.id)) {
-    //       this.error = params['userId'] != null;
-    //     }
-    //   }
-    // );
-    //
-    // if (this.error === true) {
-    //   this.link = '../../';
-    //   setTimeout(() => {
-    //     this.id = 0;
-    //     this.error = false;
-    //   }, 10000);
-    // }
+  ngOnInit() {
   }
-  getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.userListService.getUser(id).subscribe(user => this.user = user);
-  }
+
+  // getUser(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.userListService.getUser(id).subscribe(user => this.user = user);
+  //   console.log(this.user);
+  // }
+buton() {
+    console.log(this.title);
+}
   toLogout() {
       if (confirm('Are you sure you want to log out?')) {
         localStorage.clear();

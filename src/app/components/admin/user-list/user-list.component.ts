@@ -2,10 +2,9 @@ import {User} from '../user/user.model';
 import {UserListService} from './user-list.service';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {api} from '../../../../assets/data/apiUrl';
-import index from '../../../../../node_modules/@angular/cli/lib/cli';
 import {Observable} from 'rxjs';
-import {Category} from '../../shared/category-list/category';
+import {HttpClient} from '@angular/common/http';
+import {api} from '../../../../assets/data/apiUrl';
 
 @Component({
   selector: 'app-user-list',
@@ -13,40 +12,25 @@ import {Category} from '../../shared/category-list/category';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  // public users: User[];
-  // // employees: Employee[];
+
   open = false;
   edit = false;
-  deleteAll = false;
   id1: number[];
-  // config: Config;
-  // public scores: Score[];
   public error: boolean = false;
   public data: Observable<User[]>;
   public id: number;
   public link: string;
-  public array: number[];
+  public array = [];
+  public array1 = [];
   public int: number;
-
-  constructor(private route: ActivatedRoute, private userListService: UserListService, private router: Router) {
+  public title: Observable<string>;
+public ceva : number;
+  constructor(private http: HttpClient, private route: ActivatedRoute, private userListService: UserListService, private router: Router) {
   }
 
-  // private CourseScoreService
-  // ) {this.employees = [{name: 'test'}]; }
-  // constructor() { }
-  // public users: User[] = [
-  //   {id: 1, email: 'user@assist.ro', firstName: 'ana', lastName: 'abc', password: 'assist', active: 1, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  //   {id: 2, email: 'user@assist.ro', firstName: 'radu', lastName: 'abcc', password: 'assist', active: 0, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  //   {id: 3, email: 'user@assist.ro', firstName: 'test', lastName: 'test', password: 'assist', active: 1, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  //   {id: 4, email: 'user@assist.ro', firstName: 'unu', lastName: 'doi', password: 'assist',  active: 0, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  //   {id: 5, email: 'user@assist.ro', firstName: 'trei', lastName: 'patru', password: 'assist', active: 0, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  //   {id: 6, email: 'user@assist.ro', firstName: 'cinci', lastName: 'sase', password: 'assist', active: 1, image: '../../../../../assets/images/img3.jpeg', tags: 'bla'},
-  // ];
+
   ngOnInit() {
-    // this.users = this.userListService.getData();
-    // getAllUsers() {
-    //   return this.users;
-    //
+
     this.data = this.userListService.getUsers().map(data => data.slice(0));
 
     this.route.params.subscribe(
@@ -72,63 +56,59 @@ export class UserListComponent implements OnInit {
     this.open = this.open === false;
   }
 
-  delete(id: number, ind: number) {
-    console.log(this.data);
-    // this.data.splice(ind, 1);
-    this.userListService.deleteUser(id).subscribe(response => {
-      console.log(response);
-    });
-  }
-
   edity(id) {
-    this.router.navigate(['users/edit/' + id]);
+    this.edit === true;
+
+    // this.router.navigate(['users/edit/' + id]);
   }
 
-  makeAdmin(admin) {
-    admin.Admin = !admin.Admin;
+  makeAdmin(user) {
+    user.Admin = !user.Admin;
+    // this.http.put(api.user + '/change/' + user.id, user.Admin).subscribe();
+    this.http.put(api.user + `/change/${user.id}`, user.Admin).subscribe();
+    // console.log(userAdmin);
   }
-
-  //
-  // showData() {
-  //   this.userListService.getInfo().subscribe((response: Response) => {
-  //       const data = response.json();
-  //       console.log(data);
-  //     }
-  //   );
-  // }
-
-  // passId(index: number) {
-  //   this.id1.push(index);
-  // }
-
-  // check(e) {
-  //   this.deleteAll = !!e.target.checked;
-  //   if (e.target.checked) {
-  //     this.deleteAll = true;
-  //     this.passId.push(index);
-  //   } else {
-  //     this.deleteAll = false;
-  //     this.passId.delete(index);
-  //   }
-  // }
-  check(inde: number) {
-    this.deleteAll = !this.deleteAll;
-    if (this.deleteAll === true) {
+  userId(id){
+    return this.ceva = id;
+  }
+  check(inde: number, selected, id) {
+    console.log(selected);
+    // this.deleteAll = !this.deleteAll;
+    if (selected) {
       this.array.push(inde);
+      this.array1.push(id);
     } else {
       for (this.int = 0; this.int < this.array.length; this.int++) {
         if (inde === this.array[this.int]) {
           this.array.splice(this.int, 1);
+          this.array1.splice(this.int, 1);
         }
       }
-    } console.log(this.array);
+    }
+    console.log(this.array);
+    console.log(this.array1);
   }
 
   showButton() {
     if (document.getElementById('checked').valueOf() === true) {
       document.getElementById('ok').innerHTML = 'asa';
     }
-    this.deleteAll = true;
+    // this.deleteAll = true;
   }
-}
 
+  delete(id) {
+    console.log(id);
+    const url = 'http://192.168.151.36:8000/api/user/' + id;
+    return this.http.delete(url).subscribe();
+  }
+
+  deleteAll() {
+    // console.log()
+    for (this.int = 0; this.int < this.array.length; this.int++) {
+      console.log(this.array1[this.int]);
+      this.delete(this.array1[this.int]);
+    }
+    location.reload();
+  }
+
+}
