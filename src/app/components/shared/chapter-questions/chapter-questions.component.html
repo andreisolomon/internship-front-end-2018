@@ -1,51 +1,14 @@
 <app-page-header></app-page-header>
 <app-page-section-small [title]="title | async" [noChapter]="noChapter + 1" [chapter]="true"></app-page-section-small>
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="admin">
     <div class="col col-md-6"></div>
     <div class="col col-md-4 divinline2">
       <button class="btnstart btnleft" (click)="deleteq()"> <i class="fa fa-trash-alt"></i> {{delq}} </button>
       <button class="btnstart btnright" (click)="editor()"> <i class="fa fa-edit"></i> {{editbtn}} </button>
       <button class="btnstart margin" (click)="createquiz()"> <i class="fa fa-plus-square"></i> Create </button>
-
-                
     </div>
-    
   </div>
-<!--  -->
-
-  <form [formGroup]="addForm" (ngSubmit)="addQuestion()">
-    <div class="row w3-animate-top" [ngStyle]="{'display': dispc}">
-      <div class="col col-md-2"></div>
-      <div class="col col-md-8">
-          <div class="panel panel-primary">
-      <div class="panel-heading question">Q:  <input type="text" id="editq" formControlName="Question"> 
-        <div class="pull-right"><button class="glyphicon glyphicon-ok" type="submit"></button></div>
-      </div>
-    </div>
-      <div formArrayName="Answers">
-      <div class="card costum" *ngFor="let answer of addForm.get('Answers').controls; let i = index">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" [formGroupName]="i">
-              <div class="">
-                <div class="space divinline">
-                  <label class="checkbox">
-                    <input type="radio" formControlName="right_answer" name="right_answer" [checked]="addForm.get('Answers').controls[i].value.right_answer == 'true'"  value="true" >
-                    <!--  -->
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-                <div class="answer"> <input type="text" class="bcg" formControlName="question_name"> </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      </div>
-    </div>
-</form>
-
-<!--  -->
  
   <div class="row" *ngFor="let question of questions; let i = index">
     <div class="col col-md-2"></div>
@@ -62,13 +25,14 @@
         </div>
       </div>
       <div class="" *ngFor="let answer of answers">
+        <form (ngSubmit)="push(f, answer.quizId)" #f="ngForm">
         <div class="card costum" *ngIf="answer.quizId === question.id">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="">
                 <div class="space divinline">
                   <label class="checkbox">
-                    <input type="radio" [name]="question.id">
+                    <input type="radio" [name]="question.id" [value]="answer.id">
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -81,6 +45,7 @@
             </li>
           </ul>
         </div>
+      </form>
       </div>
 
     </div>

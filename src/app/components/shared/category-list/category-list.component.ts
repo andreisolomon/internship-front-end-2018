@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryListService } from './category-list.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import { Category } from './category';
 import { Observable } from 'rxjs';
+import {NgForm} from '@angular/forms';
+import {CourseListService} from '../course-list/course-list.service';
 
 
 @Component({
@@ -21,12 +23,10 @@ export class CategoryListComponent implements OnInit {
   public link: string;
   public moke: Category[];
 
-  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute) {}
+  constructor(private categoryListService: CategoryListService, private route: ActivatedRoute, private router: Router, private courseListService: CourseListService) {}
 
   ngOnInit() {
     this.data = this.categoryListService.getCategories().map(data => data.slice(0, 6));
-
-
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['categoryId'];
@@ -66,6 +66,17 @@ export class CategoryListComponent implements OnInit {
     return {'background': background };
   }
 
+  search(form: NgForm) {
+    const name = form.value.name;
 
+    this.categoryListService.getCategoryIdByTitle(name).subscribe(data => {
+      if (data !== undefined){
+        this.router.navigate(['category/' + data]);
+      }
+    });
+
+
+
+  }
 
 }
