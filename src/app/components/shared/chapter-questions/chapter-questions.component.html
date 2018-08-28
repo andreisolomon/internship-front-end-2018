@@ -6,27 +6,46 @@
     <div class="col col-md-4 divinline2">
       <button class="btnstart btnleft" (click)="deleteq()"> <i class="fa fa-trash-alt"></i> {{delq}} </button>
       <button class="btnstart btnright" (click)="editor()"> <i class="fa fa-edit"></i> {{editbtn}} </button>
-      <button class="btnstart margin" (click)="admin(1)"> <i class="fa fa-plus-square"></i> Create </button>
+      <button class="btnstart margin" (click)="createquiz()"> <i class="fa fa-plus-square"></i> Create </button>
 
                 
     </div>
     
   </div>
-  <!-- <div class="row">
-    <div class="col col-md-2"></div>
-    <div class="col col-md-8">
-       <form class="createq">
-         <div class="form-group">
-          <input type="text" class="qname">
-          <input type="text" class="qname">
-          <input type="text" class="qname">
-          <input type="text" class="qname">
-  </div>
-        </form>
-    </div>
-  </div> -->
+<!--  -->
 
-  <!-- de facut maine -->
+  <form [formGroup]="addForm" (ngSubmit)="addQuestion()">
+    <div class="row w3-animate-top" [ngStyle]="{'display': dispc}">
+      <div class="col col-md-2"></div>
+      <div class="col col-md-8">
+          <div class="panel panel-primary">
+      <div class="panel-heading question">Q:  <input type="text" id="editq" formControlName="Question"> 
+        <div class="pull-right"><button class="glyphicon glyphicon-ok" type="submit"></button></div>
+      </div>
+    </div>
+      <div formArrayName="Answers">
+      <div class="card costum" *ngFor="let answer of addForm.get('Answers').controls; let i = index">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" [formGroupName]="i">
+              <div class="">
+                <div class="space divinline">
+                  <label class="checkbox">
+                    <input type="radio" formControlName="right_answer" name="right_answer" [checked]="addForm.get('Answers').controls[i].value.right_answer == 'true'"  value="true" >
+                    <!--  -->
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="answer"> <input type="text" class="bcg" formControlName="question_name"> </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+</form>
+
+<!--  -->
  
   <div class="row" *ngFor="let question of questions; let i = index">
     <div class="col col-md-2"></div>
@@ -38,12 +57,10 @@
             <div class="pull-right"><button type="button" class="glyphicon glyphicon-remove " [ngStyle]="{'display': dispq}" (click)="delete(question.id)"></button></div>
           </div>
           <div *ngIf="edit==true"><input type="text" maxlength="500" [(ngModel)]="question.Question" placeholder="Type your question.." name="editq"
-              id="editq">
-              
+              id="editq">  
           </div>
         </div>
       </div>
-
       <div class="" *ngFor="let answer of answers">
         <div class="card costum" *ngIf="answer.quizId === question.id">
           <ul class="list-group list-group-flush">
@@ -55,7 +72,11 @@
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="answer"> {{ answer.Option }} </div>
+                <div *ngIf="edit==false">
+                <div class="answer"> {{ answer.Option }} </div></div>
+                <div *ngIf="edit==true"><input type="text" maxlength="500" [(ngModel)]="answer.Option" placeholder="Type your answer..." name="edita"
+                  id="edita">  
+              </div>
               </div>
             </li>
           </ul>

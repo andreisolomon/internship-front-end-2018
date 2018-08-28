@@ -142,6 +142,8 @@ hr {
   border: none;
   background-color: darkblue;
   width: 600px;
+  text-indent: 20px;
+
 }
 .prel {
   width: 10em;
@@ -154,4 +156,23 @@ hr {
 }
 .qname{
   width: 100%;
+}
+.createq{
+  border: 25px red;
+}
+
+.bcg{
+  border: none;
+  background-color:transparent;
+  width: 600px;
+  text-indent: 20px;
+
+}
+#edita{
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  width: 600px;
+  text-indent: 20px;
+
 }

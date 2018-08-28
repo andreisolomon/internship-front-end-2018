@@ -7,6 +7,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ChapterService } from '../chapter-list/chapter.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { NgForm, FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-chapter-questions',
@@ -27,9 +28,20 @@ export class ChapterQuestionsComponent implements OnInit {
   public answers: Answer[];
   private found;
   public editbtn: string = 'Edit';
-  public dispq: string= 'none';
-  public delq:string='Delete';
-  constructor(private http: HttpClient, private questionsService: QuestionsService, private answersService: AnswersService, private route: ActivatedRoute, private chapterService: ChapterService, private router: Router) {}
+  public dispq: string = 'none';
+  public dispc: string = 'none';
+  public delq: string ='Delete';
+  addForm: FormGroup;
+  public clicked: number = 0;
+  constructor(
+      private http: HttpClient,
+      private questionsService: QuestionsService,
+      private answersService: AnswersService,
+      private route: ActivatedRoute,
+      private chapterService: ChapterService,
+      private router: Router,
+      private formBuilder: FormBuilder
+    ) {}
 
   ngOnInit() {
 
@@ -49,6 +61,39 @@ export class ChapterQuestionsComponent implements OnInit {
     this.title = this.chapterService.getChapterTitleById(this.id, this.course_id, this.chapter_id);
     this.loadPageInfo();
 
+    this.addForm = new FormGroup({
+      'Question': new FormControl(null, Validators.required),
+      // 'Answers': new FormArray([])
+
+      Answers: this.formBuilder.array([ this.createItem() ])
+    });
+    
+   
+
+    for (let i = 0; i < 2; i++) {
+      // const control = new FormControl({ question_name: '', right_answer: false }, Validators.required);
+      // (<FormArray>this.addForm.get('Answers')).push(control);
+      this.addItem();
+    }
+  }
+
+  addItem(): void {
+    const control = this.addForm.get('Answers') as FormArray;
+    (<FormArray>this.addForm.get('Answers')).push(this.createItem());
+  }
+
+  createItem(): FormGroup {
+    return this.formBuilder.group({
+      question_name: '',
+      right_answer: false,
+    
+    });
+  }
+  markChecked(index){
+    debugger
+    this.addForm.get("Answers").get[index].value.right_answer;
+    
+    // this.addForm.get('Answers').get().setValue('some value');
   }
 
   load(type: number) {
@@ -80,6 +125,12 @@ export class ChapterQuestionsComponent implements OnInit {
           data => console.log(data)
         );
       }
+      for (let answer of this.answers) {
+        const url = 'http://192.168.151.36:8000/api/quizOptions?quizId=' + answer.quizId + '&quizOptionsId=' + answer.id;
+        this.http.put(url, answer).subscribe(
+          data => console.log(data)
+        );
+      }
       this.edit = false;
       this.editbtn = 'Edit';
     }
@@ -101,6 +152,21 @@ export class ChapterQuestionsComponent implements OnInit {
     const url = 'http://192.168.151.36:8000/api/quiz?chapterId=' + this.chapter_id + '&quizId=' + id;
     this.http.delete(url).subscribe();
     location.reload();
+  }
+
+  createquiz(){
+    if (this.dispc==='none') {
+      this.dispc='';
+    } else {
+      this.dispc='none';
+    }
+  }
+  
+  addQuestion() {
+    console.log(this.addForm);
+    debugger
+    console.log('clicked');
+    
   }
 
 }
