@@ -103,7 +103,7 @@ const routers: Routes = [
     canActivate: [AuthGuardService, AdminGuardService]
   },
   { path: 'register', component: UserRegisterComponent},
-  { path: 'resetpassword', component: ResetPasswordComponent},
+  { path: 'resetpassword/:token', component: ResetPasswordComponent},
   {
     path: 'dashboard/:categoryId',
     redirectTo: 'category/:categoryId',
