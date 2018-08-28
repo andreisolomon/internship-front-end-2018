@@ -28,6 +28,10 @@ export class CategoryListService {
     return this.getCategories().map(data => data.find(item => item.id === id).Background);
   }
 
+  getCategoryIdByTitle(title: string) {
+    return this.getCategories().map(data => data.find(item => item.CategoryName.toLocaleLowerCase() === title).id);
+  }
+
   categoryExist(id: number) {
     return this.getCategories().map(data => !!data.find(item => item.id === id));
   }

@@ -9,10 +9,12 @@
     <div class="col col-md-3"></div>
     <div class="col col-md-6">
 
-      <div class="search">
-        <input type="text" placeholder="    search here...">
-        <button type="submit" class="btn btn-primary mybtn"> Search </button>
-      </div>
+      <form (ngSubmit)="search(f)" #f="ngForm">
+        <div class="search">
+          <input type="text" name="name" placeholder="    search here..." ngModel>
+          <button type="submit" class="btn btn-primary mybtn"> Search </button>
+        </div>
+      </form>
 
     </div>
     <div class="col col-md-3"></div>
