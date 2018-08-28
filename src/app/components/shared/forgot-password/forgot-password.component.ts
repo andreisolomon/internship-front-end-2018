@@ -24,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
 validation(form: NgForm) {
   if(form.valid) {
     this.forgot(form.value).subscribe((data) => {
-      console.log("All good");
+      console.log(data.success);
     });
   }
 
