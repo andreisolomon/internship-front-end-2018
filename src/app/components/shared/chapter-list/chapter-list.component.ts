@@ -4,11 +4,9 @@ import { CategoryListService } from '../category-list/category-list.service';
 import { CourseListService } from '../course-list/course-list.service';
 import { Chapter} from './chapter';
 import { ChapterService } from './chapter.service';
-import {Observable} from 'rxjs';
-import {UserListService} from '../../admin/user-list/user-list.service';
-import {HttpModule} from '@angular/http';
-import {HttpClient} from '@angular/common/http';
-import {UserService} from '../../admin/user/user.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../../user.service';
 
 @Component({
   selector: 'app-single-course',
@@ -31,6 +29,8 @@ export class ChapterListComponent implements OnInit {
   public chapter_id: number;
   public link: string;
   public admin: boolean;
+  public add: boolean;
+  public delete: boolean;
 
   constructor(private router: Router,
               private categoryListService: CategoryListService,
@@ -42,8 +42,7 @@ export class ChapterListComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-
-    this.userService.getInfo().subscribe(data => this.admin = data);
+    this.userService.getAdmin().subscribe(data => this.admin = data);
 
     this.route.params.subscribe(
       (params: Params) => {
@@ -55,9 +54,17 @@ export class ChapterListComponent implements OnInit {
             this.router.navigate(['/category/', this.id, 'course', this.course_id , 'notfound']);
           }
         });
-        if (params['chapterId'] != null) {
+        if (params['chapterId'] !== null) {
           this.chapter_id = +params['chapterId'];
-          this.error = true;
+          if (params['message'] !== null) {
+            if (params['message'] === 'notfound') {
+              this.error = true;
+            } else if (params['message'] === 'delete') {
+              this.delete = true;
+            } else if (params['message'] === 'add'){
+              this.add = true;
+            }
+          }
         }
         this.categoryTitle = this.categoryListService.getCategoryTitleById(this.id);
         this.categoryBackground = this.categoryListService.getCategoryBackgroundById(this.id);
@@ -101,9 +108,14 @@ export class ChapterListComponent implements OnInit {
 
   adminOp(command) {
     if (command === 1) {
-      const url = 'http://192.168.151.36:8000/api/courses?courseId=' + this.course_id;
-      this.http.delete(url).subscribe();
-      this.router.navigate(['category/' + this.id + '/course/' + this.course_id + '/delete']);
+      const cnf = confirm('Are you sure to delete this course?');
+      if (cnf === true) {
+        const url = 'http://192.168.151.36:8000/api/courses?courseId=' + this.course_id;
+        this.http.delete(url).subscribe();
+        this.router.navigate(['category/' + this.id + '/course/' + this.course_id + '/delete']);
+      }
+    } else if (command === 3) {
+      this.router.navigate(['admin/add/chapter/' + this.id + '/' + this.course_id]);
     }
   }
 
