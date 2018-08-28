@@ -37,15 +37,20 @@ export class UserListService {
   getUsers(): Observable<any> {
     return this.http.get(api.user);
   }
-  getUser(id: number): Observable<User> {
-      return this.http.get<User>(api.user).pipe(
-        tap(_ => console.log ('fetched user id=' + id ))
-      );
+  getUser(id: number): Observable<any> {
+    return this.http.get(api.user + id);
   }
+// getUser(id: number): Observable<User> {
+//     return this.http.get<User>(api.user).pipe(
+//       tap(_ => console.log ('fetched user id=' + id ))
+//     );
+// }
+
   getUserById(id: number) {
     return this.getUsers().map(data => data.find(item => item.id === id));
   }
-
+getUserinUsers (user_id: number) {
+return this.getUser(user_id).map(data => data.find(item => item.userId === user_id)); }
   getFirstNameById(id: number) {
     return this.getUsers().map(data => data.find(item => item.id === id).FirstName);
   }

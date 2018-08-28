@@ -26,7 +26,8 @@ export class UserElementComponent implements OnInit {
   }
 
   edit(form: NgForm) {
-    const url = 'http://192.168.151.36:8000/api/user/' + this.id;
+    const url = 'http://192.168.151.36:8000/api/user/:' + this.id;
+    console.log(url);
     this.http.put(url, form.value).subscribe( data => console.log(data));
   }
 
