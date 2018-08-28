@@ -38,8 +38,8 @@ export class ResetPasswordComponent implements OnInit {
     if (form.valid) {
       this.reset(form.value).subscribe((data) => {
         console.log(data.token);
-        window.localStorage.token = null;
-        window.localStorage.token = data.token;
+        localStorage.token = null;
+        localStorage.token = data.token;
       });
     }
   }
