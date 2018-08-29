@@ -28,6 +28,7 @@ export class CourseComponent implements OnInit {
   onSubmit(form: NgForm) {
     const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
     form.value.categoryId = this.id;
+    console.log(form.value);
     this.http.post(url, form.value).subscribe();
     const id = 0;
     const red = 'category/' + this.id + '/course/' + id + '/add';

@@ -3,5 +3,6 @@ export interface Course {
   Title: string,
   Tags: string,
   Description: string,
-  Summary: string
+  Summary: string,
+  Path: string
 }
