@@ -27,7 +27,7 @@
 
       <div class="form-group hide">
         <label for="categoryId"> Category ID </label>
-        <input type="text" name="categoryId" id="categoryId" class="form-control" ngModel required categoryId #categoryId="ngModel">
+        <input type="text" name="categoryId" id="categoryId" class="form-control" ngModel categoryId #categoryId="ngModel">
       </div>
 
       <div class="form-group">
@@ -38,7 +38,7 @@
       <img *ngIf="url" [src]="url" alt="no image" class="image">
 
       <div class="form-group">
-        <button class="btn btn-primary" type="submit"> Create </button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid"> Create </button>
       </div>
 
 

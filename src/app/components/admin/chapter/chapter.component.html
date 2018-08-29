@@ -16,11 +16,11 @@
 
     <div class="form-group hide">
       <label for="courseId"> Course ID </label>
-      <input type="text" name="courseId" id="courseId" class="form-control" ngModel required courseId #courseId="ngModel">
+      <input type="text" name="courseId" id="courseId" class="form-control" ngModel courseId #courseId="ngModel">
     </div>
 
     <div class="form-group">
-      <button class="btn btn-primary" type="submit"> Create </button>
+      <button class="btn btn-primary" type="submit"  [disabled]="!f.valid"> Create </button>
     </div>
 
 
