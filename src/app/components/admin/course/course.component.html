@@ -2,6 +2,7 @@
 
 <div class="container">
 
+
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <div class="form-group">
@@ -15,8 +16,8 @@
       </div>
 
       <div class="form-group">
-        <label > Description </label><br>
-        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required description #description="ngModel"> </textarea>
+        <label for="description"> Description </label><br>
+        <textarea rows="2"  maxlength="150" id="description" name="Description" class="form-control"  ngModel required description #description="ngModel"> </textarea>
       </div>
 
       <div class="form-group">
@@ -34,20 +35,7 @@
         <label for="upload" id="upload1">Upload</label>
       </div>
 
-
-
       <img *ngIf="url" [src]="url" alt="no image" class="image">
-
-    <!--  <div formArrayName="chapter">
-        <h4> Chapters </h4>
-        <button class="btn btn-primary" type="button" (click)="addChapter()"> Add chapter </button>
-        <div class="form-group" *ngFor="let chapter of courseForm.get('chapters').controls; let i = index">
-          <label> Title </label>
-          <input type="text" class="form-control" formControlName="i" name="Title">
-          <label> Content </label>
-          <textarea name="Content"> </textarea>
-        </div>
-      </div>-->
 
       <div class="form-group">
         <button class="btn btn-primary" type="submit"> Create </button>

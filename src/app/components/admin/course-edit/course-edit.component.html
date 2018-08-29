@@ -1,0 +1,48 @@
+<app-page-header></app-page-header>
+
+<div class="container">
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+    <div class="form-group">
+      <label for="title"> Title </label>
+      <input type="text" name="Title" id="title" class="form-control" [ngModel]="course.Title" required title #title="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="summary"> Summary </label>
+      <input type="text" maxlength="70" id="summary" name="Summary" class="form-control"  [ngModel]="course.Summary" required summary #summary="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label > Description </label><br>
+      <textarea rows="2"  maxlength="150" name="Description" class="form-control" [ngModel]="course.Description" required description #description="ngModel"> </textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tags"> Tags </label>
+      <input type="text" maxlength="70" id="tags" name="Tags" class="form-control"  [ngModel]="course.Tags" required tags #tags="ngModel">
+    </div>
+
+    <div class="form-group hide">
+      <label for="categoryId"> Category ID </label>
+      <input type="text" name="categoryId" id="categoryId" class="form-control" ngModel required categoryId #categoryId="ngModel">
+    </div>
+
+    <div class="form-group">
+      <input type="file" id="upload" name="upload" accept="image/png, image, jpeg" (change)="onSelectFile($event)"/>
+      <label for="upload" id="upload1">Upload</label>
+    </div>
+
+
+
+    <img *ngIf="url" [src]="url" alt="no image" class="image">
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit"> Create </button>
+    </div>
+
+  </form>
+
+</div>
+

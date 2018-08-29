@@ -30,6 +30,10 @@ export class CourseListService {
     return this.getCourses(id).map(data => data.length);
   }
 
+  getCourseById(category_id: number, course_id: number) {
+    return this.getCourses(category_id).map(data => data.find(item => item.id === course_id));
+  }
+
   getCourseIdByTitle(category_id: number, title: string){
     return this.getCourses(category_id).map(data => data.find(item => item.Title === title.toLocaleLowerCase()).id);
   }

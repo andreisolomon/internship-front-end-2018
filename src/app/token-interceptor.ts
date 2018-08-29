@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import { AuthService } from './auth.service';
+import {Router} from '@angular/router';
 
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   // private authReq
 
@@ -20,7 +21,11 @@ export class TokenInterceptor implements HttpInterceptor {
       .catch((error, caught) => {
         // intercept the respons error and displace it to the console
         console.log('Error Occurred');
-        console.log(error);
+        /*if (error.error.success === false) {
+          console.log(error.error.success);
+          localStorage.clear();
+          //this.router.navigate(['login']);
+        }*/
         // return the error to the method that called it
         return Observable.throw(error);
       }) as any;

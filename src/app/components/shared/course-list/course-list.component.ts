@@ -68,7 +68,7 @@ export class CourseListComponent implements OnInit {
       }
     );
 
-    this.courseListService.getSize(this.id).subscribe(data => this.len = data);
+    this.courseListService.getSize(this.id).subscribe(data => console.log(this.len = data));
 
     this.courses = this.courseListService.getCourses(this.id).map(data => data.slice(0, 6));
 
