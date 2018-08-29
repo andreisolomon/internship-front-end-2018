@@ -75,10 +75,14 @@ export class ChapterContentComponent implements OnInit {
 
   admin(type: number) {
     if (type === 1) {
-      const url = 'http://192.168.151.36:8000/api/chapters?chapterId=' + this.chapter_id;
-      this.http.delete(url).subscribe(data => console.log(data));
-      const red = 'category/' + this.id + '/course/' + this.course_id + '/chapter/' + this.chapter_id + '/delete';
-      this.router.navigate([red]);
+      let cnf = confirm('Are you sure to delete this chapter?');
+      if (cnf === true) {
+        const url = 'http://192.168.151.36:8000/api/chapters?chapterId=' + this.chapter_id;
+        this.http.delete(url).subscribe(data => console.log(data));
+        const red = 'category/' + this.id + '/course/' + this.course_id + '/chapter/' + this.chapter_id + '/delete';
+        this.router.navigate([red]);
+      }
+
     } else if (type === 2) {
       window.location.reload();
     } else if (type === 3) {
