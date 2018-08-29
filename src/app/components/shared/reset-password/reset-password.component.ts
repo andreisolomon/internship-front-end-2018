@@ -21,7 +21,6 @@ export class ConfigService {
 export class ResetPasswordComponent implements OnInit {
   public resetpass = '';
   public resetpassconfirm = '';
-  public confirm = true;
   corect: boolean;
   public token: string;
   public url;
@@ -44,11 +43,12 @@ export class ResetPasswordComponent implements OnInit {
   validation(form: NgForm) {
     if (form.valid) {
       this.reset(form.value).subscribe((data) => {
-        console.log(data.token);
+        console.log(data);
         localStorage.clear();
+        if(data.token!==undefined){
         localStorage.token = data.token;
-        this.router.navigate(['/login']);
-      });
+
+      }        this.router.navigate(['/login']);});
     }
   }
 
@@ -59,17 +59,11 @@ export class ResetPasswordComponent implements OnInit {
 
   check() {
     if (this.resetpass !== this.resetpassconfirm) {
-      this.confirm = false;
       document.getElementById('matchPass').innerHTML = 'Passwords doesn\'t match!';
     } else {
-      this.confirm = true;
-      document.getElementById('matchPass').innerHTML = 'All good';
+      document.getElementById('matchPass').innerHTML = '';
     }
   }
 }
-
-
-
-
 
 
