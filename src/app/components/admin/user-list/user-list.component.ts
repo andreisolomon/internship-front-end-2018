@@ -51,13 +51,12 @@ public ceva : number;
       }, 10000);
     }
   }
-
   openMenu() {
     this.open = this.open === false;
   }
 
-  edity(id) {
-    this.edit === true;
+  edity(user) {
+    // user.isSeleced = true;
 
     // this.router.navigate(['users/edit/' + id]);
   }

@@ -7,6 +7,7 @@ export class User {
   Points: number;
   createdAt: string;
   Path: string;
+  // isSelected = false;
   // constructor(isAdmin: boolean, id: number, image: string, firstname: string, lastname: string, email: string, password: string, tags: string, score: number, date: string) {
   //   this.setAdmin(isAdmin);
   //   this.setId(id);
