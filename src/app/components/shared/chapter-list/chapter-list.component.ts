@@ -71,7 +71,7 @@ export class ChapterListComponent implements OnInit {
       }
     );
 
-    this.chapterListService.getSize(this.id, this.course_id).subscribe(data => this.len = data);
+    this.chapterListService.getSize(this.id, this.course_id).subscribe(data => console.log(this.len = data));
 
     this.title = this.courseListService.getCourseTitleById(this.id, this.course_id);
     this.subtitle = this.courseListService.getCourseSummaryById(this.id, this.course_id);

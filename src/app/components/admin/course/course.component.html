@@ -5,23 +5,23 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <div class="form-group">
-        <label for="title"> Title </label>
-        <input type="text" name="Title" id="title" class="form-control" ngModel required title #title="ngModel">
+        <label for="Title"> Title </label>
+        <input type="text" name="Title" id="Title" class="form-control" ngModel required Title #Title="ngModel">
       </div>
 
       <div class="form-group">
-        <label for="summary"> Summary </label>
-        <input type="text" maxlength="70" id="summary" name="Summary" class="form-control"  ngModel required summary #summary="ngModel">
+        <label for="Summary"> Summary </label>
+        <input type="text" maxlength="70" id="Summary" name="Summary" class="form-control"  ngModel required Summary #Summary="ngModel">
       </div>
 
       <div class="form-group">
         <label > Description </label><br>
-        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required description #description="ngModel"> </textarea>
+        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required Description #Description="ngModel"> </textarea>
       </div>
 
       <div class="form-group">
         <label for="tags"> Tags </label>
-        <input type="text" maxlength="70" id="tags" name="Tags" class="form-control"  ngModel required tags #tags="ngModel">
+        <input type="text" maxlength="70" id="Tags" name="Tags" class="form-control"  ngModel required Tags #Tags="ngModel">
       </div>
 
       <div class="form-group hide">
@@ -38,11 +38,22 @@
 
       <img *ngIf="url" [src]="url" alt="no image" class="image">
 
+    <!--  <div formArrayName="chapter">
+        <h4> Chapters </h4>
+        <button class="btn btn-primary" type="button" (click)="addChapter()"> Add chapter </button>
+        <div class="form-group" *ngFor="let chapter of courseForm.get('chapters').controls; let i = index">
+          <label> Title </label>
+          <input type="text" class="form-control" formControlName="i" name="Title">
+          <label> Content </label>
+          <textarea name="Content"> </textarea>
+        </div>
+      </div>-->
+
       <div class="form-group">
         <button class="btn btn-primary" type="submit"> Create </button>
       </div>
 
-  </form>
 
+  </form>
 </div>
 

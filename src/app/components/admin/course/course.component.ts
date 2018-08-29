@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '../../../../../node_modules/@angular/common/http';
 import { ActivatedRoute, Params, Router} from '@angular/router';
-import {CourseListService} from '../../shared/course-list/course-list.service';
 
 @Component({
   selector: 'app-course',
@@ -14,12 +13,7 @@ export class CourseComponent implements OnInit {
   public url: string;
   public id: number;
 
-  constructor(
-              private http: HttpClient,
-              private router: Router,
-              private route: ActivatedRoute,
-              private courseService: CourseListService
-  ) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
 
@@ -32,12 +26,13 @@ export class CourseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    form.value.categoryId = this.id;
     const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
-    this.http.post(url, form.value).subscribe();
+    form.value.categoryId = this.id;
+    console.log(form.value);
+    this.http.post(url, form.value).subscribe(data => console.log(data));
     const id = 0;
     const red = 'category/' + this.id + '/course/' + id + '/add';
-    this.router.navigate([red]);
+    //this.router.navigate([red]);
   }
 
   onSelectFile(event) {
