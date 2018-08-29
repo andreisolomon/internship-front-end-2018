@@ -1,5 +1,7 @@
 <app-page-header></app-page-header>
-
+<div *ngIf="dellAll">
+  <button type="button" class="btn btn-danger sticky" id="sticky" (click)="deleteAll()" style="float: right">Delete All</button>
+</div>
 <div class="container_allusers">
   <!--<div class="row">-->
   <!--<div class="col-md-8"></div>-->
@@ -73,4 +75,4 @@
     </ul>
   </div>
 </div>
-<button type="button" (click)="deleteAll()">Delete All</button>
+

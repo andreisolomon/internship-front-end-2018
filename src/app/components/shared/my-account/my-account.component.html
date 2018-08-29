@@ -47,7 +47,7 @@
               <input type="password" class="form-control" id="exampleInputPassword1" name="pass" placeholder="Password" [(ngModel)]="user.Password" readonly>
             </div>
             <button type="submit" class="btn btn-primary" style="margin-left: 50px;" (click)="save(user.FirstName, user.LastName, user.Mail)">Save</button>
-            <button type="reset" class="btn btn-default" style="margin-left: 30px;">Cancel</button>
+            <button  class="btn btn-default" style="margin-left: 30px;" (click)="reset()">Cancel</button>
 
           </form>
         </div>

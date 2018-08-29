@@ -25,6 +25,7 @@ export class UserListComponent implements OnInit {
   public int: number;
   public title: Observable<string>;
 public ceva : number;
+public dellAll =false;
   constructor(private http: HttpClient, private route: ActivatedRoute, private userListService: UserListService, private router: Router) {
   }
 
@@ -86,6 +87,9 @@ public ceva : number;
     }
     console.log(this.array);
     console.log(this.array1);
+    if (this.array.length !== 0) {
+      this.dellAll = true;
+    } else {this.dellAll = false; }
   }
 
   showButton() {
