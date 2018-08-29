@@ -18,6 +18,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { UserElementComponent } from './components/admin/user-list/user-element/user-element.component';
 import { AdminGuardService } from './admin-guard.service';
 import { ChapterComponent } from './components/admin/chapter/chapter.component';
+import {CourseEditComponent} from './components/admin/course-edit/course-edit.component';
 
 const routers: Routes = [
   {
@@ -94,7 +95,7 @@ const routers: Routes = [
   },
   {
     path: 'admin/edit/course/:categoryId/:courseId',
-    component: CourseComponent,
+    component: CourseEditComponent,
     canActivate: [AuthGuardService, AdminGuardService]
   },
   {
