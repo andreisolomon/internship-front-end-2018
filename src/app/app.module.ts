@@ -40,7 +40,6 @@ import { UserElementComponent } from './components/admin/user-list/user-element/
 import { UserService } from './user.service';
 import { AdminGuardService } from './admin-guard.service';
 import { ChapterComponent } from './components/admin/chapter/chapter.component';
-import { ImageUploadModule } from "angular2-image-upload";
 
 
 @NgModule({
@@ -70,7 +69,6 @@ import { ImageUploadModule } from "angular2-image-upload";
     ChapterComponent
   ],
   imports: [
-    ImageUploadModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
