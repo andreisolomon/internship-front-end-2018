@@ -4,8 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {RouterModule, Routes, Router, ActivatedRoute, Params} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {AuthService} from '../../../auth.service';
 
 @Injectable()

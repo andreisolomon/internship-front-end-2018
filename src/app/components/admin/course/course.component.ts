@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '../../../../../node_modules/@angular/common/http';
 import { ActivatedRoute, Params, Router} from '@angular/router';
+import {CourseListService} from '../../shared/course-list/course-list.service';
 
 @Component({
   selector: 'app-course',
@@ -13,7 +14,12 @@ export class CourseComponent implements OnInit {
   public url: string;
   public id: number;
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+              private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute,
+              private courseService: CourseListService
+  ) {}
 
   ngOnInit() {
 
@@ -26,8 +32,8 @@ export class CourseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
     form.value.categoryId = this.id;
+    const url = 'http://192.168.151.36:8000/api/courses?categoryId=' + this.id;
     this.http.post(url, form.value).subscribe();
     const id = 0;
     const red = 'category/' + this.id + '/course/' + id + '/add';
