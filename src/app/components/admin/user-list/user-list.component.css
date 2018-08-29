@@ -7,7 +7,11 @@
 .container {
   background-color: #F6FAFC;
 }
-
+button.sticky
+{
+  position: -webkit-sticky;
+  position: sticky;
+}
 #danger {
   background-color: blue !important;
   color: white !important;

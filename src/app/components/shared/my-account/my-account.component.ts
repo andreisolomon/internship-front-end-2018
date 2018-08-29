@@ -115,10 +115,11 @@ export class MyAccountComponent implements OnInit {
   }
 
   save(FirstName, LastName, Mail) {
-    const body = {
-      FirstName, LastName, Mail
-    };
-    return this.http.put(api.user, body).subscribe();
+    return this.http.put(api.user, {
+      FirstName,
+      LastName,
+      Mail
+    }).subscribe(success => alert('Your data has been updated'), error => console.log('error', error));
   }
 
   onSelectFile(event) {
@@ -134,8 +135,7 @@ export class MyAccountComponent implements OnInit {
   }
 
   reset() {
-    document.getElementById('exampleInputEmail1').innerText = '';
-    document.getElementById('exampleInputEmail1').innerText = '';
+    return this.http.get(api.user).subscribe();
 
   }
 }
