@@ -94,11 +94,6 @@ const routers: Routes = [
     canActivate: [AuthGuardService, AdminGuardService]
   },
   {
-    path: 'admin/edit/course/:categoryId/:courseId',
-    component: CourseEditComponent,
-    canActivate: [AuthGuardService, AdminGuardService]
-  },
-  {
     path: 'admin/add/chapter/:categoryId/:courseId',
     component: ChapterComponent,
     canActivate: [AuthGuardService, AdminGuardService]
