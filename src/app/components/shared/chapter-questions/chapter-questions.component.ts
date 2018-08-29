@@ -8,6 +8,7 @@ import { ChapterService } from '../chapter-list/chapter.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NgForm, FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
+import {UserService} from '../../../user.service';
 
 @Component({
   selector: 'app-chapter-questions',
@@ -30,9 +31,8 @@ export class ChapterQuestionsComponent implements OnInit {
   public editbtn: string = 'Edit';
   public dispq: string = 'none';
   public dispc: string = 'none';
-  public delq: string ='Delete';
-  addForm: FormGroup;
-  public clicked: number = 0;
+  public delq: string = 'Delete';
+  public admin: boolean;
   constructor(
       private http: HttpClient,
       private questionsService: QuestionsService,
@@ -40,10 +40,11 @@ export class ChapterQuestionsComponent implements OnInit {
       private route: ActivatedRoute,
       private chapterService: ChapterService,
       private router: Router,
-      private formBuilder: FormBuilder
+      private userService: UserService
     ) {}
 
   ngOnInit() {
+    this.userService.getAdmin().subscribe(data => this.admin = data);
 
     this.route.params.subscribe(
       (params: Params) => {
@@ -60,40 +61,6 @@ export class ChapterQuestionsComponent implements OnInit {
     );
     this.title = this.chapterService.getChapterTitleById(this.id, this.course_id, this.chapter_id);
     this.loadPageInfo();
-
-    this.addForm = new FormGroup({
-      'Question': new FormControl(null, Validators.required),
-      // 'Answers': new FormArray([])
-
-      Answers: this.formBuilder.array([ this.createItem() ])
-    });
-    
-   
-
-    for (let i = 0; i < 2; i++) {
-      // const control = new FormControl({ question_name: '', right_answer: false }, Validators.required);
-      // (<FormArray>this.addForm.get('Answers')).push(control);
-      this.addItem();
-    }
-  }
-
-  addItem(): void {
-    const control = this.addForm.get('Answers') as FormArray;
-    (<FormArray>this.addForm.get('Answers')).push(this.createItem());
-  }
-
-  createItem(): FormGroup {
-    return this.formBuilder.group({
-      question_name: '',
-      right_answer: false,
-    
-    });
-  }
-  markChecked(index){
-    debugger
-    this.addForm.get("Answers").get[index].value.right_answer;
-    
-    // this.addForm.get('Answers').get().setValue('some value');
   }
 
   load(type: number) {
@@ -160,6 +127,10 @@ export class ChapterQuestionsComponent implements OnInit {
     } else {
       this.dispc = 'none';
     }
+  }
+
+  push(form: NgForm, quizId: number){
+
   }
 
 }

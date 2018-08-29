@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {api} from '../../../../assets/data/apiUrl';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {RouterModule, Routes, Router, ActivatedRoute, Params} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
-import {AuthService} from '../../../auth.service';
+import { api } from '../../../../assets/data/apiUrl';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { RouterModule, Routes, Router, ActivatedRoute, Params } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../auth.service';
 
 @Injectable()
 export class ConfigService {
@@ -22,7 +22,6 @@ export class ConfigService {
 export class ResetPasswordComponent implements OnInit {
   public resetpass = '';
   public resetpassconfirm = '';
-  public confirm = true;
   corect: boolean;
   public token: string;
   public url;
@@ -45,9 +44,11 @@ export class ResetPasswordComponent implements OnInit {
   validation(form: NgForm) {
     if (form.valid) {
       this.reset(form.value).subscribe((data) => {
-        console.log(data.token);
+        console.log(data);
         localStorage.clear();
-        localStorage.token = data.token;
+        if (data.token !== undefined) {
+          localStorage.token = data.token;
+        }
         this.router.navigate(['/login']);
       });
     }
@@ -60,17 +61,11 @@ export class ResetPasswordComponent implements OnInit {
 
   check() {
     if (this.resetpass !== this.resetpassconfirm) {
-      this.confirm = false;
       document.getElementById('matchPass').innerHTML = 'Passwords doesn\'t match!';
     } else {
-      this.confirm = true;
-      document.getElementById('matchPass').innerHTML = 'All good';
+
     }
   }
 }
-
-
-
-
 
 

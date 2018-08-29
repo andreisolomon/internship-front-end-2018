@@ -71,7 +71,7 @@ export class ChapterListComponent implements OnInit {
       }
     );
 
-    this.chapterListService.getSize(this.id, this.course_id).subscribe(data => this.len = data);
+    this.chapterListService.getSize(this.id, this.course_id).subscribe(data => console.log(this.len = data));
 
     this.title = this.courseListService.getCourseTitleById(this.id, this.course_id);
     this.subtitle = this.courseListService.getCourseSummaryById(this.id, this.course_id);
@@ -114,6 +114,8 @@ export class ChapterListComponent implements OnInit {
         this.http.delete(url).subscribe();
         this.router.navigate(['category/' + this.id + '/course/' + this.course_id + '/delete']);
       }
+    } else if (command === 2) {
+      this.router.navigate(['admin/edit/course/' + this.id + '/' + this.course_id]);
     } else if (command === 3) {
       this.router.navigate(['admin/add/chapter/' + this.id + '/' + this.course_id]);
     }

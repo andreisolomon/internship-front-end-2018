@@ -13,6 +13,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  public sts: boolean;
   public email: string;
 
   constructor(private http: HttpClient) { }
@@ -21,15 +22,27 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
 
-validation(form: NgForm) {
-  if(form.valid) {
-    this.forgot(form.value).subscribe((data) => {
-      console.log(data.success);
-    });
+  validation(form: NgForm) {
+    if (form.valid) {
+      this.forgot(form.value).subscribe((data) => {
+        console.log(data.success);
+        this.sts=true;
+      }, errors => {
+        console.log(errors.error.success);
+        this.sts=false;
+      });
+    }
   }
+    check(){
+      if(this.sts!==true){
+        document.getElementById('ok').innerHTML = 'Email sent successfully. Please check your email. ';
+      }
+      else{
+        document.getElementById('ok').innerHTML = 'The email you entered is not in our database.';
+      }
 
-}
 
+    }
 
 
 

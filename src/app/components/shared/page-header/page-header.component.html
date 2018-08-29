@@ -16,8 +16,9 @@
           </ul>
           <ul class="nav navbar-nav navbar-right margin">
             <li><a routerLink="/category">Courses</a></li>
-            <li><a routerLink="/">What's new</a></li>
-            <li><a href="#">About</a></li>
+            <li><a routerLink="#" *ngIf="!user.Admin">What's new</a></li>
+            <li><a href="#" *ngIf="!user.Admin">About</a></li>
+            <li><a href="users" *ngIf="user.Admin">Users</a></li>
           </ul>
         </div>
       </div>
