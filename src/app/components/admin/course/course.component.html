@@ -5,23 +5,23 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <div class="form-group">
-        <label for="Title"> Title </label>
-        <input type="text" name="Title" id="Title" class="form-control" ngModel required Title #Title="ngModel">
+        <label for="title"> Title </label>
+        <input type="text" name="Title" id="title" class="form-control" ngModel required title #title="ngModel">
       </div>
 
       <div class="form-group">
-        <label for="Summary"> Summary </label>
-        <input type="text" maxlength="70" id="Summary" name="Summary" class="form-control"  ngModel required Summary #Summary="ngModel">
+        <label for="summary"> Summary </label>
+        <input type="text" maxlength="70" id="summary" name="Summary" class="form-control"  ngModel required summary #summary="ngModel">
       </div>
 
       <div class="form-group">
         <label > Description </label><br>
-        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required Description #Description="ngModel"> </textarea>
+        <textarea rows="2"  maxlength="150" name="Description" class="form-control"  ngModel required description #description="ngModel"> </textarea>
       </div>
 
       <div class="form-group">
         <label for="tags"> Tags </label>
-        <input type="text" maxlength="70" id="Tags" name="Tags" class="form-control"  ngModel required Tags #Tags="ngModel">
+        <input type="text" maxlength="70" id="tags" name="Tags" class="form-control"  ngModel required tags #tags="ngModel">
       </div>
 
       <div class="form-group hide">
